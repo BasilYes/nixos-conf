@@ -47,6 +47,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  services.tailscale.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -72,7 +73,11 @@
     xkbVariant = "";
   };
 
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplipWithPlugin ];
+  };
+  
   zramSwap.enable = true;
 
   sound.enable = true;
@@ -115,6 +120,13 @@
     qjackctl
     tailscale
     git
+    openssh
+    nomachine-client
+    lorien
+    libreoffice
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.ru_RU
   ];
 
   fonts.packages = with pkgs; [

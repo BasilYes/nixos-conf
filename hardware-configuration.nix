@@ -8,13 +8,11 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "amdgpu"];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/00350e3c-6e2c-44c7-8b4d-e3ff00f2631c";
       fsType = "ext4";
@@ -24,6 +22,11 @@
     { device = "/dev/disk/by-uuid/FC39-8445";
       fsType = "vfat";
     };
+  
+  fileSystems."/mnt/Data" =
+    { device = "/dev/disk/by-uuid/AC4ACAF74ACABCF8";
+      fsType = "ntfs";
+    };
 
   swapDevices = [ ];
 
@@ -32,7 +35,6 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

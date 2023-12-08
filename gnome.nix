@@ -8,6 +8,7 @@
       gnomeExtensions.weather-or-not
       gnomeExtensions.vitals
       gnomeExtensions.appindicator
+      gnomeExtensions.tiling-assistant
     ];
   };
   environment.systemPackages = with pkgs; [
