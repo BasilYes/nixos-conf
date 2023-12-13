@@ -9,6 +9,8 @@
       gnomeExtensions.vitals
       gnomeExtensions.appindicator
       gnomeExtensions.tiling-assistant
+      gnomeExtensions.mpris-label
+      gnomeExtensions.quick-lang-switch
     ];
   };
   environment.systemPackages = with pkgs; [

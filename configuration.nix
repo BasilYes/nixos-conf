@@ -13,6 +13,7 @@
       #./cinnamon.nix
       ./gaming.nix
       ./basilyes.nix
+      ./vm.nix
     ];
 
   # Bootloader.
