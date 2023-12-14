@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
       ./gnome.nix
       #./kde.nix
-      #./cinnamon.nix
       ./gaming.nix
       ./basilyes.nix
       ./vm.nix
@@ -47,7 +46,7 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.driSupport = true;
 
-  networking.hostName = "basilyes";
+  networking.hostName = "basilyes-desktop";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -120,7 +119,9 @@
     telegram-desktop
     onlyoffice-bin_latest
     discord
+    discord-canary
     vscode
+    easyeffects
     blender
     qjackctl
     tailscale
