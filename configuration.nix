@@ -14,6 +14,7 @@
       ./gaming.nix
       ./basilyes.nix
       ./vm.nix
+      ./nvidia.nix
     ];
 
   # Bootloader.
@@ -31,6 +32,8 @@
        useOSProber = true;
     };
   };
+  
+  boot.supportedFilesystems = [ "ntfs" ];
   
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
@@ -113,6 +116,7 @@
     keepassxc
     google-chrome
     firefox
+    chromium
     telegram-desktop
     onlyoffice-bin_latest
     discord
