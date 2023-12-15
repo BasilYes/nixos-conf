@@ -11,6 +11,8 @@
       gnomeExtensions.tiling-assistant
       gnomeExtensions.mpris-label
       gnomeExtensions.quick-lang-switch
+      gnomeExtensions.fullscreen-avoider
+      gnomeExtensions.gsconnect
     ];
   };
   environment.systemPackages = with pkgs; [

@@ -85,6 +85,11 @@
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  #hardware.pulseaudio.enable = true;
+  #hardware.pulseaudio.extraConfig = [
+  #  "unload-module tsched"
+  #  "unload-module module-suspend-on-idle"
+  #];
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -93,6 +98,38 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  environment.etc = let
+    json = pkgs.formats.json {};
+  in {
+    "pipewire/pipewire-pulse.d/92-low-latency.conf".source = json.generate "92-low-latency.conf" {
+      context.modules = [
+        {
+          name = "libpipewire-module-protocol-pulse";
+          args = {
+            pulse.min.req = "128/48000";
+            pulse.default.req = "128/48000";
+            pulse.max.req = "128/48000";
+            pulse.min.quantum = "128/48000";
+            pulse.max.quantum = "128/48000";
+          };
+        }
+      ];
+      stream.properties = {
+        node.latency = "128/48000";
+        resample.quality = 1;
+      };
+    };
+    "pipewire/pipewire.conf.d/92-low-latency.conf".text = ''
+      context.properties = {
+        default.clock.rate = 48000
+        default.clock.quantum = 128
+        default.clock.min-quantum = 128
+        default.clock.max-quantum = 128
+      }
+    '';
+  };
+
+
 
   services.xserver.libinput.enable = true;
   services.flatpak.enable = true;
@@ -120,6 +157,7 @@
     onlyoffice-bin_latest
     discord
     discord-canary
+    webcord
     vscode
     easyeffects
     blender

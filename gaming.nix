@@ -13,7 +13,14 @@
 
   environment.systemPackages = with pkgs; [
     protonup-qt
-    lutris
+    (lutris.override {
+      extraPkgs = pkgs: [
+        wineWowPackages.stable
+        winetricks
+      ];
+      extraLibraries =  pkgs: [
+        # List library dependencies here
+      ];
+    })
   ];
-
 }
