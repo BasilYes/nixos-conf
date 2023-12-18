@@ -14,6 +14,7 @@
       ./basilyes.nix
       ./vm.nix
       ./nvidia.nix
+      ./android.nix
     ];
 
   # Bootloader.
@@ -101,36 +102,34 @@
   environment.etc = let
     json = pkgs.formats.json {};
   in {
-    "pipewire/pipewire-pulse.d/92-low-latency.conf".source = json.generate "92-low-latency.conf" {
+/*    "pipewire/pipewire-pulse.d/92-low-latency.conf".source = json.generate "92-low-latency.conf" {
       context.modules = [
         {
           name = "libpipewire-module-protocol-pulse";
           args = {
-            pulse.min.req = "128/48000";
-            pulse.default.req = "128/48000";
-            pulse.max.req = "128/48000";
-            pulse.min.quantum = "128/48000";
-            pulse.max.quantum = "128/48000";
+            pulse.min.req = "1024/48000";
+            pulse.default.req = "1024/48000";
+            pulse.max.req = "1024/48000";
+            pulse.min.quantum = "1024/48000";
+            pulse.max.quantum = "1024/48000";
           };
         }
       ];
       stream.properties = {
-        node.latency = "128/48000";
+        node.latency = "1024/48000";
         resample.quality = 1;
       };
-    };
+    };*/
     "pipewire/pipewire.conf.d/92-low-latency.conf".text = ''
       context.properties = {
         default.clock.rate = 48000
-        default.clock.quantum = 128
-        default.clock.min-quantum = 128
-        default.clock.max-quantum = 128
+        default.clock.quantum = 1024
+        default.clock.min-quantum = 1024
+        default.clock.max-quantum = 1024
       }
     '';
   };
-
-
-
+  
   services.xserver.libinput.enable = true;
   services.flatpak.enable = true;
 
@@ -144,10 +143,14 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  programs.dconf.enable = true;
   
   environment.systemPackages = with pkgs; [
     (appimage-run.override {
-      extraPkgs = pkgs: [ libsecret ];
+      extraPkgs = pkgs: [
+        libsecret
+        xorg.libxkbfile
+      ];
     })
     keepassxc
     google-chrome
@@ -155,8 +158,6 @@
     chromium
     telegram-desktop
     onlyoffice-bin_latest
-    discord
-    discord-canary
     webcord
     vscode
     easyeffects
@@ -164,10 +165,14 @@
     qjackctl
     tailscale
     git
+    gittyup
+    gimp
+    krita
     openssh
     nomachine-client
     lorien
     libreoffice
+    pdfarranger
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU

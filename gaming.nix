@@ -13,6 +13,8 @@
 
   environment.systemPackages = with pkgs; [
     protonup-qt
+    gamemode
+    mangohud
     (lutris.override {
       extraPkgs = pkgs: [
         wineWowPackages.stable
