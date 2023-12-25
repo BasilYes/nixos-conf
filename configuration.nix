@@ -144,12 +144,18 @@
 
   nixpkgs.config.allowUnfree = true;
   programs.dconf.enable = true;
-  
+  programs.gnupg = {
+    agent = {
+      enable = true;
+      pinentryFlavor = "gnome3";
+    };
+  };
   environment.systemPackages = with pkgs; [
     (appimage-run.override {
       extraPkgs = pkgs: [
         libsecret
         xorg.libxkbfile
+        ffmpeg
       ];
     })
     keepassxc
@@ -173,6 +179,7 @@
     lorien
     libreoffice
     pdfarranger
+    haruna
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
