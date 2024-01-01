@@ -51,7 +51,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  services.tailscale.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -85,12 +84,12 @@
   zramSwap.enable = true;
 
   sound.enable = true;
+  /*hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.extraConfig = [
+    "unload-module tsched"
+    "unload-module module-suspend-on-idle"
+  ];*/
   hardware.pulseaudio.enable = false;
-  #hardware.pulseaudio.enable = true;
-  #hardware.pulseaudio.extraConfig = [
-  #  "unload-module tsched"
-  #  "unload-module module-suspend-on-idle"
-  #];
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -99,39 +98,22 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  environment.etc = let
+  /*environment.etc = let
     json = pkgs.formats.json {};
   in {
-/*    "pipewire/pipewire-pulse.d/92-low-latency.conf".source = json.generate "92-low-latency.conf" {
-      context.modules = [
-        {
-          name = "libpipewire-module-protocol-pulse";
-          args = {
-            pulse.min.req = "1024/48000";
-            pulse.default.req = "1024/48000";
-            pulse.max.req = "1024/48000";
-            pulse.min.quantum = "1024/48000";
-            pulse.max.quantum = "1024/48000";
-          };
-        }
-      ];
-      stream.properties = {
-        node.latency = "1024/48000";
-        resample.quality = 1;
-      };
-    };*/
     "pipewire/pipewire.conf.d/92-low-latency.conf".text = ''
       context.properties = {
         default.clock.rate = 48000
-        default.clock.quantum = 1024
-        default.clock.min-quantum = 1024
-        default.clock.max-quantum = 1024
+        default.clock.quantum = 8192
+        default.clock.min-quantum = 8192
+        default.clock.max-quantum = 8192
       }
     '';
-  };
+  };*/
   
   services.xserver.libinput.enable = true;
   services.flatpak.enable = true;
+  services.tailscale.enable = true;
 
   users.users.basilyes = {
     isNormalUser = true;
@@ -158,31 +140,35 @@
         ffmpeg
       ];
     })
-    keepassxc
-    google-chrome
-    firefox
-    chromium
-    telegram-desktop
-    onlyoffice-bin_latest
-    webcord
-    vscode
-    easyeffects
+    audacity
     blender
-    qjackctl
-    tailscale
+    chromium
+    easyeffects
+    firefox
+    gimp
     git
     gittyup
-    gimp
-    krita
-    openssh
-    nomachine-client
-    lorien
-    libreoffice
-    pdfarranger
+    google-chrome
     haruna
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
+    jdk17
+    keepassxc
+    krita
+    libreoffice
+    lorien
+    nomachine-client
+    obs-studio
+    onlyoffice-bin_latest
+    openssh
+    pdfarranger
+    qjackctl
+    scons
+    telegram-desktop
+    trayscale
+    vscode
+    webcord
   ];
 
   fonts.packages = with pkgs; [

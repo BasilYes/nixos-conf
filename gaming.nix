@@ -15,6 +15,8 @@
     protonup-qt
     gamemode
     mangohud
+    wineWowPackages.stable
+    winetricks
     (lutris.override {
       extraPkgs = pkgs: [
         wineWowPackages.stable
