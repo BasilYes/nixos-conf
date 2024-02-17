@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -71,9 +71,9 @@
 
   services.xserver.enable = true;
   
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   services.printing = {
@@ -111,6 +111,33 @@
     '';
   };*/
   
+  systemd.timers."good-night" = {
+    wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "*-*-* 21:30:00";
+        Unit = "good-night.service";
+      };
+  };
+
+  systemd.services."good-night" = {
+    script = ''
+      action=""; \
+      while [ "$action" != "shut" ]; do \
+      ${pkgs.sudo}/bin/sudo -u basilyes XDG_RUNTIME_DIR=/run/user/$(id -u basilyes) ${pkgs.alsa-utils}/bin/aplay '/home/basilyes/Documents/notify.wav' & \
+      action=$(${pkgs.sudo}/bin/sudo -u basilyes DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u basilyes)/bus XDG_RUNTIME_DIR=/run/user/$(id -u basilyes) ${pkgs.libnotify}/bin/notify-send -u critical -A "shut=Shut down" -A "wait=Wait for a minute" By "Good night"); \
+      case $action in \
+      ("shut") break;; \
+      (*) sleep 60;;\
+      esac;\
+      done;\
+      systemctl poweroff
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
+  };
+  
   services.xserver.libinput.enable = true;
   services.flatpak.enable = true;
   services.tailscale.enable = true;
@@ -140,11 +167,17 @@
         ffmpeg
       ];
     })
+    anytype
+    amberol
     audacity
     blender
     chromium
+    discord
+    discord-canary
+    discord-screenaudio
     easyeffects
     firefox
+    gcolor3
     gimp
     git
     gittyup
@@ -153,12 +186,14 @@
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
+    inkscape
     jdk17
     keepassxc
     krita
     libreoffice
+    libsForQt5.kdenlive
+    libnotify
     lorien
-    nomachine-client
     obs-studio
     onlyoffice-bin_latest
     openssh
