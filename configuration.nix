@@ -15,6 +15,7 @@
       ./vm.nix
       ./nvidia.nix
       ./android.nix
+      ./build.nix
     ];
 
   # Bootloader.
@@ -66,7 +67,7 @@
     LC_NUMERIC = "ru_RU.UTF-8";
     LC_PAPER = "ru_RU.UTF-8";
     LC_TELEPHONE = "ru_RU.UTF-8";
-    LC_TIME = "ru_RU.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
   };
 
   services.xserver.enable = true;
@@ -111,36 +112,10 @@
     '';
   };*/
   
-  systemd.timers."good-night" = {
-    wantedBy = [ "timers.target" ];
-      timerConfig = {
-        OnCalendar = "*-*-* 21:30:00";
-        Unit = "good-night.service";
-      };
-  };
-
-  systemd.services."good-night" = {
-    script = ''
-      action=""; \
-      while [ "$action" != "shut" ]; do \
-      ${pkgs.sudo}/bin/sudo -u basilyes XDG_RUNTIME_DIR=/run/user/$(id -u basilyes) ${pkgs.alsa-utils}/bin/aplay '/home/basilyes/Documents/notify.wav' & \
-      action=$(${pkgs.sudo}/bin/sudo -u basilyes DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u basilyes)/bus XDG_RUNTIME_DIR=/run/user/$(id -u basilyes) ${pkgs.libnotify}/bin/notify-send -u critical -A "shut=Shut down" -A "wait=Wait for a minute" By "Good night"); \
-      case $action in \
-      ("shut") break;; \
-      (*) sleep 60;;\
-      esac;\
-      done;\
-      systemctl poweroff
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      User = "root";
-    };
-  };
-  
   services.xserver.libinput.enable = true;
   services.flatpak.enable = true;
   services.tailscale.enable = true;
+  services.atuin.enable = true;
 
   users.users.basilyes = {
     isNormalUser = true;
@@ -152,6 +127,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  programs.bash.blesh.enable = true;
   programs.dconf.enable = true;
   programs.gnupg = {
     agent = {
@@ -160,6 +136,9 @@
     };
   };
   environment.systemPackages = with pkgs; [
+    (callPackage ./gitnuro/fhsenv.nix {
+      gitnuro-unwrapped = (callPackage ./gitnuro/default.nix {});
+    })
     (appimage-run.override {
       extraPkgs = pkgs: [
         libsecret
@@ -167,9 +146,10 @@
         ffmpeg
       ];
     })
+    atuin
     anytype
-    amberol
     audacity
+    aseprite
     blender
     chromium
     discord
@@ -187,23 +167,26 @@
     hunspellDicts.en_US
     hunspellDicts.ru_RU
     inkscape
+    imagemagick
     jdk17
     keepassxc
     krita
     libreoffice
     libsForQt5.kdenlive
-    libnotify
     lorien
     obs-studio
     onlyoffice-bin_latest
     openssh
     pdfarranger
+    rhythmbox
+    reaper
     qjackctl
-    scons
     telegram-desktop
     trayscale
     vscode
     webcord
+    unzip
+    zrythm
   ];
 
   fonts.packages = with pkgs; [

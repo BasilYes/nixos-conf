@@ -12,6 +12,7 @@
   hardware.opengl.driSupport = true;
 
   environment.systemPackages = with pkgs; [
+    ppsspp
     protonup-qt
     gamemode
     mangohud
