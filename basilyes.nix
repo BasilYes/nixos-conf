@@ -49,6 +49,26 @@ in
     };
   };
   
+  
+  systemd.timers."startup" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "5min";
+      Unit = "startup.service";
+    };
+  };
+
+  systemd.services."startup" = {
+    script = ''
+    ${pkgs.libvirt}/bin/virsh start debian12
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
+  };
+
+
   programs.git = {
     enable = true;
     config = {

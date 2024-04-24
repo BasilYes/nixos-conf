@@ -15,7 +15,7 @@
       ./vm.nix
       ./nvidia.nix
       ./android.nix
-      ./build.nix
+      ./develop.nix
     ];
 
   # Bootloader.
@@ -71,6 +71,8 @@
   };
 
   services.xserver.enable = true;
+
+  services.xserver.wacom.enable = true;
   
   services.xserver.xkb = {
     layout = "us";
@@ -120,19 +122,33 @@
   users.users.basilyes = {
     isNormalUser = true;
     description = "basilyes";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       
     ];
   };
+  
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    #gnome.zenity
+    libGL
+    xorg.libX11
+    alsa-lib
+  ];
 
   nixpkgs.config.allowUnfree = true;
+
+  qt = {
+    enable = true;
+    platformTheme = "kde";
+    style = "breeze";
+  };
   programs.bash.blesh.enable = true;
   programs.dconf.enable = true;
   programs.gnupg = {
     agent = {
       enable = true;
-      pinentryFlavor = "gnome3";
+      pinentryPackage = pkgs.pinentry-gnome3;
     };
   };
   environment.systemPackages = with pkgs; [
@@ -151,39 +167,52 @@
     audacity
     aseprite
     blender
+    blockbench
     chromium
+    curtail
     discord
     discord-canary
     discord-screenaudio
     easyeffects
+    element-desktop
     firefox
     gcolor3
     gimp
     git
     gittyup
     google-chrome
+    graphicsmagick
     haruna
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
     inkscape
     imagemagick
-    jdk17
     keepassxc
     krita
-    libreoffice
+    #kdePackages.kolourpaint
+    #kdePackages.breeze-icons
+    #kdePackages.kdenlive
+    libsForQt5.breeze-icons
     libsForQt5.kdenlive
+    libsForQt5.kolourpaint
+    libreoffice
     lorien
+    mellowplayer
+    nextcloud-client
+    obsidian
     obs-studio
     onlyoffice-bin_latest
     openssh
     pdfarranger
+    pdfmixtool
     rhythmbox
     reaper
+    screenkey
     qjackctl
+    qbittorrent
     telegram-desktop
     trayscale
-    vscode
     webcord
     unzip
     zrythm

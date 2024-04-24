@@ -18,6 +18,7 @@
     mangohud
     wineWowPackages.stable
     winetricks
+    #itch
     (lutris.override {
       extraPkgs = pkgs: [
         wineWowPackages.stable

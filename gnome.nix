@@ -13,10 +13,14 @@
       gnomeExtensions.quick-lang-switch
       gnomeExtensions.fullscreen-avoider
       gnomeExtensions.gsconnect
+      gnomeExtensions.another-window-session-manager
     ];
   };
   environment.systemPackages = with pkgs; [
+    gnome-extension-manager
+    #gnome.zenity
     gnome.nautilus
+    gnome.gnome-themes-extra
     gnome3.gnome-tweaks
   ];
   networking.firewall = {
