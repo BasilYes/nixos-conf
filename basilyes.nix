@@ -9,14 +9,13 @@ in
   ];
 
   home-manager.users.basilyes = {
+    programs.bash.enable = true;
     home.stateVersion = "23.11";
-    services.easyeffects.enable = true;
   };
   
-  users.users.basilyes = {
-    packages = with pkgs; [
-    ];
-  };
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  
 
   environment.systemPackages = with pkgs; [
     libnotify
@@ -65,21 +64,6 @@ in
     serviceConfig = {
       Type = "oneshot";
       User = "root";
-    };
-  };
-
-
-  programs.git = {
-    enable = true;
-    config = {
-      init = {
-        defaultBranch = "main";
-      };
-      user = {
-        email = "basilyes@gmail.com";
-        name = "BasilYes";
-      };
-      safe.directory = "/etc/nixos";
     };
   };
 }

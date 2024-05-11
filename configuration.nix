@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./gnome.nix
       #./kde.nix
+      ./sway.nix
       ./gaming.nix
       ./basilyes.nix
       ./vm.nix
@@ -114,7 +115,7 @@
     '';
   };*/
   
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
   services.flatpak.enable = true;
   services.tailscale.enable = true;
   services.atuin.enable = true;
@@ -131,8 +132,17 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     #gnome.zenity
+    vulkan-loader
     libGL
     xorg.libX11
+    xorg.libXcursor
+    xorg.libXinerama
+    xorg.libXext
+    xorg.libXrandr
+    xorg.libXrender
+    xorg.libXi
+    xorg.libXfixes
+    libxkbcommon
     alsa-lib
   ];
 
@@ -168,6 +178,7 @@
     aseprite
     blender
     blockbench
+    cinnamon.warpinator
     chromium
     curtail
     discord
@@ -213,6 +224,7 @@
     qbittorrent
     telegram-desktop
     trayscale
+    thunderbird
     webcord
     unzip
     zrythm
@@ -223,6 +235,11 @@
     vistafonts
   ];
   
+  networking.firewall = {
+    allowedTCPPorts = [ 42000 42001 ];
+    allowedUDPPorts = [ 42000 42001 ];
+  };
+ 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
