@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
       ./gnome.nix
       #./kde.nix
-      ./sway.nix
       ./gaming.nix
       ./basilyes.nix
       ./vm.nix
@@ -18,6 +17,8 @@
       ./android.nix
       ./develop.nix
     ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
@@ -225,9 +226,12 @@
     telegram-desktop
     trayscale
     thunderbird
+    vim
     webcord
     unzip
+    xwaylandvideobridge
     zrythm
+    zettlr
   ];
 
   fonts.packages = with pkgs; [
