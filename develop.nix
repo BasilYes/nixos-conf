@@ -8,7 +8,7 @@
     scons
     gcc
     pkg-config
-    emscripten
+	  emscripten
     #kdePackages.full
     #kdePackages.qtbase
     #qtcreator

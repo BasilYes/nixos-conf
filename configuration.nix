@@ -16,6 +16,7 @@
       ./nvidia.nix
       ./android.nix
       ./develop.nix
+	    #./stylix.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -89,11 +90,6 @@
   zramSwap.enable = true;
 
   sound.enable = true;
-  /*hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.extraConfig = [
-    "unload-module tsched"
-    "unload-module module-suspend-on-idle"
-  ];*/
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -103,18 +99,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  /*environment.etc = let
-    json = pkgs.formats.json {};
-  in {
-    "pipewire/pipewire.conf.d/92-low-latency.conf".text = ''
-      context.properties = {
-        default.clock.rate = 48000
-        default.clock.quantum = 8192
-        default.clock.min-quantum = 8192
-        default.clock.max-quantum = 8192
-      }
-    '';
-  };*/
   
   services.libinput.enable = true;
   services.flatpak.enable = true;
@@ -163,9 +147,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    (callPackage ./gitnuro/fhsenv.nix {
-      gitnuro-unwrapped = (callPackage ./gitnuro/default.nix {});
-    })
+    gitnuro
     (appimage-run.override {
       extraPkgs = pkgs: [
         libsecret
@@ -244,12 +226,5 @@
     allowedUDPPorts = [ 42000 42001 ];
   };
  
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
-
+  system.stateVersion = "23.11";
 }

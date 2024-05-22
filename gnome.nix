@@ -18,7 +18,6 @@
   };
   environment.systemPackages = with pkgs; [
     gnome-extension-manager
-    #gnome.zenity
     gnome.nautilus
     gnome.gnome-themes-extra
     gnome3.gnome-tweaks
