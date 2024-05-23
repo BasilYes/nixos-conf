@@ -161,8 +161,6 @@
     aseprite
     blender
     blockbench
-    brave
-    vivaldi
     cinnamon.warpinator
     chromium
     curtail
@@ -211,6 +209,7 @@
     trayscale
     thunderbird
     vim
+    vivaldi
     webcord
     unzip
     xwaylandvideobridge
