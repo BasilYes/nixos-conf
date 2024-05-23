@@ -16,7 +16,7 @@
       ./nvidia.nix
       ./android.nix
       ./develop.nix
-	    #./stylix.nix
+      #./stylix.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -215,6 +215,20 @@
     xwaylandvideobridge
     zrythm
     zettlr
+  ];
+
+  nixpkgs.overlays = [
+    (self: super: {
+        obs-studio = pkgs.symlinkJoin {
+        name = "obs-studio";
+        paths = [ super.obs-studio ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/obs \
+            --set QT_QPA_PLATFORM xcb
+        '';
+      };
+    })
   ];
 
   fonts.packages = with pkgs; [
