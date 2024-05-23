@@ -161,6 +161,8 @@
     aseprite
     blender
     blockbench
+    brave
+    vivaldi
     cinnamon.warpinator
     chromium
     curtail
