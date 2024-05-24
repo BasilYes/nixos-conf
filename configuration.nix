@@ -229,6 +229,17 @@
         '';
       };
     })
+    (self: super: {
+        code = pkgs.symlinkJoin {
+        name = "code";
+        paths = [ super.code ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/code \
+            --add-flags "--ozone-platform-hint=auto"
+        '';
+      };
+    })
   ];
 
   fonts.packages = with pkgs; [
