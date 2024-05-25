@@ -7,6 +7,8 @@
       sha256 = "sha256-/AQnscqbS8+X65MVvd9Y9VWl3VOsJJerYlhS2n113UQ=";
     };
 
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    
     polarity = "dark";
 
     fonts = {

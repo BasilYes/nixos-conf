@@ -16,7 +16,7 @@
       ./nvidia.nix
       ./android.nix
       ./develop.nix
-      #./stylix.nix
+      # ./stylix.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -104,6 +104,13 @@
   services.flatpak.enable = true;
   services.tailscale.enable = true;
   services.atuin.enable = true;
+
+  # users.users.guest = {
+  #   description = "Guest";
+  #   hashedPassword = "";
+  #   isNormalUser = true;
+  #   extraGroups = [ "wheel" ];
+  # };
 
   users.users.basilyes = {
     isNormalUser = true;
@@ -200,6 +207,7 @@
     openssh
     pdfarranger
     pdfmixtool
+    pinta
     rhythmbox
     reaper
     screenkey
