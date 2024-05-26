@@ -153,6 +153,12 @@
       pinentryPackage = pkgs.pinentry-gnome3;
     };
   };
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    vimAliad = true;
+    configure = {};
+  };
   environment.systemPackages = with pkgs; [
     gitnuro
     (appimage-run.override {
@@ -216,7 +222,6 @@
     telegram-desktop
     trayscale
     thunderbird
-    vim
     vivaldi
     webcord
     unzip

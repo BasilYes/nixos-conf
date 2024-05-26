@@ -15,7 +15,7 @@
       enable = true;
       bashrcExtra = ''
         eval "$(atuin init bash)"
-        export EDITOR=vim'';
+        '';
     };
     programs.git = {
       enable = true;
