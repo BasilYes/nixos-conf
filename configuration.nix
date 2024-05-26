@@ -156,7 +156,7 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    vimAliad = true;
+    vimAlias = true;
     configure = {};
   };
   environment.systemPackages = with pkgs; [
