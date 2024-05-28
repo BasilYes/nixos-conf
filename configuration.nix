@@ -153,12 +153,6 @@
       pinentryPackage = pkgs.pinentry-gnome3;
     };
   };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    configure = {};
-  };
   environment.systemPackages = with pkgs; [
     gitnuro
     (appimage-run.override {
@@ -183,13 +177,13 @@
     easyeffects
     element-desktop
     firefox
+    fzf
     gcolor3
     gimp
     git
     gittyup
     google-chrome
     graphicsmagick
-    haruna
     hunspell
     hunspellDicts.en_US
     hunspellDicts.ru_RU
@@ -206,6 +200,7 @@
     libreoffice
     lorien
     mellowplayer
+    gnumake
     nextcloud-client
     obsidian
     obs-studio
@@ -223,6 +218,7 @@
     trayscale
     thunderbird
     vivaldi
+    vlc
     webcord
     unzip
     xwaylandvideobridge
@@ -247,6 +243,7 @@
   fonts.packages = with pkgs; [
     corefonts
     vistafonts
+    nerdfonts
   ];
   
   networking.firewall = {

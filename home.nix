@@ -9,6 +9,8 @@
     ];
   
     services.easyeffects.enable = true;
+    
+    # xdg.configFile.nvim.source = ./nvim;
 
     programs.home-manager.enable = true;
     programs.bash = {
@@ -16,6 +18,12 @@
       bashrcExtra = ''
         eval "$(atuin init bash)"
         '';
+    };
+    programs.neovim = {
+      enable = true;
+      vimAlias = true;
+      viAlias = true;
+      defaultEditor = true;
     };
     programs.git = {
       enable = true;
