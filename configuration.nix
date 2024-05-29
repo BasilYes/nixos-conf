@@ -177,7 +177,6 @@
     easyeffects
     element-desktop
     firefox
-    fzf
     gcolor3
     gimp
     git
