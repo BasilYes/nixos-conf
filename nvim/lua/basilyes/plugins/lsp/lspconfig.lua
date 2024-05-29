@@ -82,10 +82,7 @@ return {
 
     lspconfig.gdscript.setup{
       capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        if #(client.attached_buffers) > 0 then
-          return
-        end
+      on_init = function(client, capabilities)
         vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
       end
     }
