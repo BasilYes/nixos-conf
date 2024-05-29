@@ -5,7 +5,7 @@ local opt = vim.opt
 opt.keymap = "russian-jcukenwin"
 opt.iminsert = 0
 opt.imsearch = 0
-opt.langmap = [===[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯБЮЖЭХЪ;ABCDEFGHIJKLMNOPQRSTUVWXYZ<>:"{},фисвуапршолдьтщзйкыегмцчнябюж.эхъ;abcdefghijklmnopqrstuvwxyz\,.\;/'[]]===]
+opt.langmap = [===[ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯБЮЖЭХЪ;ABCDEFGHIJKLMNOPQRSTUVWXYZ<>:"{},фисвуапршолдьтщзйкыегмцчнябюжэхъ;abcdefghijklmnopqrstuvwxyz\,.\;'[]]===]
 
 opt.relativenumber = true
 opt.number = true

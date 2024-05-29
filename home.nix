@@ -10,6 +10,7 @@
     ripgrep
     wl-clipboard
     cargo
+    lazygit
   ];
   
   services.easyeffects.enable = true;
