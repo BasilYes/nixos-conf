@@ -10,7 +10,6 @@
     ripgrep
     wl-clipboard
     cargo
-    lazygit
   ];
   
   services.easyeffects.enable = true;
@@ -22,13 +21,19 @@
     enable = true;
     bashrcExtra = ''
       eval "$(atuin init bash)"
+      export PS1="\n\[\033[1;32m\][\[\e]0;\u@\h: \w\a\]\u@\h:\W]\$\[\033[0m\]"
       '';
+    shellAliases = {
+      lg = "lazygit";
+      ng = "nvim --listen /tmp/godot.pipe";
+    };
   };
   programs.neovim = {
     enable = true;
     vimAlias = true;
     viAlias = true;
     defaultEditor = true;
+    withNodeJs = true;
   };
   programs.git = {
     enable = true;

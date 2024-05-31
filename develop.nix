@@ -8,7 +8,9 @@
     scons
     gcc
     pkg-config
+    python3
 	  emscripten
+    lazygit
     #kdePackages.full
     #kdePackages.qtbase
     #qtcreator
@@ -16,6 +18,9 @@
     vscode
     unityhub
   ];
+
+  programs.npm.enable = true;
+
   nixpkgs.overlays = [
     (self: super: {
         vscode = pkgs.symlinkJoin {

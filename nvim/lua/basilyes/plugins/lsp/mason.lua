@@ -29,12 +29,16 @@ return {
       ensure_installed = {
         "lua_ls",
         "rnix",
+        "pyright",
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
         "stylua", -- lua formatter
+        "isort", -- python formatter
+        "black", -- python formatter
+        "pylint",
       },
     })
   end,

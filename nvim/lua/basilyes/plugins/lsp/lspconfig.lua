@@ -78,13 +78,8 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    local pipe = '/tmp/godot.pipe'
-
     lspconfig.gdscript.setup{
       capabilities = capabilities,
-      on_init = function(client, capabilities)
-        vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
-      end
     }
 
     vim.api.nvim_create_autocmd("BufWinEnter", {
