@@ -20,8 +20,12 @@
     # };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations.basilyes-desktop = nixpkgs.lib.nixosSystem rec {
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
+	let
+		options = import ./options.nix;
+	in
+	{
+    nixosConfigurations.${options.hostName} = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
@@ -36,7 +40,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
-          home-manager.users.basilyes = import ./home.nix;
+          home-manager.users.${options.userName} = import ./home.nix;
         }
         # inputs.stylix.nixosModules.stylix
       ];

@@ -52,7 +52,7 @@ in
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.driSupport = true;
 
-  networking.hostName = "basilyes-desktop";
+  networking.hostName = options.hostName;
 
   # Enable networking
   networking.networkmanager.enable = true;
