@@ -11,7 +11,6 @@ in
   imports = [
 		./hardware-configuration.nix
 		./${options.desktop or "gnome"}.nix
-		./basilyes.nix
 		# ./stylix.nix
 	] 
 	++ lib.optionals (options.nvidia or false) [ ./nvidia.nix ]
