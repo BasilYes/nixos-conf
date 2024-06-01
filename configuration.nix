@@ -113,9 +113,9 @@ in
   #   extraGroups = [ "wheel" ];
   # };
 
-  users.users.basilyes = {
+  users.users.${options.userName} = {
     isNormalUser = true;
-    description = "basilyes";
+    description = "main system user";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       

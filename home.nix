@@ -1,8 +1,11 @@
 { config, pkgs, ... }:
 
+let
+	options = import ./options.nix;
+in
 {
-  home.username = "basilyes";
-  home.homeDirectory = "/home/basilyes";
+  home.username = options.userName;
+  home.homeDirectory = "/home/${options.userName}";
 
   home.packages = with pkgs; [
     #for nvim search
@@ -52,7 +55,6 @@
     };
     extraConfig = {
       init = { defaultBranch = "main"; };
-      safe = { directory = "/etc/nixos"; };
     };
   };
   
