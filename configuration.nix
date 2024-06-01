@@ -2,22 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, options, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./gnome.nix
-      #./kde.nix
-      ./gaming.nix
-      ./basilyes.nix
-      ./vm.nix
-      ./nvidia.nix
-      ./android.nix
-      ./develop.nix
-      # ./stylix.nix
-    ];
+  imports = [
+		./hardware-configuration.nix
+		./${options.desktop or "gnome"}.nix
+		./basilyes.nix
+		# ./stylix.nix
+	] 
+	++ lib.optionals (options.nvidia or false) [ ./nvidia.nix ]
+	++ lib.optionals (options.android or false) [ ./android.nix ]
+	++ lib.optionals (options.develop or false) [ ./develop.nix ]
+	++ lib.optionals (options.vm or false) [ ./vm.nix ]
+	++ lib.optionals (options.gaming or false) [ ./gaming.nix ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

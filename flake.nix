@@ -20,11 +20,16 @@
     # };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
+	let
+		options = import ./options.nix;
+	in
+	{
     nixosConfigurations.basilyes-desktop = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
+				inherit options;
         pkgs-stable = import inputs.nixpkgs-stable {
           inherit system;
           config.allowUnfree = true;
