@@ -114,7 +114,7 @@ in
 
   users.users.${options.userName} = {
     isNormalUser = true;
-    description = "main system user";
+    description = "BasilYes";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       
@@ -226,17 +226,17 @@ in
   ];
 
   nixpkgs.overlays = [
-    (self: super: {
-        obs-studio = pkgs.symlinkJoin {
-        name = "obs-studio";
-        paths = [ super.obs-studio ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/obs \
-            --set QT_QPA_PLATFORM xcb
-        '';
-      };
-    })
+    # (self: super: {
+    #     obs-studio = pkgs.symlinkJoin {
+    #     name = "obs-studio";
+    #     paths = [ super.obs-studio ];
+    #     buildInputs = [ pkgs.makeWrapper ];
+    #     postBuild = ''
+    #       wrapProgram $out/bin/obs \
+    #         --set QT_QPA_PLATFORM xcb
+    #     '';
+    #   };
+    # })
   ];
 
   fonts.packages = with pkgs; [
