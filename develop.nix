@@ -5,6 +5,7 @@
     binaryen
     cmake
     gdb
+    gnumake
     scons
     gcc
     pkg-config

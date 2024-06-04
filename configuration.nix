@@ -169,19 +169,13 @@ in
     blender
     blockbench
     cinnamon.warpinator
-    chromium
     curtail
     discord
-    discord-canary
-    discord-screenaudio
-    easyeffects
     element-desktop
-    firefox
     gcolor3
     gimp
     git
     gittyup
-    google-chrome
     graphicsmagick
     hunspell
     hunspellDicts.en_US
@@ -190,17 +184,15 @@ in
     imagemagick
     keepassxc
     krita
-    #kdePackages.kolourpaint
-    #kdePackages.breeze-icons
-    #kdePackages.kdenlive
+    # kdePackages.kolourpaint
+    # kdePackages.breeze-icons
+    # kdePackages.kdenlive
     libsForQt5.breeze-icons
     libsForQt5.kdenlive
     libsForQt5.kolourpaint
     libreoffice
     lorien
     mellowplayer
-    gnumake
-    nextcloud-client
     obsidian
     obs-studio
     onlyoffice-bin_latest
@@ -218,7 +210,6 @@ in
     thunderbird
     vivaldi
     vlc
-    webcord
     unzip
     xwaylandvideobridge
     zrythm
