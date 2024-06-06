@@ -154,7 +154,6 @@ in
     };
   };
   environment.systemPackages = with pkgs; [
-    gitnuro
     (appimage-run.override {
       extraPkgs = pkgs: [
         libsecret
@@ -175,7 +174,6 @@ in
     gcolor3
     gimp
     git
-    gittyup
     graphicsmagick
     hunspell
     hunspellDicts.en_US
