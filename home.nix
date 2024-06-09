@@ -15,7 +15,7 @@ in
     cargo
   ];
   
-  services.easyeffects.enable = true;
+  # services.easyeffects.enable = true;
     
   # xdg.configFile.nvim.source = ./nvim;
 
