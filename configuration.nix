@@ -171,6 +171,7 @@ in
     curtail
     discord
     element-desktop
+		endeavour
     gcolor3
     gimp
     git
