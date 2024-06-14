@@ -169,6 +169,7 @@ in
     curtail
 		endeavour
     gcolor3
+    gimp
     git
     graphicsmagick
     hunspell
@@ -206,7 +207,6 @@ in
 	]
 	++ lib.optionals (options.optionals or false) [
     aseprite
-    gimp
     pinta
     blockbench
     libreoffice
