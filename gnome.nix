@@ -13,7 +13,7 @@
       gnomeExtensions.quick-lang-switch
       gnomeExtensions.fullscreen-avoider
       gnomeExtensions.gsconnect
-      gnomeExtensions.another-window-session-manager
+      # gnomeExtensions.another-window-session-manager
     ];
   };
   environment.gnome.excludePackages = (with pkgs; [
