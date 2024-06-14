@@ -164,16 +164,11 @@ in
     atuin
     anytype
     audacity
-    aseprite
     blender
-    blockbench
     cinnamon.warpinator
     curtail
-    discord
-    element-desktop
 		endeavour
     gcolor3
-    gimp
     git
     graphicsmagick
     hunspell
@@ -189,31 +184,38 @@ in
     libsForQt5.breeze-icons
     libsForQt5.kdenlive
     libsForQt5.kolourpaint
-    libreoffice
-    lorien
     mellowplayer
-    obsidian
     obs-studio
     onlyoffice-bin_latest
     openssh
     pdfarranger
-    pdfmixtool
-    pinta
-    rhythmbox
-    reaper
     screenkey
     qjackctl
     qbittorrent
-    telegram-desktop
     trayscale
-    thunderbird
     vivaldi
     vlc
     unzip
     xwaylandvideobridge
+  ]
+	++ lib.optionals (options.messagers or false) [
+    discord
+    element-desktop
+    telegram-desktop
+    thunderbird
+	]
+	++ lib.optionals (options.optionals or false) [
+    aseprite
+    gimp
+    pinta
+    blockbench
+    libreoffice
+    lorien
+    obsidian
+    reaper
     zrythm
     zettlr
-  ];
+	];
 
   nixpkgs.overlays = [
     # (self: super: {
@@ -232,8 +234,13 @@ in
   fonts.packages = with pkgs; [
     corefonts
     vistafonts
+  ]
+	++ lib.optionals (options.optionals or false) [
     nerdfonts
-  ];
+	]
+	++ lib.optionals (!(options.optionals or false)) [
+		(nerdfonts.override { fonts = [ "FiraCode" ]; })
+	];
   
   networking.firewall = {
     allowedTCPPorts = [ 42000 42001 ];

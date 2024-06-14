@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+	options = import ./options.nix;
+in
 {
   environment.systemPackages = with pkgs; [
     binaryen
@@ -17,8 +20,10 @@
     #qtcreator
     jdk17
     vscode
-    unityhub
-  ];
+  ]
+	++ lib.optionals (options.optionals or false) [
+		unityhub
+	];
 
   programs.npm.enable = true;
 
