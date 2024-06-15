@@ -197,7 +197,6 @@ in
     vivaldi
     vlc
     unzip
-    xwaylandvideobridge
   ]
 	++ lib.optionals (options.messagers or false) [
     discord
