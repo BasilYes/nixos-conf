@@ -199,10 +199,8 @@ in
     unzip
   ]
 	++ lib.optionals (options.messagers or false) [
-    discord
     element-desktop
     telegram-desktop
-    thunderbird
 	]
 	++ lib.optionals (options.optionals or false) [
     aseprite
