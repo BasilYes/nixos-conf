@@ -15,6 +15,7 @@ in
     python3
 	  emscripten
     lazygit
+    nodePackages.nodejs
     #kdePackages.full
     #kdePackages.qtbase
     #qtcreator

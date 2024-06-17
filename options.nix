@@ -6,7 +6,7 @@
 	develop = true;
 	android = true;
 	optionals = true;
-	messagers = true;
+	messagers = false;
 	vm = true;
 	# gnome or kde
 	desktop = "gnome";
