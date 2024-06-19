@@ -13,11 +13,14 @@ in
     ripgrep
     wl-clipboard
     cargo
+    cinnamon.mint-cursor-themes
   ];
   
   # services.easyeffects.enable = true;
     
   # xdg.configFile.nvim.source = ./nvim;
+
+  gtk.cursorTheme.name = "Bibata-Modern-Classic";
 
   programs.home-manager.enable = true;
   programs.bash = {

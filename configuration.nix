@@ -202,7 +202,7 @@ in
 	++ lib.optionals (options.optionals or false) [
     aseprite
     pinta
-    blockbench
+    # blockbench using EOL electron
     libreoffice
     lorien
     obsidian

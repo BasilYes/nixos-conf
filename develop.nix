@@ -13,7 +13,7 @@ in
     gcc
     pkg-config
     python3
-	  emscripten
+	  # emscripten
     lazygit
     nodePackages.nodejs
     #kdePackages.full
