@@ -191,6 +191,7 @@ in
     openssh
     pdfarranger
     screenkey
+    telegram-desktop
     qjackctl
     qbittorrent
     trayscale
@@ -198,10 +199,6 @@ in
     vlc
     unzip
   ]
-	++ lib.optionals (options.messagers or false) [
-    element-desktop
-    telegram-desktop
-	]
 	++ lib.optionals (options.optionals or false) [
     aseprite
     pinta
