@@ -198,6 +198,7 @@ in
     vivaldi
     vlc
     unzip
+    zip
   ]
 	++ lib.optionals (options.optionals or false) [
     aseprite

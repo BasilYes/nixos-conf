@@ -7,12 +7,14 @@ in
   environment.systemPackages = with pkgs; [
     binaryen
     cmake
+		docker
     gdb
     gnumake
     scons
     gcc
     pkg-config
     python3
+		# podman
 	  # emscripten
     lazygit
     nodePackages.nodejs
