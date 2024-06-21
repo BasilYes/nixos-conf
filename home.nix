@@ -16,6 +16,12 @@ in
     # cinnamon.mint-cursor-themes
   ];
   
+  dconf = {
+    enable = true;
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+		settings."org/gnome/mutter/keybindings".switch-monitor = "['']";
+  };
+	
   # services.easyeffects.enable = true;
     
   # xdg.configFile.nvim.source = ./nvim;
