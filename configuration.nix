@@ -12,6 +12,7 @@ in
 		./hardware-configuration.nix
 		./${options.desktop or "gnome"}.nix
 		# ./stylix.nix
+		./hyperland.nix
 	] 
 	++ lib.optionals (options.nvidia or false) [ ./nvidia.nix ]
 	++ lib.optionals (options.android or false) [ ./android.nix ]
