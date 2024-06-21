@@ -32,6 +32,7 @@
     gnome.nautilus
     gnome.gnome-themes-extra
     gnome3.gnome-tweaks
+		xdg-desktop-portal-gnome
   ];
   
   networking.firewall = {

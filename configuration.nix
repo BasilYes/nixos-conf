@@ -198,6 +198,7 @@ in
     vivaldi
     vlc
     unzip
+		xdg-desktop-portal
     zip
   ]
 	++ lib.optionals (options.optionals or false) [
