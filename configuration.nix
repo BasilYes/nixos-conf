@@ -12,12 +12,12 @@ in
 		./hardware-configuration.nix
 		./${options.desktop or "gnome"}.nix
 		# ./stylix.nix
-		./hyperland.nix
 	] 
 	++ lib.optionals (options.nvidia or false) [ ./nvidia.nix ]
 	++ lib.optionals (options.android or false) [ ./android.nix ]
 	++ lib.optionals (options.develop or false) [ ./develop.nix ]
 	++ lib.optionals (options.vm or false) [ ./vm.nix ]
+	++ lib.optionals (options.hyprland or false) [ ./hyprland.nix ]
 	++ lib.optionals (options.gaming or false) [ ./gaming.nix ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

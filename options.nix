@@ -7,6 +7,9 @@
 	android = true;
 	optionals = true;
 	vm = true;
+	hyprland = true;
+	gnome = true;
+	kde = false;
 	# gnome or kde
 	desktop = "gnome";
 }
