@@ -9,7 +9,5 @@
     kdePackages.kaccounts-providers
     kdePackages.kio-gdrive
     kdePackages.wacomtablet
-		kdePackages.xdg-desktop-portal-kde
   ];
-
 }

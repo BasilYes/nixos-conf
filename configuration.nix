@@ -122,6 +122,8 @@ in
     ];
   };
 
+	xdg.portal.enable	= true;
+
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     #gnome.zenity
@@ -199,7 +201,6 @@ in
     vivaldi
     vlc
     unzip
-		xdg-desktop-portal
     zip
   ]
 	++ lib.optionals (options.optionals or false) [
