@@ -25,6 +25,7 @@ in
   # services.easyeffects.enable = true;
     
   # xdg.configFile.nvim.source = ./nvim;
+  # xdg.configFile.hypr.source = ./hypr;
 
   # gtk.cursorTheme.name = "Bibata-Modern-Classic";
 

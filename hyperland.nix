@@ -3,7 +3,6 @@
 {
 	programs.hyprland = {
 		enable = true;
-		nvidiaPatches = true;
 		xwayland.enable = true;
 	};
 
@@ -18,5 +17,14 @@
 
   environment.systemPackages = with pkgs; [
     gnome.nautilus
+		(waybar.overrideAttrs (oldAttrs: {
+				mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+			})
+		)
+		dunst
+		libnotify
+		swww
+		kitty
+		rofi-wayland
   ];
 }
