@@ -8,10 +8,10 @@
 
 	environment.sessionVariables = {
 		# Hint electron apps to use wayland
-		NIXOS_OZONE_WL = "1";
+		# NIXOS_OZONE_WL = "1";
 	};
 
-	xdg.portal.extraPortals	= [ pkgs.xdg-desktop-portal-hyprland ];
+	# xdg.portal.extraPortals	= [ pkgs.xdg-desktop-portal-hyprland ];
 
   environment.systemPackages = with pkgs; [
     gnome.nautilus
@@ -26,5 +26,8 @@
 		wofi
 		grim
 		slurp
+		wl-clipboard
+		cliphist
+		killall
   ];
 }
