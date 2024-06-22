@@ -30,17 +30,17 @@ in
 
   programs.npm.enable = true;
 
-  nixpkgs.overlays = [
-    (self: super: {
-        vscode = pkgs.symlinkJoin {
-        name = "vscode";
-        paths = [ super.vscode ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/code \
-            --add-flags "--ozone-platform-hint=auto"
-        '';
-      };
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #       vscode = pkgs.symlinkJoin {
+  #       name = "vscode";
+  #       paths = [ super.vscode ];
+  #       buildInputs = [ pkgs.makeWrapper ];
+  #       postBuild = ''
+  #         wrapProgram $out/bin/code \
+  #           --add-flags "--ozone-platform-hint=auto"
+  #       '';
+  #     };
+  #   })
+  # ];
 }
