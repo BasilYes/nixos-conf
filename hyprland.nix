@@ -21,7 +21,6 @@
 		)
 		dunst
 		libnotify
-		swww
 		kitty
 		wofi
 		grim
@@ -29,5 +28,8 @@
 		wl-clipboard
 		cliphist
 		killall
+		udiskie
+		pavucontrol
+		hyprpicker
   ];
 }
