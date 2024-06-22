@@ -124,6 +124,16 @@ in
 
 	xdg.portal.enable	= true;
 
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
+  nixpkgs.config.allowUnfree = true;
+
+  qt = {
+    enable = true;
+    platformTheme = "kde";
+    style = "breeze";
+  };
+
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     #gnome.zenity
@@ -141,13 +151,6 @@ in
     alsa-lib
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
-  qt = {
-    enable = true;
-    platformTheme = "kde";
-    style = "breeze";
-  };
   programs.bash.blesh.enable = true;
   programs.dconf.enable = true;
   programs.gnupg = {
@@ -156,6 +159,7 @@ in
       pinentryPackage = pkgs.pinentry-gnome3;
     };
   };
+
   environment.systemPackages = with pkgs; [
     (appimage-run.override {
       extraPkgs = pkgs: [
