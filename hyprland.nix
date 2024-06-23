@@ -4,7 +4,6 @@
 	programs.hyprland = {
 		enable = true;
 		xwayland.enable = true;
-		portalPackage = pkgs.xdg-desktop-portal-gtk;
 	};
 
 	environment.sessionVariables = {
