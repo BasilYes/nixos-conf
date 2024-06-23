@@ -6,7 +6,7 @@
 
 {
   imports = [
-		./hardware-configuration.nix
+    ./hardware/${extraOptions.hardwareFile}
 		# ./stylix.nix
 	] 
 	++ lib.optionals (extraOptions.nvidia or false) [ ./nvidia.nix ]

@@ -1,6 +1,7 @@
 {
 	hostName = "basilyes-desktop";
 	userName = "basilyes";
+	hardwareFile = "desktop.nix";
 	nvidia = true;
 	gaming = true;
 	develop = true;
