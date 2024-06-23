@@ -22,28 +22,40 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
 	let
-		options = import ./options.nix;
+		optionsList = map (n: "${./options}/${n}") (builtins.attrNames (builtins.readDir ./options));
 	in
 	{
-    nixosConfigurations.${options.hostName} = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-        pkgs-stable = import inputs.nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
+		nixosConfigurations = builtins.listToAttrs (builtins.map(
+			u:
+			let
+				options = import u;
+			in
+			{
+				name = options.hostName;
+				value = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+            extraOptions = options;
+            pkgs-stable = import inputs.nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          };
+          modules = [
+            ./configuration.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                extraOptions = options;
+              };
+              home-manager.users.${options.userName} = import ./home.nix;
+            }
+            # inputs.stylix.nixosModules.stylix
+          ];
         };
-      };
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-
-          home-manager.users.${options.userName} = import ./home.nix;
-        }
-        # inputs.stylix.nixosModules.stylix
-      ];
-    };
-  };
+			}
+		) optionsList);
+	};
 }

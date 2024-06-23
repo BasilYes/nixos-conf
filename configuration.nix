@@ -2,29 +2,26 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, extraOptions, ... }:
 
-let
-	options = import ./options.nix;
-in
 {
   imports = [
 		./hardware-configuration.nix
 		# ./stylix.nix
 	] 
-	++ lib.optionals (options.nvidia or false) [ ./nvidia.nix ]
-	++ lib.optionals (options.android or false) [ ./android.nix ]
-	++ lib.optionals (options.develop or false) [ ./develop.nix ]
-	++ lib.optionals (options.vm or false) [ ./vm.nix ]
-	++ lib.optionals (options.hyprland or false) [ ./hyprland.nix ]
-	++ lib.optionals (options.gnome or false) [ ./gnome.nix ]
-	++ lib.optionals (options.kde or false) [ ./kde.nix ]
-	++ lib.optionals (options.gaming or false) [ ./gaming.nix ];
+	++ lib.optionals (extraOptions.nvidia or false) [ ./nvidia.nix ]
+	++ lib.optionals (extraOptions.android or false) [ ./android.nix ]
+	++ lib.optionals (extraOptions.develop or false) [ ./develop.nix ]
+	++ lib.optionals (extraOptions.vm or false) [ ./vm.nix ]
+	++ lib.optionals (extraOptions.hyprland or false) [ ./hyprland.nix ]
+	++ lib.optionals (extraOptions.gnome or false) [ ./gnome.nix ]
+	++ lib.optionals (extraOptions.kde or false) [ ./kde.nix ]
+	++ lib.optionals (extraOptions.gaming or false) [ ./gaming.nix ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	
-  services.xserver.displayManager.${options.displayManager or "gdm"}.enable = true;
+  services.xserver.displayManager.${extraOptions.displayManager or "gdm"}.enable = true;
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
@@ -56,7 +53,7 @@ in
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.driSupport = true;
 
-  networking.hostName = options.hostName;
+  networking.hostName = extraOptions.hostName;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -117,7 +114,7 @@ in
   #   extraGroups = [ "wheel" ];
   # };
 
-  users.users.${options.userName} = {
+  users.users.${extraOptions.userName} = {
     isNormalUser = true;
     description = "BasilYes";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" ];
@@ -211,7 +208,7 @@ in
     unzip
     zip
   ]
-	++ lib.optionals (options.optionals or false) [
+	++ lib.optionals (extraOptions.optionals or false) [
     aseprite
     pinta
     # blockbench using EOL electron
@@ -240,12 +237,23 @@ in
   fonts.packages = with pkgs; [
     corefonts
     vistafonts
-  ]
-	++ lib.optionals (options.optionals or false) [
-    nerdfonts
-	]
-	++ lib.optionals (!(options.optionals or false)) [
-		(nerdfonts.override { fonts = [ "FiraCode" ]; })
+    icomoon-feather
+  # ]
+	# ++ lib.optionals (extraOptions.optionals or false) [
+  #   nerdfonts
+  #   google-fonts
+	# ]
+	# ++ lib.optionals (!(extraOptions.optionals or false)) [
+		(nerdfonts.override { fonts = [
+        "FiraCode"
+        "Iosevka"
+        "JetBrainsMono"
+      ];
+    })
+		(google-fonts.override { fonts = [
+        "GrapeNuts"
+      ];
+    })
 	];
   
   networking.firewall = {

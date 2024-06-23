@@ -1,11 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, extraOptions, ... }:
 
-let
-	options = import ./options.nix;
-in
 {
-  home.username = options.userName;
-  home.homeDirectory = "/home/${options.userName}";
+  home.username = extraOptions.userName;
+  home.homeDirectory = "/home/${extraOptions.userName}";
 
   home.packages = with pkgs; [
     #for nvim search

@@ -1,8 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, extraOptions, ... }:
 
-let
-	options = import ./options.nix;
-in
 {
   environment.systemPackages = with pkgs; [
     binaryen
@@ -24,7 +21,7 @@ in
     jdk17
     vscode
   ]
-	++ lib.optionals (options.optionals or false) [
+	++ lib.optionals (extraOptions.optionals or false) [
 		unityhub
 	];
 
