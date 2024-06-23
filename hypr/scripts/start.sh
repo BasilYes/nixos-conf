@@ -6,6 +6,7 @@ wl-paste --watch cliphist store &
 rm "$HOME/.cache/cliphist/db" &
 
 nm-applet --indicator &
+blueman-applet &
 
 udiskie &
 

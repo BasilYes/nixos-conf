@@ -31,5 +31,8 @@
 		udiskie
 		pavucontrol
 		hyprpicker
+		networkmanagerapplet
+		blueman
+		brillo
   ];
 }

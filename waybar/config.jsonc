@@ -14,7 +14,7 @@
 
     "modules-left": [ /* "custom/power", "custom/separator",  */"hyprland/workspaces" ],
     "modules-center": [ "clock" ],
-    "modules-right": [ "tray", "custom/separator", "wireplumber" ],
+    "modules-right": [ "tray", "custom/separator", "backlight", "battery", "wireplumber" ],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -24,8 +24,8 @@
         "format": "{icon}",
         "format-icons": {
             "1": "",
-            "2": "",
-            "3": "",
+            "2": "󰖟",
+            "3": "󰨞",
             "4": "",
             "5": "",
             "6": "",

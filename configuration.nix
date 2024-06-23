@@ -120,7 +120,7 @@ in
   users.users.${options.userName} = {
     isNormalUser = true;
     description = "BasilYes";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" ];
     packages = with pkgs; [
       
     ];

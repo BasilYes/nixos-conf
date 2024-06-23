@@ -6,7 +6,7 @@ clients=/tmp/hypr/clients_temp
 hyprctl clients > $clients
 
 
-app_workspace=$(grep -A 5 -i "$2" "$clients" | awk 'NR==6 {print $2}')
+app_workspace=$(grep -B 6 -iP "initialTitle:.*$2" "$clients" | awk 'NR==1 {print $2}')
 
 if [[ -z $app_workspace ]]; then
 	hyprctl dispatch "workspace $1" && hyprctl dispatch "exec [workspace $1] $3"
