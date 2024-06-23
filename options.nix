@@ -10,6 +10,6 @@
 	hyprland = true;
 	gnome = true;
 	kde = false;
-	# gnome or kde
-	desktop = "gnome";
+	# gdm or sddm
+	displayManager = "gdm";
 }

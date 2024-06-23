@@ -10,7 +10,6 @@ in
 {
   imports = [
 		./hardware-configuration.nix
-		./${options.desktop or "gnome"}.nix
 		# ./stylix.nix
 	] 
 	++ lib.optionals (options.nvidia or false) [ ./nvidia.nix ]
@@ -18,9 +17,14 @@ in
 	++ lib.optionals (options.develop or false) [ ./develop.nix ]
 	++ lib.optionals (options.vm or false) [ ./vm.nix ]
 	++ lib.optionals (options.hyprland or false) [ ./hyprland.nix ]
+	++ lib.optionals (options.gnome or false) [ ./gnome.nix ]
+	++ lib.optionals (options.kde or false) [ ./kde.nix ]
 	++ lib.optionals (options.gaming or false) [ ./gaming.nix ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+	
+  services.xserver.displayManager.${options.displayManager or "gdm"}.enable = true;
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
