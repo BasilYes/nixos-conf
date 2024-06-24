@@ -11,7 +11,7 @@
 		# NIXOS_OZONE_WL = "1";
 	};
 
-	xdg.portal.extraPortals	= [ pkgs.xdg-desktop-portal-gtk ];
+	# xdg.portal.extraPortals	= [ pkgs.xdg-desktop-portal-gtk ];
 
 	services.udisks2.enable = true;
 	services.blueman.enable = true;
