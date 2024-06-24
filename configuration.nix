@@ -127,7 +127,7 @@
 
 	xdg.portal.enable	= true;
 
-  security.pam.services.${extraOptions.userName}.enableGnomeKeyring = true;
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
   security.polkit.enable = true;
 
   nixpkgs.config.allowUnfree = true;
