@@ -106,6 +106,7 @@
   services.flatpak.enable = true;
   services.tailscale.enable = true;
   services.atuin.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # users.users.guest = {
   #   description = "Guest";
@@ -125,7 +126,8 @@
 
 	xdg.portal.enable	= true;
 
-  security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services.${extraOptions.userName}.enableGnomeKeyring = true;
+  security.polkit.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -154,6 +156,7 @@
       pinentryPackage = pkgs.pinentry-gnome3;
     };
   };
+  programs.seahorse.enable = true;
 
   environment.systemPackages = with pkgs; [
     (appimage-run.override {
