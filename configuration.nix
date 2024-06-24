@@ -50,8 +50,7 @@
     magicOrExtension = ''\x7fELF....AI\x02'';
   };
 
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.driSupport = true;
+  hardware.graphics.enable = true;
 
   networking.hostName = extraOptions.hostName;
 
