@@ -11,7 +11,7 @@
 		# NIXOS_OZONE_WL = "1";
 	};
 
-	# xdg.portal.extraPortals	= [ pkgs.xdg-desktop-portal-hyprland ];
+	xdg.portal.extraPortals	= [ pkgs.xdg-desktop-portal-gtk ];
 
   environment.systemPackages = with pkgs; [
     gnome.nautilus

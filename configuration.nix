@@ -129,12 +129,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  qt = {
-    enable = true;
-    platformTheme = "kde";
-    style = "breeze";
-  };
-
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     #gnome.zenity

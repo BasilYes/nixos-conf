@@ -1,6 +1,9 @@
 { config, pkgs, extraOptions, ... }:
 
 {
+  imports = [
+    ./theming.nix
+  ];
   home.username = extraOptions.userName;
   home.homeDirectory = "/home/${extraOptions.userName}";
 
@@ -15,16 +18,13 @@
   
   dconf = {
     enable = true;
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 		settings."org/gnome/mutter/keybindings".switch-monitor = "['']";
   };
-	
+
   # services.easyeffects.enable = true;
-    
+  
   # xdg.configFile.nvim.source = ./nvim;
   # xdg.configFile.hypr.source = ./hypr;
-
-  # gtk.cursorTheme.name = "Bibata-Modern-Classic";
 
   programs.home-manager.enable = true;
   programs.bash = {
