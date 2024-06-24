@@ -51,6 +51,8 @@
   };
 
   hardware.graphics.enable = true;
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   networking.hostName = extraOptions.hostName;
 

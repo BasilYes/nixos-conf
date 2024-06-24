@@ -13,6 +13,9 @@
 
 	xdg.portal.extraPortals	= [ pkgs.xdg-desktop-portal-gtk ];
 
+	services.udisks2.enable = true;
+	services.blueman.enable = true;
+
   environment.systemPackages = with pkgs; [
     gnome.nautilus
 		(waybar.overrideAttrs (oldAttrs: {
@@ -29,9 +32,10 @@
 		killall
 		udiskie
 		pavucontrol
+		pulseaudio
+		playerctl
 		hyprpicker
 		networkmanagerapplet
-		blueman
 		brillo
   ];
 }

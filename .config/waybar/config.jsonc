@@ -14,7 +14,7 @@
 
     "modules-left": [ /* "custom/power", "custom/separator",  */"hyprland/workspaces" ],
     "modules-center": [ "clock" ],
-    "modules-right": [ "tray", "custom/separator", "backlight", "battery", "wireplumber" ],
+    "modules-right": [ "tray", "custom/separator", "backlight", "battery", "pulseaudio#input", "pulseaudio#output" ],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -23,21 +23,23 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "󰖟",
-            "3": "󰨞",
-            "4": "",
-            "5": "",
-            "6": "",
-            "7": "",
-            "8": "",
-            "9": "",
-            "10": "",
-            "11": "",
-            "12": "󰘨",
-            "13": "󰙯",
+            "1": "󰲠",
+            "2": "󰲢",
+            "3": "󰲤",
+            "4": "󰲦",
+            "5": "󰲨",
+            "6": "󰲪",
+            "7": "󰲬",
+            "8": "󰲮",
+            "9": "󰲰",
+            "10": "󰿬",
+            "11": "󰖟",
+            "12": "󰨞",
+            "17": "",
+            "18": "󰘨",
+            "19": "󰙯",
             "20": "",
-            // "","","","","","","󰈹",
+            // "","","","","","","󰈹","󰖟","󰨞",
             // "urgent": "",
             // "active": "",
             // "default": ""
@@ -103,24 +105,29 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
 
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}", //{format_source}",
-        "format-bluetooth": "{volume}% {icon} 󰂯", //{format_source}",
-        "format-bluetooth-muted": "󰖁 {icon} 󰂯", //{format_source}",
-        "format-muted": "{volume}% 󰖁",
-        // "format-source": "{volume}% ",
-        // "format-source-muted": "",
+    "pulseaudio#input": {
+        "format-source": " {volume}%",
+        "format-source-muted": " off",
+        "format": "{format_source}",
+        "scroll-step": 1,
+        "smooth-scrolling-threshold": 1,
+        "max-volume": 100,
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-middle": "pavucontrol",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+    },
+    "pulseaudio#output": {
+        "format": "{icon} {volume}%",
+        "format-muted": " off",
         "format-icons": {
-          "headphone": "󰋋",
-          "hands-free": "󱡒",
-          "headset": "󰋎",
-          "phone": "",
-          "portable": "",
-          "car": "",
-          "default": ["", "", ""]
+            "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "max-volume": 100,
+        "scroll-step": 2,
+        "smooth-scrolling-threshold": 1,
+        "on-click": "pavucontrol",
+        "on-click-middle": "pavucontrol",
     },
 
     "wireplumber": {
