@@ -32,7 +32,7 @@
 		killall
 		udiskie
 		pavucontrol
-		pulseaudio
+		pamixer
 		playerctl
 		hyprpicker
 		networkmanagerapplet
