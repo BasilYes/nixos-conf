@@ -9,7 +9,8 @@ nm-applet --indicator &
 blueman-applet &
 
 udiskie &
-
+otd-daemon &
 bash ~/.config/waybar/launch.sh &
+rm -f /tmp/hypr/switch_*_temp &
 
 dunst
