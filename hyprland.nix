@@ -18,6 +18,7 @@
 
 	services.udisks2.enable = true;
 	services.blueman.enable = true;
+	services.gvfs.enable = true;
 
   environment.systemPackages = with pkgs; [
     gnome.nautilus
