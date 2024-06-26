@@ -26,7 +26,7 @@
 				mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
 			})
 		)
-		dunst
+		swaynotificationcenter
 		libnotify
 		kitty
 		rofi-wayland
