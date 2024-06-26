@@ -13,4 +13,9 @@ otd-daemon &
 bash ~/.config/waybar/launch.sh &
 rm -f /tmp/hypr/switch_*_temp &
 
-swaync
+swaync &
+
+hyprctl --batch "dispatch focusmonitor 1; dispatch workspace 12;" &&
+sleep 0.1 &&
+hyprctl dispatch "workspace 1" &&
+hyprctl --batch "dispatch focusmonitor 0; dispatch workspace 11;"
