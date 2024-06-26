@@ -14,7 +14,7 @@
 
     "modules-left": [ /* "custom/power", "custom/separator",  */"hyprland/workspaces" ],
     "modules-center": [ "clock" ],
-    "modules-right": [ "tray", "custom/separator", "backlight", "battery", "pulseaudio#input", "pulseaudio#output", "custom/notification" ],
+    "modules-right": [ "tray", "custom/separator", "hyprland/language", "backlight", "battery", "pulseaudio#input", "pulseaudio#output", "custom/notification" ],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -36,16 +36,25 @@
             "10": "󰿬",
             "11": "󰖟",
             "12": "󰨞",
-            "16": "",
-            "17": "",
-            "18": "󰘨",
+            "16": "󱉣",
+            "17": "",
+            "18": "󰭻",
             "19": "",
-            "20": "",
-            // "","","","","","","󰈹","󰖟","󰨞",
+            "25": "",
+            "30": "",
+            // "","","","","","","󰈹","󰖟","󰨞",
             // "urgent": "",
             // "active": "",
             // "default": ""
          },
+    },
+
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "keyboard-name": "company-usb-device",
+        "on-click": "hyprctl switchxkblayout $(hyprctl devices | grep -i -B 3 'main: yes' | awk 'NR==1 {print $1}') next",
     },
 
     "tray": {
@@ -56,9 +65,11 @@
 
     "clock": {
         "interval": 60,
-        "format": "  {:%a %b %d  %I:%M %p}", // %b %d %Y  --Date formatting
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "  {:%a %b %d  %H:%M}", // %b %d %Y  --Date formatting
+        // "format": "  {:%a %b %d  %I:%M %p}", // %b %d %Y  --Date formatting
+        "on-click": "~/.config/hypr/scripts/locked_app.sh 25 'calendar' 'gnome-calendar'"
+        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        // "format-alt": "{:%Y-%m-%d}"
     },
 
    "temperature": {
@@ -169,14 +180,15 @@
       "min-length": 2,
     //   "format": "{} {icon}",
       "format-icons": {
-        "notification": "<span foreground='red'><sup></sup></span>",
-        "none": "",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": " "
+        //  
+        "notification": "󰂚<span foreground='red'><sup></sup></span>",
+        "none": "󰂚",
+        "dnd-notification": "󰂛<span foreground='red'><sup></sup></span>",
+        "dnd-none": "󰂛",
+        "inhibited-notification": "󰂚<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "󰂚",
+        "dnd-inhibited-notification": "󰂛<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": "󰂛"
       },
       "return-type": "json",
       "exec-if": "which swaync-client",

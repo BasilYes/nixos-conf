@@ -20,6 +20,8 @@
 	services.blueman.enable = true;
 	services.gvfs.enable = true;
 
+	programs.evolution.enable = true;
+
   environment.systemPackages = with pkgs; [
     gnome.nautilus
 		(waybar.overrideAttrs (oldAttrs: {
@@ -42,5 +44,6 @@
 		networkmanagerapplet
 		brillo
 		gnome.gnome-calculator
+		gnome.gnome-calendar
   ];
 }
