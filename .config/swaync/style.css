@@ -1,4 +1,4 @@
-@define-color cc-bg rgba(46, 46, 46, 1.0);
+@define-color cc-bg #242424;
 @define-color noti-border-color #595959;
 @define-color noti-bg rgba(48, 48, 48, 0.8);
 @define-color noti-bg-opaque rgb(48, 48, 48);
@@ -11,7 +11,6 @@
 @define-color text-color rgb(255, 255, 255);
 @define-color text-color-disabled rgb(150, 150, 150);
 @define-color bg-selected rgb(0, 128, 255);
-@define-color bordercolor #595959;
 
 * {
   font-family: "JetBrainsMono Nerd Font";
@@ -272,7 +271,7 @@
   margin: 10px;
   margin-right: 5px;
   border-radius: 10px;
-  border: 3px solid @bordercolor;
+  border: 3px solid @noti-border-color;
 }
 
 .control-center .control-center-list-placeholder {

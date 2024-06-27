@@ -12,14 +12,15 @@
 
 	gtk = {
 		enable = true;
+		# gtk3.extraCss = "@import url(\"file://${pkgs.adw-gtk3}/share/themes/adw-gtk3-dark/gtk-3.0/gtk.css\");";
 		cursorTheme = {
 			package = pkgs.bibata-cursors;
 			name = "Bibata-Modern-Classic";
 		};
-		theme = {
-			package = pkgs.adw-gtk3;
-			name = "adw-gtk3-dark";
-		};
+		# theme = {
+		# 	package = pkgs.adw-gtk3;
+		# 	name = "adw-gtk3-dark";
+		# };
 		iconTheme = {
 			package = pkgs.gnome.adwaita-icon-theme;
 			name = "Adwaita";
@@ -46,7 +47,7 @@
 	home.packages = with pkgs; [
 		gnome.gnome-themes-extra
 	# 	gnome.adwaita-icon-theme
-	# 	adw-gtk3
+	#		adw-gtk3
 	# 	adwaita-qt
 	# 	cinnamon.mint-cursor-themes
 	];

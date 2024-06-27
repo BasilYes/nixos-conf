@@ -13,7 +13,8 @@
 
 	xdg.portal.extraPortals	= [
 		pkgs.xdg-desktop-portal-hyprland
-		# pkgs.xdg-desktop-portal-gtk
+		pkgs.xdg-desktop-portal-gtk
+		# xdg-desktop-portal-gnome
 	];
 
 	services.udisks2.enable = true;

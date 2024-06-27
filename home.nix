@@ -23,6 +23,7 @@
 
   # services.easyeffects.enable = true;
   
+  home.file.".config/xdg-desktop-portal/portals.conf".source = ./.config/xdg-desktop-portal/portals.conf;
   # xdg.configFile.nvim.source = ./nvim;
   # xdg.configFile.hypr.source = ./hypr;
 
