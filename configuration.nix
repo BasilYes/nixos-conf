@@ -129,7 +129,22 @@
     ];
   };
 
-	xdg.portal.enable	= true;
+	xdg.portal = {
+    enable = true;
+		config = {
+      common = {
+        default = [
+          "gtk"
+        ];
+      };
+      hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+      };
+    };
+  };
 
   security.pam.services.gdm-password.enableGnomeKeyring = true;
   security.polkit.enable = true;

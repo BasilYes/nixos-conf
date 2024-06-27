@@ -21,6 +21,12 @@
 		settings."org/gnome/mutter/keybindings".switch-monitor = "['']";
   };
 
+  # xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [
+  #     pkgs.xdg-desktop-portal-gtk # For both
+  #   ];
+  # };
   # services.easyeffects.enable = true;
   
   home.file.".config/xdg-desktop-portal/portals.conf".source = ./.config/xdg-desktop-portal/portals.conf;

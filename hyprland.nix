@@ -11,10 +11,10 @@
 		# NIXOS_OZONE_WL = "1";
 	};
 
-	xdg.portal.extraPortals	= lib.mkForce [
-    pkgs.xdg-desktop-portal-gtk # For both
-    pkgs.xdg-desktop-portal-hyprland # For Hyprland
-    pkgs.xdg-desktop-portal-gnome # For GNOME
+	xdg.portal.extraPortals	= [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal-hyprland
+    # pkgs.xdg-desktop-portal-gnome
   ];
 
 	services.udisks2.enable = true;
