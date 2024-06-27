@@ -149,7 +149,7 @@
         "smooth-scrolling-threshold": 1,
         "max-volume": 100,
         "on-click": "pamixer -t --default-source",
-        "on-click-middle": "pavucontrol",
+        "on-click-middle": "hyprctl dispatch 'exec pavucontrol'",
         "on-scroll-up": "pamixer -i --defaut-source 1",
         "on-scroll-down": "pamixer -d --defaut-source 1",
     },
@@ -162,8 +162,8 @@
         "max-volume": 100,
         "scroll-step": 2,
         "smooth-scrolling-threshold": 1,
-        "on-click": "pavucontrol",
-        "on-click-middle": "pavucontrol",
+        "on-click": "hyprctl dispatch 'exec pavucontrol'",
+        "on-click-middle": "hyprctl dispatch 'exec pavucontrol'",
     },
 
     "wireplumber": {
