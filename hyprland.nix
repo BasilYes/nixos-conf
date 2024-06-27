@@ -1,10 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
 	programs.hyprland = {
 		enable = true;
 		xwayland.enable = true;
-		portalPackage = pkgs.xdg-desktop-portal-gtk;
 	};
 
 	environment.sessionVariables = {
@@ -12,16 +11,17 @@
 		# NIXOS_OZONE_WL = "1";
 	};
 
-	xdg.portal.extraPortals	= [
-		pkgs.xdg-desktop-portal-hyprland
-		# pkgs.xdg-desktop-portal-gtk
-		# pkgs.xdg-desktop-portal-gnome
-	];
+	xdg.portal.extraPortals	= lib.mkForce [
+    pkgs.xdg-desktop-portal-gtk # For both
+    pkgs.xdg-desktop-portal-hyprland # For Hyprland
+    pkgs.xdg-desktop-portal-gnome # For GNOME
+  ];
 
 	services.udisks2.enable = true;
 	services.blueman.enable = true;
 	services.gvfs.enable = true;
 	services.gnome.gnome-online-accounts.enable = true;
+	services.displayManager.defaultSession = "hyprland";
 	programs.evolution.enable = true;
 
   environment.systemPackages = with pkgs; [
