@@ -34,9 +34,10 @@
 		libnotify
 		kitty
 		rofi-wayland
-		grim
 		glib
-		slurp
+		# slurp
+		# grim
+		hyprshot
 		jq
 		wl-clipboard
 		killall
