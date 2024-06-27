@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, extraOptions, ... }:
 
 {
 	programs.hyprland = {
@@ -12,10 +12,10 @@
 	};
 
 	xdg.portal.extraPortals	= [
-    pkgs.xdg-desktop-portal-gtk
     pkgs.xdg-desktop-portal-hyprland
     # pkgs.xdg-desktop-portal-gnome
-  ];
+  ]
+	++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gtk ];
 
 	services.udisks2.enable = true;
 	services.blueman.enable = true;
