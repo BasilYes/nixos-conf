@@ -34,6 +34,7 @@
 		rofi-wayland
 		grim
 		slurp
+		jq
 		wl-clipboard
 		killall
 		udiskie
