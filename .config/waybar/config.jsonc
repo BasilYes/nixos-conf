@@ -150,8 +150,8 @@
         "max-volume": 100,
         "on-click": "pamixer -t --default-source",
         "on-click-middle": "hyprctl dispatch 'exec pavucontrol'",
-        "on-scroll-up": "pamixer -i --defaut-source 1",
-        "on-scroll-down": "pamixer -d --defaut-source 1",
+        "on-scroll-up": "pamixer --default-source -i 1",
+        "on-scroll-down": "pamixer --default-source -d 1",
     },
     "pulseaudio#output": {
         "format": "{icon} {volume}%",
