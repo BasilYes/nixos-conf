@@ -33,6 +33,7 @@
 		kitty
 		rofi-wayland
 		grim
+		glib
 		slurp
 		jq
 		wl-clipboard
@@ -43,8 +44,10 @@
 		playerctl
 		hyprpicker
 		networkmanagerapplet
+		wttrbar
 		brillo
 		gnome.gnome-calculator
+		gnome.gnome-weather
 		gnome.gnome-calendar
   ];
 }
