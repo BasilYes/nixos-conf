@@ -14,13 +14,13 @@
 	xdg.portal.extraPortals	= [
 		pkgs.xdg-desktop-portal-hyprland
 		pkgs.xdg-desktop-portal-gtk
-		# xdg-desktop-portal-gnome
+		# pkgs.xdg-desktop-portal-gnome
 	];
 
 	services.udisks2.enable = true;
 	services.blueman.enable = true;
 	services.gvfs.enable = true;
-
+	services.gnome.gnome-online-accounts.enable = true;
 	programs.evolution.enable = true;
 
   environment.systemPackages = with pkgs; [
