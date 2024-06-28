@@ -38,6 +38,8 @@
     enable = true;
     bashrcExtra = ''
       eval "$(atuin init bash)"
+			eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
+			export SSH_AUTH_SOCK
       export PS1="\n\[\033[1;32m\][\[\e]0;\u@\h: \w\a\]\u@\h:\W]\$\[\033[0m\]"
       '';
     shellAliases = {
