@@ -35,9 +35,10 @@
 		kitty
 		rofi-wayland
 		glib
-		# slurp
-		# grim
-		hyprshot
+		slurp
+		grim
+		swappy
+		# hyprshot
 		jq
 		wl-clipboard
 		killall
