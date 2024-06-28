@@ -72,6 +72,7 @@
           pkgs.git.override { withLibsecret = true; }
         }/bin/git-credential-libsecret";
       init = { defaultBranch = "main"; };
+			commit.gpgsign = true;
     };
   };
   
