@@ -88,8 +88,8 @@
     },
 
     "clock": {
-        "interval": 60,
-        "format": "  {:%a %b %d  %H:%M}", // %b %d %Y  --Date formatting
+        "interval": 1,
+        "format": "  {:%a %b %d  %H:%M:%S}", // %b %d %Y  --Date formatting
         // "format": "  {:%a %b %d  %I:%M %p}", // %b %d %Y  --Date formatting
         "on-click": "~/.config/hypr/scripts/locked_app.sh 35 'calendar' 'gnome-calendar'"
         // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
