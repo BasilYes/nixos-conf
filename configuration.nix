@@ -187,7 +187,6 @@
       ];
     })
     atuin
-    anytype
     audacity
     blender
     cinnamon.warpinator
@@ -214,6 +213,7 @@
     obs-studio
     onlyoffice-bin_latest
     openssh
+    obsidian
     pdfarranger
     screenkey
     telegram-desktop
@@ -227,11 +227,11 @@
   ]
 	++ lib.optionals (extraOptions.optionals or false) [
     aseprite
+    anytype
     pinta
     # blockbench using EOL electron
     libreoffice
     lorien
-    obsidian
     reaper
     zrythm
     zettlr
