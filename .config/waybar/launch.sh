@@ -8,5 +8,5 @@ killall -q .waybar-wraped &
 
 # Launch bar1 and bar2
 waybar &
-# sleep 3 & pkill -SIGUSR1 waybar &
+# sleep 3 && pkill -SIGUSR1 waybar &
 echo "Bars launched..."
