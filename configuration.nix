@@ -52,10 +52,10 @@
 
   hardware.graphics.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.opentabletdriver = {
-    enable = true;
-    daemon.enable = true;
-  };
+  # hardware.opentabletdriver = {
+  #   enable = true;
+  #   daemon.enable = true;
+  # };
   # hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   networking.hostName = extraOptions.hostName;
@@ -82,7 +82,7 @@
 
   services.xserver.enable = true;
 
-  # services.xserver.wacom.enable = true;
+  services.xserver.wacom.enable = true;
   
   services.xserver.xkb = {
     layout = "us";
