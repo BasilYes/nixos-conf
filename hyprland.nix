@@ -32,6 +32,7 @@
 		)
 		swaynotificationcenter
 		libnotify
+		loupe
 		kitty
 		rofi-wayland
 		glib
