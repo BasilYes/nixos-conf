@@ -91,7 +91,7 @@
         "interval": 1,
         "format": "  {:%a %b %d  %H:%M:%S}", // %b %d %Y  --Date formatting
         // "format": "  {:%a %b %d  %I:%M %p}", // %b %d %Y  --Date formatting
-        "on-click": "~/.config/hypr/scripts/locked_app.sh 35 'calendar' 'gnome-calendar'"
+        "on-click": "~/.config/hypr/scripts/workspace.sh 35"
         // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%Y-%m-%d}"
     },
@@ -195,7 +195,7 @@
         "interval": 3600,
         "exec": "wttrbar --location Moscow",
         "return-type": "json",
-        "on-click": "~/.config/hypr/scripts/locked_app.sh 36 'weather' 'gnome-weather'"
+        "on-click": "~/.config/hypr/scripts/workspace.sh 36"
     },
 
     "custom/pacman": {
