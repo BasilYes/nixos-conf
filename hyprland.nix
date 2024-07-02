@@ -22,7 +22,7 @@
 	services.gvfs.enable = true;
 	services.gnome.gnome-online-accounts.enable = true;
 	services.displayManager.defaultSession = "hyprland";
-	programs.evolution.enable = true;
+	services.gnome.evolution-data-server.enable = true;
 
   environment.systemPackages = with pkgs; [
     gnome.nautilus
