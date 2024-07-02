@@ -191,6 +191,7 @@
     blender
     cinnamon.warpinator
     curtail
+		davinci-resolve
 		endeavour
     gcolor3
     gimp
@@ -206,8 +207,8 @@
     # kdePackages.kolourpaint
     # kdePackages.breeze-icons
     # kdePackages.kdenlive
+    # libsForQt5.kdenlive
     libsForQt5.breeze-icons
-    libsForQt5.kdenlive
     libsForQt5.kolourpaint
     mellowplayer
     obs-studio
