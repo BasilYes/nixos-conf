@@ -3,12 +3,31 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
+let
+  cml-ucm-conf = pkgs.alsa-ucm-conf.overrideAttrs {
+		wttsrc = pkgs.fetchFromGitHub {
+			owner = "codepayne";
+			repo = "alsa-ucm-conf";
+			rev = "master";
+			hash = "sha256-yaaE3JpJ8Da/iEI17McLvvJ4ATqFjVJc57nfPb45eUY=";
+		};
+		postInstall = ''
+			cp -R $wttsrc/ucm2/* $out/share/alsa/ucm2
+			cp -R $wttsrc/ucm/* $out/share/alsa/ucm
+		'';
+  };
+in
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "uas" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+		"nvme"
+		"xhci_pci"
+		"uas"
+		"sd_mod"
+	];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
 		"kvm-amd"
@@ -24,6 +43,7 @@
     "SND_SOC_AMD_ACP3x_ES8336_MACH=1"
     "SND_SOC_ACPI=1"
     "SND_SOC_ES8316=1"
+		"CONFIG_SND_SOC_AMD_LEGACY_MACH=1"
   ];
 	boot.blacklistedKernelModules = [
 		"snd_acp3x_rn"
@@ -31,6 +51,19 @@
 		"snd_rn_pci_acp3x"
 	];
   boot.extraModulePackages = [ ];
+	boot.kernelPatches = [
+		{
+			name = "fix-sound";
+			patch = ./0001-ASoC-codecs-es8316-Fix-HW-rate-calculation-for-48Mhz.patch;
+		}
+	];
+
+  environment = {
+		systemPackages = with pkgs; [
+      alsa-ucm-conf
+    ];
+    sessionVariables.ALSA_CONFIG_UCM2 = "${cml-ucm-conf}/share/alsa/ucm2";
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/00350e3c-6e2c-44c7-8b4d-e3ff00f2631c";
