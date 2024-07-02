@@ -36,6 +36,7 @@
 		kitty
 		rofi-wayland
 		glib
+		gnome-online-accounts-gtk
 		slurp
 		grim
 		swappy
