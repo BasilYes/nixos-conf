@@ -2,7 +2,7 @@
 
 hyprctl --batch "
 	dispatch exec [group set always] telegram-desktop;
-	dispatch exec [group set always] evolution;
+	dispatch exec [group set always] thunderbird;
 "
 sleep 2.0
 hyprctl --batch "

@@ -218,6 +218,7 @@
     pdfarranger
     screenkey
     telegram-desktop
+		thunderbird
     qjackctl
     qbittorrent
     trayscale
