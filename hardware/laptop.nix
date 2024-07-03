@@ -62,7 +62,10 @@ in
 		systemPackages = with pkgs; [
       alsa-ucm-conf
     ];
-    sessionVariables.ALSA_CONFIG_UCM2 = "${cml-ucm-conf}/share/alsa/ucm2";
+    sessionVariables = {
+			ALSA_CONFIG_UCM = "${cml-ucm-conf}/share/alsa/ucm";
+			ALSA_CONFIG_UCM2 = "${cml-ucm-conf}/share/alsa/ucm2";
+		};
   };
 
   fileSystems."/" =
