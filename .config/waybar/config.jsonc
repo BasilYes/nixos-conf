@@ -156,7 +156,7 @@
     },
     "pulseaudio#output": {
         "format": "{icon} {volume}%",
-        "format-muted": " off",
+        "format-muted": "󰖁 off",
         "format-icons": {
             "default": ["", "", ""]
         },
