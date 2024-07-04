@@ -27,6 +27,7 @@ in
 		"xhci_pci"
 		"uas"
 		"sd_mod"
+		"amdgpu"
 	];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
@@ -57,6 +58,9 @@ in
 			patch = ./0001-ASoC-codecs-es8316-Fix-HW-rate-calculation-for-48Mhz.patch;
 		}
 	];
+
+	services.xserver.enable = true;
+	services.xserver.videoDrivers = [ "amdgpu" ];
 
   environment = {
 		systemPackages = with pkgs; [
