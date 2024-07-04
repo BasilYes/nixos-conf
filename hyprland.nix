@@ -50,6 +50,8 @@
 		# screenshot stuff
 		hyprshot
 		satty
+		# grim
+		# flameshot
 		# screenshot end
 		jq # JSON parser
 		wl-clipboard
