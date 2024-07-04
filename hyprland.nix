@@ -45,22 +45,22 @@
 		loupe
 		kitty
 		rofi-wayland
-		glib
+		glib # for gnome.calendar .desktop file
 		gnome-online-accounts-gtk
-		slurp
-		grim
-		swappy
-		# hyprshot
-		jq
+		# screenshot stuff
+		hyprshot
+		satty
+		# screenshot end
+		jq # JSON parser
 		wl-clipboard
 		killall
-		udiskie
-		pavucontrol
-		pamixer
-		playerctl
-		hyprpicker
-		networkmanagerapplet
-		wttrbar
+		udiskie # automaunt usb 
+		pavucontrol # sound control gui
+		pamixer # sound control CLI
+		playerctl # media control CLI
+		hyprpicker # color picker
+		networkmanagerapplet # Network control GUI
+		wttrbar # waybar weather applet
 		brillo
 		gnome.gnome-calculator
 		gnome.gnome-weather
