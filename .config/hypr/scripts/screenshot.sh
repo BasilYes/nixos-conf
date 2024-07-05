@@ -22,7 +22,7 @@ elif [[ $1 == ri ]]; then
     mkdir -p $HOME/Pictures/Screenshots
 		filename=$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 		hyprshot -m region --freeze --clipboard-only --raw |
-		satty --filename - --output-filename $filename --initial-tool crop --copy-command wl-copy --early-exit --save-after-copy
+		satty --filename - --output-filename $filename --initial-tool crop --copy-command wl-copy --fullscreen --early-exit --save-after-copy
 		# filename=$(hyprshot -m region -o $dirname -f $filename -- echo)
 		# satty --filename $filename --fullscreen --output-filename $filename --copy-command wl-copy --early-exit --save-after-copy
 
@@ -36,7 +36,7 @@ elif [[ $1 == si ]]; then
     mkdir -p $HOME/Pictures/Screenshots
 		filename=$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 		hyprshot -m output -m active --freeze --clipboard-only --raw |
-		satty --filename - --output-filename $filename --initial-tool crop --copy-command wl-copy --early-exit --save-after-copy
+		satty --filename - --output-filename $filename --initial-tool crop --copy-command wl-copy --fullscreen --early-exit --save-after-copy
 
 elif [[ $1 == w ]]; then
     mkdir -p $HOME/Pictures/Screenshots
@@ -48,7 +48,7 @@ elif [[ $1 == wi ]]; then
     mkdir -p $HOME/Pictures/Screenshots
 		filename=$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 		hyprshot -m window -m active --freeze --clipboard-only --raw |
-		satty --filename - --output-filename $filename --initial-tool crop --copy-command wl-copy --early-exit --save-after-copy
+		satty --filename - --output-filename $filename --initial-tool crop --copy-command wl-copy --fullscreen --early-exit --save-after-copy
 
 elif [[ $1 == p ]]; then
     color=$(hyprpicker -a)
