@@ -48,6 +48,8 @@
 		glib # for gnome.calendar .desktop file
 		gnome-online-accounts-gtk
 		# screenshot stuff
+		wf-recorder
+		slurp
 		hyprshot
 		satty
 		# grim
