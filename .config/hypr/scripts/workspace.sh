@@ -12,11 +12,11 @@ fi
 
 
 activemonitor=$(grep -B 11 "focused: yes" "$monitors" | awk 'NR==1 {print $2}')
-passivemonitor=$(grep  -B 6 "($workspace)" "$monitors" | awk 'NR==1 {print $2}')
+passivemonitor=$(grep  -B 6 "active workspace: $workspace" "$monitors" | awk 'NR==1 {print $2}')
 #activews=$(grep -A 2 "$activemonitor" "$monitors" | awk 'NR==3 {print $1}' RS='(' FS=')')
-passivews=$(grep -A 6 "$passivemonitor" "$monitors" | awk 'NR==3 {print $1}' RS='(' FS=')')
+passivews=$(grep -A 6 "$passivemonitor" "$monitors" | awk 'NR==7 {print $3}')
 
-if [[ $workspace -eq $passivews ]] && [[ $activemonitor != "$passivemonitor" ]]; then
+if [[ $workspace -eq $passivews ]] && [[ "$activemonitor" != "$passivemonitor" ]]; then
   hyprctl dispatch swapactiveworkspaces "$activemonitor" "$passivemonitor"
   echo $activemonitor $passivemonitor
 else
