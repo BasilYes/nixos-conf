@@ -77,7 +77,7 @@
         "format": "{}",
         "format-en": "EN",
         "format-ru": "RU",
-        "keyboard-name": "company-usb-device",
+        "keyboard-name": "company-usb-device-keyboard",
         "on-click": "hyprctl switchxkblayout $(hyprctl devices | grep -i -B 3 'main: yes' | awk 'NR==1 {print $1}') next",
     },
 
