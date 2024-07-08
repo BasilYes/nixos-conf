@@ -210,6 +210,7 @@
     # libsForQt5.kdenlive
     libsForQt5.breeze-icons
     libsForQt5.kolourpaint
+		linux-wifi-hotspot
     mellowplayer
     obs-studio
     onlyoffice-bin_latest
