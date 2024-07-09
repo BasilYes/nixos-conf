@@ -29,6 +29,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/mnt/Shindows" =
+    { device = "/dev/disk/by-uuid/42BAA625BAA61607";
+      fsType = "ntfs";
+    };
+
   fileSystems."/mnt/disk_F" =
     { device = "/dev/disk/by-uuid/230B2C8C05A53430";
       fsType = "ntfs";
