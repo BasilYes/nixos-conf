@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 
 {
@@ -48,7 +48,7 @@
 		gnome.gnome-themes-extra
 	# 	gnome.adwaita-icon-theme
 	#		adw-gtk3
-	# 	adwaita-qt
+	#		adwaita-qt
 	# 	cinnamon.mint-cursor-themes
 	];
 }
