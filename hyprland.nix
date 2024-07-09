@@ -56,6 +56,7 @@
 		slurp
 		hyprshot
 		satty
+		gnome-text-editor
 		# grim
 		# flameshot
 		# screenshot end
