@@ -11,6 +11,7 @@
     gcc
     pkg-config
     python3
+		p4v
 		# podman
 	  # emscripten
     lazygit

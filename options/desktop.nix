@@ -9,7 +9,7 @@
 	optionals = true;
 	vm = true;
 	hyprland = true;
-	gnome = false;
+	gnome = true;
 	kde = false;
 	# gdm or sddm
 	displayManager = "gdm";

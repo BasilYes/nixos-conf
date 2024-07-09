@@ -11,13 +11,18 @@
 		# NIXOS_OZONE_WL = "1";
 		${if (extraOptions.forceWayland or false) then "NIXOS_OZONE_WL" else null} = "1";
 	};
-	# ++ lib.attrsets.optionalAttrs (extraOptions.forceWayland or false) {  NIXOS_OZONE_WL = "1"; };
 
-	xdg.portal.extraPortals	= [
-    pkgs.xdg-desktop-portal-hyprland
-  #   pkgs.xdg-desktop-portal-gnome
+  xdg.portal.extraPortals = lib.mkForce ( [
+    pkgs.xdg-desktop-portal-gtk # For both
+    pkgs.xdg-desktop-portal-hyprland # For Hyprland
   ]
-	++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gtk ];
+	++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ] ); # For GNOME 
+
+	# xdg.portal.extraPortals	= [
+  #   pkgs.xdg-desktop-portal-hyprland
+  #   pkgs.xdg-desktop-portal-gnome
+  # ]
+	# ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gtk ];
 
 	services.udisks2.enable = true;
 	services.blueman.enable = true;
