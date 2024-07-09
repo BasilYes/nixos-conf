@@ -15,7 +15,7 @@
 
 	xdg.portal.extraPortals	= [
     pkgs.xdg-desktop-portal-hyprland
-    # pkgs.xdg-desktop-portal-gnome
+  #   pkgs.xdg-desktop-portal-gnome
   ]
 	++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gtk ];
 
@@ -45,9 +45,8 @@
 		loupe
 		kitty
 		rofi-wayland
-		glib # for gnome.calendar .desktop file
-		gnome-online-accounts-gtk
 		# screenshot stuff
+		ffmpeg
 		wf-recorder
 		slurp
 		hyprshot
@@ -66,8 +65,11 @@
 		networkmanagerapplet # Network control GUI
 		wttrbar # waybar weather applet
 		brillo
+		glib # for gnome.calendar .desktop file
 		gnome.gnome-calculator
 		gnome.gnome-weather
 		gnome.gnome-calendar
+		gnome-online-accounts-gtk
+		gnome.zenity
   ];
 }
