@@ -25,6 +25,7 @@ configuration {
 
 * {
     border-colour:               var(bordercolor);
+		active-border-colour:        var(activebordercolor);
     handle-colour:               var(selected);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
@@ -178,6 +179,7 @@ element selected.normal {
     background-color:            var(alternate-background);
     border:                      3px solid;
     border-radius:               10px;
+    border-color:                @active-border-colour;
     text-color:                  var(foreground-colour);
 }
 element selected.urgent {
