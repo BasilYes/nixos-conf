@@ -188,6 +188,7 @@
     })
     atuin
     audacity
+    anytype
     blender
     cinnamon.warpinator
     curtail
@@ -230,7 +231,6 @@
   ]
 	++ lib.optionals (extraOptions.optionals or false) [
     aseprite
-    anytype
     pinta
     # blockbench using EOL electron
     libreoffice
