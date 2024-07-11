@@ -11,11 +11,9 @@
     gcc
     pkg-config
     python3
-		p4v
 		# podman
 	  # emscripten
     lazygit
-    nodePackages.nodejs
     #kdePackages.full
     #kdePackages.qtbase
     #qtcreator
@@ -23,7 +21,9 @@
     vscode
   ]
 	++ lib.optionals (extraOptions.optionals or false) [
+    nodePackages.nodejs
 		unityhub
+		p4v
 	];
 
   programs.npm.enable = true;
