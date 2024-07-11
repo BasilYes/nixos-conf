@@ -14,7 +14,7 @@
 
     "modules-left": [ /* "custom/power", "custom/separator",  */"hyprland/workspaces" ],
     "modules-center": [ "clock", "custom/weather" ],
-    "modules-right": [ "tray", "custom/separator", "hyprland/language", "backlight", "battery", "pulseaudio#input", "pulseaudio#output", "custom/notification" ],
+    "modules-right": [ "tray", "custom/separator", "hyprland/language", "cpu", "temperature", "backlight", "battery", "pulseaudio#input", "pulseaudio#output", "custom/notification" ],
 
     // Modules configuration
     "hyprland/workspaces": {
@@ -104,7 +104,7 @@
         "interval": 2,
         "format": "{temperatureC}°C ",
         "format-icons": ["", "", ""],
-        "on-click": "hyprctl dispatcher togglespecialworkspace monitor",
+        // "on-click": "hyprctl dispatcher togglespecialworkspace monitor",
     },
 
     "cpu": {
