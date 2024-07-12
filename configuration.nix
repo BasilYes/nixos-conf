@@ -201,6 +201,7 @@
     imagemagick
     keepassxc
     krita
+    pinta
     # kdePackages.kolourpaint
     # kdePackages.breeze-icons
     # kdePackages.kdenlive
@@ -229,7 +230,6 @@
     gimp
 		davinci-resolve
     aseprite
-    pinta
     # blockbench using EOL electron
     libreoffice
     lorien
