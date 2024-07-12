@@ -17,9 +17,10 @@
     "modules-right": [
 			"tray",
 			"custom/separator",
-			"hyprland/language",
 			"custom/temperature",
 			"cpu",
+			"memory",
+			// "hyprland/language",
 			"backlight",
 			"battery",
 			"pulseaudio#input",
@@ -121,15 +122,16 @@
 
     "cpu": {
       "min-length": 6,
-			"interval": 5,
+			"interval": 2,
 			"format": " {usage}%",
 			"tooltip": false,
 			"on-click": "hyprctl dispatcher togglespecialworkspace monitor",
     },
 
     "memory": {
-        "interval": 2,
-        "format": "{}% "
+			"interval": 2,
+      "min-length": 6,
+			"format": " {}%"
     },
 
    "disk": {
@@ -192,9 +194,9 @@
     },
 
 		"custom/temperature": {
-			"format":"{}°C",
-      "interval": 5,
-      "min-length": 5,
+			"format":"  {}°",
+      "interval": 2,
+      "min-length": 6,
 			"exec": "~/.config/hypr/scripts/temperature.sh",
 		},
 
