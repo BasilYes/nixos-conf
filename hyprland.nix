@@ -57,6 +57,7 @@
 		hyprshot
 		satty
 		gnome-text-editor
+		lm_sensors # for sensor (max temp waybar widget)
 		# grim
 		# flameshot
 		# screenshot end

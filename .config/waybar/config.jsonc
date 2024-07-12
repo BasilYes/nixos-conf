@@ -18,7 +18,7 @@
 			"tray",
 			"custom/separator",
 			"hyprland/language",
-			"temperature",
+			"custom/temperature",
 			"cpu",
 			"backlight",
 			"battery",
@@ -190,6 +190,13 @@
       // "format-bluetooth-muted": "󰖁 {icon} 󰂯", //{format_source}",
       "format-icons": ["", "", ""]
     },
+
+		"custom/temperature": {
+			"format":"{}°C",
+      "interval": 5,
+      "min-length": 5,
+			"exec": "~/.config/hypr/scripts/temperature.sh",
+		},
 
     "custom/power": {
       "format": "{icon}",
