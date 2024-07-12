@@ -63,6 +63,7 @@
 		jq # JSON parser
 		wl-clipboard
 		killall
+		mission-center
 		udiskie # automaunt usb 
 		pavucontrol # sound control gui
 		pamixer # sound control CLI

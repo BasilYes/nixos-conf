@@ -14,6 +14,7 @@
 		# podman
 	  # emscripten
     lazygit
+		zed-editor
     #kdePackages.full
     #kdePackages.qtbase
     #qtcreator
