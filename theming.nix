@@ -26,7 +26,9 @@
       text = lib.generators.toINI { } {
         Appearance = {
           icon_theme = "breeze-dark";
-					style = "Breeze";
+					style = "Adwaita-Dark";
+          # icon_theme = "HighContrast";
+					# style = "Breeze";
         };
       };
     };
@@ -35,7 +37,9 @@
       text = lib.generators.toINI { } {
         Appearance = {
           icon_theme = "breeze-dark";
-					style = "Breeze";
+					style = "Adwaita-Dark";
+          # icon_theme = "HighContrast";
+					# style = "Breeze";
         };
       };
     };
@@ -79,12 +83,13 @@
 	home.packages = with pkgs; [
 		gnome.gnome-themes-extra
 		# kdePackages.breeze
-		# kdePackages.breeze-icons
-		libsForQt5.breeze-qt5
-		libsForQt5.breeze-icons
+		kdePackages.breeze-icons
+		# libsForQt5.breeze-qt5
+		# libsForQt5.breeze-icons
+		adwaita-qt
+		adwaita-qt6
 	# 	gnome.adwaita-icon-theme
 	#		adw-gtk3
-	#		adwaita-qt
 	# 	cinnamon.mint-cursor-themes
 	];
 }
