@@ -29,7 +29,7 @@
   environment.systemPackages = with pkgs; [
     gnome-extension-manager
     gnome.nautilus
-    gnome.gnome-themes-extra
+    # gnome.gnome-themes-extra
     gnome3.gnome-tweaks
   ];
   

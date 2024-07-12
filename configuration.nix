@@ -122,7 +122,7 @@
 
   users.users.${extraOptions.userName} = {
     isNormalUser = true;
-    description = "BasilYes";
+    description = "${extraOptions.userName}";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" ];
     packages = with pkgs; [
       
@@ -179,23 +179,19 @@
   programs.seahorse.enable = true;
 
   environment.systemPackages = with pkgs; [
-    (appimage-run.override {
-      extraPkgs = pkgs: [
-        libsecret
-        xorg.libxkbfile
-        ffmpeg
-      ];
-    })
+    # (appimage-run.override {
+    #   extraPkgs = pkgs: [
+    #     libsecret
+    #     xorg.libxkbfile
+    #     ffmpeg
+    #   ];
+    # })
     atuin
     audacity
     anytype
     blender
     cinnamon.warpinator
     curtail
-		davinci-resolve
-		endeavour
-    gcolor3
-    gimp
     git
     graphicsmagick
     hunspell
@@ -209,16 +205,15 @@
     # kdePackages.breeze-icons
     # kdePackages.kdenlive
     # libsForQt5.kdenlive
-    libsForQt5.breeze-icons
-    libsForQt5.kolourpaint
+    # libsForQt5.breeze-icons
+    # libsForQt5.kolourpaint
 		linux-wifi-hotspot
     mellowplayer
     obs-studio
     onlyoffice-bin_latest
     openssh
-    obsidian
     pdfarranger
-    screenkey
+    # screenkey
     telegram-desktop
 		thunderbird
     qjackctl
@@ -230,6 +225,9 @@
     zip
   ]
 	++ lib.optionals (extraOptions.optionals or false) [
+    obsidian
+    gimp
+		davinci-resolve
     aseprite
     pinta
     # blockbench using EOL electron

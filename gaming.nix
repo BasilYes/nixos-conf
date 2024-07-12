@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, extraOptions, ... }:
 
 {
   programs.steam = {
@@ -10,13 +10,11 @@
   hardware.graphics.enable = true;
 
   environment.systemPackages = with pkgs; [
-    ppsspp
     protonup-qt
     gamemode
     mangohud
     wineWowPackages.stable
     winetricks
-    #itch
     (lutris.override {
       extraPkgs = pkgs: [
         wineWowPackages.stable
@@ -35,5 +33,9 @@
         # List library dependencies here
       ];
     })
-  ];
+	]
+	++ lib.optionals (extraOptions.optionals or false) [
+    itch
+    # ppsspp
+	];
 }

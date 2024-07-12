@@ -40,31 +40,31 @@
 	];
 
   environment.systemPackages = with pkgs; [
-    gnome.nautilus
 		(waybar.overrideAttrs (oldAttrs: {
 				mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
 			})
 		)
 		swaynotificationcenter
 		libnotify
-		loupe
-		kitty
-		rofi-wayland
-		# screenshot stuff
+		loupe # image viewer
+		kitty # termonal
+		rofi-wayland # app select panel
+		# screenshot and screencast stuff
 		ffmpeg
 		wf-recorder
 		slurp
 		hyprshot
 		satty
-		gnome-text-editor
+		gnome-text-editor # text editor
 		lm_sensors # for sensor (max temp waybar widget)
 		# grim
 		# flameshot
 		# screenshot end
 		jq # JSON parser
-		wl-clipboard
-		killall
-		mission-center
+		wl-clipboard # copy-paste
+		killall # kill all by name
+		mission-center # system monitor
+		# resources # system monitor
 		udiskie # automaunt usb 
 		pavucontrol # sound control gui
 		pamixer # sound control CLI
@@ -72,12 +72,12 @@
 		hyprpicker # color picker
 		networkmanagerapplet # Network control GUI
 		wttrbar # waybar weather applet
-		brillo
+		brillo # brightness control
 		glib # for gnome.calendar .desktop file
 		gnome.gnome-calculator
 		gnome.gnome-weather
 		gnome.gnome-calendar
+		gnome.nautilus
 		gnome-online-accounts-gtk
-		gnome.zenity
   ];
 }
