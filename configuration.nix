@@ -131,19 +131,19 @@
 
 	xdg.portal = {
     enable = true;
-		config = {
-      common = {
-        default = [
-          "gtk"
-        ];
-      };
-      hyprland = {
-        default = [
-          "hyprland"
-          "gtk"
-        ];
-      };
-    };
+		# config = {
+    #   common = {
+    #     default = [
+    #       "gtk"
+    #     ];
+    #   };
+    #   hyprland = {
+    #     default = [
+    #       "hyprland"
+    #       "gtk"
+    #     ];
+    #   };
+    # };
   };
 
   security.pam.services.gdm-password.enableGnomeKeyring = true;
