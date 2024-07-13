@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-	  nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+	  nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
 	  # stylix = {
     #   url = "github:bluskript/stylix";
