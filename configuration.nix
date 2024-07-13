@@ -279,5 +279,5 @@
     allowedUDPPorts = [ 42000 42001 ];
   };
  
-  system.stateVersion = "23.11";
+  system.stateVersion = extraOptions.nixVersion;
 }

@@ -57,8 +57,8 @@
   };
   programs.git = {
     enable = true;
-    userName = "BasilYes";
-    userEmail = "basilyes@gmail.com";
+    userName = extraOptions.name;
+    userEmail = extraOptions.email;
     aliases = {
       la = "!git config -l | grep alias | cut -c 7-";
       cm = "commit -m";
@@ -79,5 +79,5 @@
     };
   };
   
-  home.stateVersion = "23.11";
+  home.stateVersion = extraOptions.nixVersion;
 }
