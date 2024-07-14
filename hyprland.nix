@@ -16,7 +16,7 @@
     pkgs.xdg-desktop-portal-gtk # For both
     pkgs.xdg-desktop-portal-hyprland # For Hyprland
 		pkgs.xdg-desktop-portal-gnome # For gnome and gnome file picker
-  ];
+  ] );
 	# ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ] ); # For GNOME 
 
 	# xdg.portal.extraPortals	= [
