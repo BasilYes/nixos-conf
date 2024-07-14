@@ -57,7 +57,7 @@
 		# 	name = "adw-gtk3-dark";
 		# };
 		iconTheme = {
-			package = pkgs.gnome.adwaita-icon-theme;
+			package = pkgs.adwaita-icon-theme;
 			name = "Adwaita";
 		};
 		gtk3.extraConfig = {
@@ -81,14 +81,14 @@
   };
 	
 	home.packages = with pkgs; [
-		gnome.gnome-themes-extra
+		gnome-themes-extra
 		# kdePackages.breeze
 		kdePackages.breeze-icons
 		# libsForQt5.breeze-qt5
 		# libsForQt5.breeze-icons
 		adwaita-qt
 		adwaita-qt6
-	# 	gnome.adwaita-icon-theme
+	# 	adwaita-icon-theme
 	#		adw-gtk3
 	# 	cinnamon.mint-cursor-themes
 	];

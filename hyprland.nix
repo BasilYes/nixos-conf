@@ -75,10 +75,10 @@
 		wttrbar # waybar weather applet
 		brillo # brightness control
 		glib # for gnome.calendar .desktop file
-		gnome.gnome-calculator
+		gnome-calculator
 		gnome.gnome-weather
-		gnome.gnome-calendar
-		gnome.nautilus
+		gnome-calendar
+		nautilus
 		gnome-online-accounts-gtk
   ];
 }
