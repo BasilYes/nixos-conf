@@ -154,7 +154,6 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    #gnome.zenity
     vulkan-loader
     libGL
     xorg.libX11
@@ -230,13 +229,13 @@
     obsidian
     gimp
 		davinci-resolve
-    aseprite
+    # aseprite
     # blockbench using EOL electron
     libreoffice
     lorien
     reaper
-    zrythm
-    zettlr
+    # zrythm
+    # zettlr
 	];
 
   nixpkgs.overlays = [
