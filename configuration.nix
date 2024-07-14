@@ -142,6 +142,7 @@
     #       "hyprland"
     #       "gtk"
     #     ];
+		# 		"org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
     #   };
     # };
   };
