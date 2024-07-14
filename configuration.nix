@@ -239,8 +239,19 @@
 	];
 
   nixpkgs.overlays = [
+    (self: super: {
+			telegram-desktop = pkgs.symlinkJoin {
+        name = "telegram-desktop";
+        paths = [ super.telegram-desktop ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/telegram-desktop \
+            --set QT_QPA_PLATFORMTHEME flatpak
+        '';
+      };
+    })
     # (self: super: {
-    #     obs-studio = pkgs.symlinkJoin {
+	  # 	obs-studio = pkgs.symlinkJoin {
     #     name = "obs-studio";
     #     paths = [ super.obs-studio ];
     #     buildInputs = [ pkgs.makeWrapper ];
