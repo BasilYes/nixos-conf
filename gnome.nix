@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, extraOptions, ... }:
 
 {
   services.xserver.desktopManager.gnome.enable = true;
-  users.users.basilyes = {
+  users.users.${extraOptions.userName} = {
     packages = with pkgs; [
       gnomeExtensions.weather-or-not
       gnomeExtensions.vitals
