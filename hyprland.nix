@@ -9,7 +9,7 @@
 	environment.sessionVariables = {
 		# Hint electron apps to use wayland
 		# NIXOS_OZONE_WL = "1";
-		${if (extraOptions.forceWayland or false) then "NIXOS_OZONE_WL" else null} = "1";
+		# ${if (extraOptions.forceWayland or false) then "NIXOS_OZONE_WL" else null} = "1";
 	};
 
   xdg.portal.extraPortals = lib.mkForce ( [
@@ -18,6 +18,14 @@
 	# 	pkgs.xdg-desktop-portal-gnome # For gnome and gnome file picker
   # ] );
 	] ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ] ); # For GNOME 
+
+	# environment.${if (extraOptions.nvidia or false) then "variables" else null} = {
+	# 	LIBVA_DRIVER_NAME = "nvidia";
+	# 	XDG_SESSION_TYPE = "wayland";
+	# 	GBM_BACKEND = "nvidia-drm";
+	# 	__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+	# 	NVD_BACKEND = "direct";
+	# };
 
 	# xdg.portal.extraPortals	= [
   #   pkgs.xdg-desktop-portal-hyprland

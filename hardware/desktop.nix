@@ -13,6 +13,7 @@
   boot.kernelModules = [ "kvm-intel" "v4l2loopback" ];
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+	boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/4ad2cd37-e6f2-4113-89ef-9e1df06f44b2";
