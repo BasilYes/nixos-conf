@@ -10,8 +10,11 @@
     scons
     gcc
     pkg-config
-    python3
 		wayland-scanner
+    (python3.withPackages (ps: [
+			ps.pyqt6
+		]))
+		kdePackages.qtwayland
 		# podman
 	  # emscripten
     lazygit
