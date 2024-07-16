@@ -18,13 +18,13 @@
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
-  ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
-    gnome-music
     epiphany # web browser
     geary # email reader
-    gnome-characters
     totem # video player
+  ]) ++ (with pkgs.gnome; [
+    gnome-music
+    gnome-characters
   ]);
   environment.systemPackages = with pkgs; [
     gnome-extension-manager
