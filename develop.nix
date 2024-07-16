@@ -11,6 +11,7 @@
     gcc
     pkg-config
     python3
+		wayland-scanner
 		# podman
 	  # emscripten
     lazygit
