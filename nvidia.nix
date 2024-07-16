@@ -43,6 +43,7 @@
   };
   
   environment.systemPackages = with pkgs; [
+		nvidia-vaapi-driver
     nvidia-system-monitor-qt
     cudatoolkit
   ];
