@@ -11,9 +11,10 @@
     gcc
     pkg-config
 		wayland-scanner
-    (python3.withPackages (ps: [
-			ps.pyqt6
-		]))
+		python3
+    # (python3.withPackages (ps: [
+		# 	ps.pyqt6
+		# ]))
 		kdePackages.qtwayland
 		# podman
 	  # emscripten
