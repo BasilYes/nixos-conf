@@ -4,33 +4,34 @@
   environment.systemPackages = with pkgs; [
     binaryen
     cmake
-		docker
+    docker
     gdb
     gnumake
     scons
     gcc
     pkg-config
-		wayland-scanner
-		python3
+    wayland-scanner
+    # python3
     # (python3.withPackages (ps: [
-		# 	ps.pyqt6
-		# ]))
-		kdePackages.qtwayland
-		# podman
-	  # emscripten
+    #   ps.pyqt6
+    # ]))
+    # podman
+    # emscripten
     lazygit
-		zed-editor
-    #kdePackages.full
+    zed-editor
+    # kdePackages.full
     #kdePackages.qtbase
     #qtcreator
+    #kdePackages.qttools
+    # kdePackages.qtwayland
     jdk17
     vscode
   ]
-	++ lib.optionals (extraOptions.optionals or false) [
+  ++ lib.optionals (extraOptions.optionals or false) [
     nodePackages.nodejs
-		unityhub
-		p4v
-	];
+    unityhub
+    p4v
+  ];
 
   programs.npm.enable = true;
 
