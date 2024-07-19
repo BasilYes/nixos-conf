@@ -8,7 +8,7 @@
   imports = [
     ./hardware/${extraOptions.hardwareFile}
 		# ./stylix.nix
-	] 
+	]
 	++ lib.optionals (extraOptions.nvidia or false) [ ./nvidia.nix ]
 	++ lib.optionals (extraOptions.android or false) [ ./android.nix ]
 	++ lib.optionals (extraOptions.develop or false) [ ./develop.nix ]
@@ -20,7 +20,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-	
+
   services.xserver.displayManager.${extraOptions.displayManager or "gdm"}.enable = true;
 
   # Bootloader.
@@ -38,9 +38,9 @@
        useOSProber = true;
     };
   };
-  
+
   boot.supportedFilesystems = [ "ntfs" ];
-  
+
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
@@ -83,7 +83,7 @@
   services.xserver.enable = true;
 
   services.xserver.wacom.enable = true;
-  
+
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -93,7 +93,7 @@
     enable = true;
     drivers = [ pkgs.hplipWithPlugin ];
   };
-  
+
   zramSwap.enable = true;
 
   sound.enable = true;
@@ -106,7 +106,7 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  
+
   services.libinput.enable = true;
   services.flatpak.enable = true;
   services.tailscale.enable = true;
@@ -125,7 +125,7 @@
     description = "${extraOptions.userName}";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" ];
     packages = with pkgs; [
-      
+
     ];
   };
 
@@ -152,21 +152,31 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    vulkan-loader
-    libGL
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXinerama
-    xorg.libXext
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXi
-    xorg.libXfixes
-    libxkbcommon
-    alsa-lib
-  ];
+  # programs.nix-ld.enable = true;
+  # programs.nix-ld.libraries = with pkgs; [
+  #   vulkan-loader
+	# 	# glib
+  #   libGL
+  #   xorg.libX11
+  #   xorg.libXcursor
+  #   xorg.libXinerama
+  #   xorg.libXext
+  #   xorg.libXrandr
+  #   xorg.libXrender
+  #   xorg.libXi
+  #   xorg.libXfixes
+	# 	# stdenv.cc.cc.lib
+	# 	# fontconfig
+	# 	# freetype
+	# 	# dbus
+  #   libxkbcommon
+  #   alsa-lib
+  # ];
+
+	programs.kdeconnect = {
+		enable = true;
+		package = pkgs.valent;
+	}
 
   programs.bash.blesh.enable = true;
   programs.dconf.enable = true;
@@ -284,11 +294,11 @@
       ];
     })
 	];
-  
+
   networking.firewall = {
     allowedTCPPorts = [ 42000 42001 ];
     allowedUDPPorts = [ 42000 42001 ];
   };
- 
+
   system.stateVersion = extraOptions.nixVersion;
 }
