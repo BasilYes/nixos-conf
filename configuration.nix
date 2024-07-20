@@ -176,7 +176,7 @@
 	programs.kdeconnect = {
 		enable = true;
 		package = pkgs.valent;
-	}
+	};
 
   programs.bash.blesh.enable = true;
   programs.dconf.enable = true;
