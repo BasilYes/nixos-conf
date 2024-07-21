@@ -21,6 +21,6 @@
     active:            #595959;
     urgent:            #595959;
 		bordercolor:       #595959;
-		activebordercolor: #2EC2EA;
+		activebordercolor: #3584E4;
 }
 

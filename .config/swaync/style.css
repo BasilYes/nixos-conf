@@ -10,7 +10,7 @@
 @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
 @define-color text-color rgb(255, 255, 255);
 @define-color text-color-disabled rgb(150, 150, 150);
-@define-color bg-selected rgb(0, 128, 255);
+@define-color bg-selected #3584E4;
 
 * {
   font-family: "JetBrainsMono Nerd Font";
@@ -286,7 +286,8 @@
 }
 
 .control-center .control-center-list .notification {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
+  /* box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7), 0 2px 6px 2px rgba(0, 0, 0, 0.3); */
 }
 
 .control-center .control-center-list .notification .notification-default-action,

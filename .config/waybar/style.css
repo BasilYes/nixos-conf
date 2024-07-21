@@ -62,7 +62,7 @@ button:hover {
 }
 
 #workspaces button.active {
-  color: #2ec2ea;
+  color: #3584E4;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
