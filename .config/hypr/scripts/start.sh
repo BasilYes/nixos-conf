@@ -13,4 +13,8 @@ otd-daemon &
 # bash ~/.config/waybar/launch.sh &
 rm -f /tmp/hypr/switch_*_temp &
 
-swaync
+swaync &
+
+kitty &
+
+sleep 2 && bash ./monitors_setup.sh 1
