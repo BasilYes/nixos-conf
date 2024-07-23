@@ -5,7 +5,9 @@
 # polybar-msg cmd quit
 # Otherwise you can use the nuclear option:
 if [[ -z $(pgrep "waybar") ]]; then
-	waybar
+	waybar &
+	blueman-applet
 else
 	pkill waybar
+	pkill blueman &
 fi
