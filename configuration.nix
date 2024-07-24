@@ -199,8 +199,8 @@
     audacity
     anytype
     blender
-    cinnamon.warpinator
     curtail
+		davinci-resolve
     git
     graphicsmagick
     hunspell
@@ -218,7 +218,6 @@
     # libsForQt5.breeze-icons
     # libsForQt5.kolourpaint
 		linux-wifi-hotspot
-    mellowplayer
     obs-studio
     onlyoffice-bin_latest
     openssh
@@ -237,8 +236,9 @@
 	++ lib.optionals (extraOptions.optionals or false) [
     obsidian
     gimp
-		davinci-resolve
-    # aseprite
+    # mellowplayer # web player (useless when I have PWA)
+    # cinnamon.warpinator # send file cross device
+    # aseprite # need compilation
     # blockbench using EOL electron
     libreoffice
     lorien
@@ -275,6 +275,7 @@
   fonts.packages = with pkgs; [
     corefonts
     vistafonts
+		
     icomoon-feather
   # ]
 	# ++ lib.optionals (extraOptions.optionals or false) [
