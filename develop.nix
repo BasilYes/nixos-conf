@@ -23,7 +23,6 @@
     #kdePackages.qtbase
     #qtcreator
     #kdePackages.qttools
-    # kdePackages.qtwayland
     jdk17
     vscode
   ]

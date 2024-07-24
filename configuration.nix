@@ -213,6 +213,7 @@
     # kdePackages.kolourpaint
     # kdePackages.breeze-icons
     kdePackages.kdenlive
+    kdePackages.qtwayland
     # libsForQt5.kdenlive
     # libsForQt5.breeze-icons
     # libsForQt5.kolourpaint
