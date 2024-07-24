@@ -2,6 +2,7 @@
 {
     "layer": "top",
     "position": "top",
+		// "mode": "overlay",
     "height": 0,
     "margin-left": 0,
     "margin-right": 0,
