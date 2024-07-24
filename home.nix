@@ -46,6 +46,8 @@
     shellAliases = {
       lg = "lazygit";
       ng = "nvim --listen /tmp/godot.pipe";
+			c = "code .";
+			z = "zed .";
     };
   };
   programs.neovim = {
