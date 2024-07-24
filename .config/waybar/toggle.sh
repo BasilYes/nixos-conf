@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
-# Terminate already running bar instances
-# If all your bars have ipc enabled, you can use
-# polybar-msg cmd quit
-# Otherwise you can use the nuclear option:
-if [[ -z $(pgrep "waybar") ]]; then
+pwaybar=$(pgrep "waybar")
+if [[ $1 == true || -z $1 ]] && [[ -z $pwaybar ]]; then
 	waybar &
 	blueman-applet
-else
+elif [[ $1 == false || -z $1 ]] && [[ -n $pwaybar ]]; then
 	pkill waybar
 	pkill blueman &
 fi
