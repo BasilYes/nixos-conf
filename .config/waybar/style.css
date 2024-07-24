@@ -17,8 +17,8 @@ window#waybar {
   background: @bg;
   transition-property: background-color;
   transition-duration: 0.5s;
-  border: 3px solid @bordercolor;
-  border-radius: 10px;
+  border: 0px solid @bordercolor;
+  border-radius: 0px;
 }
 
 window#waybar.empty {
