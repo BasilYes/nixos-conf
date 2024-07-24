@@ -212,7 +212,7 @@
     pinta
     # kdePackages.kolourpaint
     # kdePackages.breeze-icons
-    # kdePackages.kdenlive
+    kdePackages.kdenlive
     # libsForQt5.kdenlive
     # libsForQt5.breeze-icons
     # libsForQt5.kolourpaint
