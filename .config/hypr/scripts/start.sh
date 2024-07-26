@@ -16,4 +16,4 @@ swaync &
 
 kitty &
 
-sleep 2 && bash ./monitors_setup.sh 1
+sleep 2 && bash ~/.config/hypr/scripts/monitors_setup.sh 1
