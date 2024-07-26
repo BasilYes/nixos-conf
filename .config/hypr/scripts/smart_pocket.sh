@@ -2,12 +2,12 @@
 
 window=$(hyprctl activewindow -j | jq -rc ".class")
 
+class=$1
 if [[ -n $2 ]]; then
 	name=$2
 else
-	name=$1
+	name=$class
 fi
-
 if [[ -n $3 ]]; then
 	command=$3
 else
@@ -16,9 +16,7 @@ fi
 
 workspace=$(hyprctl workspaces | grep "(special:nautilus_pocket)") 
 
-echo $workspace
-
-if [[ $window == $1 || -n $workspace ]]; then
+if [[ $window == $class || -n $workspace ]]; then
 	hyprctl --batch "
 		dispatch togglespecialworkspace ${name}_pocket;
 		dispatch movetoworkspace +0;
@@ -27,6 +25,15 @@ if [[ $window == $1 || -n $workspace ]]; then
 		dispatch togglespecialworkspace ${name}_pocket;
 	"
 else
-	hyprctl dispatch "exec ${command}"
+	hyprctl --batch "
+		dispatch moveoutofgroup class:${class};
+		dispatch movetoworkspace +0,class:${class};
+		dispatch focuswindow class:${class};
+	"
+
+	window=$(hyprctl activewindow -j | jq -rc ".class")
+	if [[ $window != $class ]]; then
+		hyprctl dispatch "exec ${command}"
+	fi
 fi
 echo $command
