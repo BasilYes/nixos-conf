@@ -21,6 +21,7 @@ if [[ $window == $class || -n $workspace ]]; then
 		dispatch togglespecialworkspace ${name}_pocket;
 		dispatch movetoworkspace name:${activeworkspace};
 		dispatch togglespecialworkspace ${name}_pocket;
+		dispatch moveoutofgroup;
 		dispatch movetoworkspace special:${name}_pocket;
 		dispatch togglespecialworkspace ${name}_pocket;
 	"
