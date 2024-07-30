@@ -12,6 +12,7 @@
   environment.systemPackages = with pkgs; [
     protonup-qt
     gamemode
+		gamescope
     mangohud
     wineWowPackages.stable
     winetricks
