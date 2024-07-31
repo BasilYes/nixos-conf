@@ -18,4 +18,4 @@ git add . &&
 git commit -m "Update system on $(date +%Y-%m-%d_%H-%M-%S)" &&
 git push origin main &&
 
-nix-env --delete-generations 14d
+nix-env --delete-generations 7d
