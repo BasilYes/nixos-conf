@@ -11,11 +11,13 @@ fi
 
 sudo echo Flake update started
 
+nix-env --delete-generations 7d &&
+
 nix flake update . &&
-sudo nixos-rebuild switch &&
 
 git add . &&
 git commit -m "Update system on $(date +%Y-%m-%d_%H-%M-%S)" &&
-git push origin main &&
 
-nix-env --delete-generations 7d
+sudo nixos-rebuild switch &&
+
+git push origin main
