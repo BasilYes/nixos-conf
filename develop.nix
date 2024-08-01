@@ -1,17 +1,18 @@
 { config, pkgs, extraOptions, ... }:
 
 {
+  virtualisation.docker.enable = true;
+  users.users.${extraOptions.userName}.extraGroups = [ "docker" ];
   environment.systemPackages = with pkgs; [
     binaryen
     cmake
-    docker
     gdb
     gnumake
     scons
     gcc
     pkg-config
     wayland-scanner
-    # python3
+    python3
     # (python3.withPackages (ps: [
     #   ps.pyqt6
     # ]))
