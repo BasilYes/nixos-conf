@@ -260,17 +260,17 @@
         '';
       };
     })
-    (self: super: {
-		vivaldi = pkgs.symlinkJoin {
-        name = "vivaldi";
-        paths = [ super.vivaldi ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/vivaldi \
-            --add-flags "--proxy-server='http://127.0.0.1:8000'"
-        '';
-      };
-    })
+  #   (self: super: {
+  #       vivaldi = pkgs.symlinkJoin {
+  #       name = "vivaldi";
+  #       paths = [ super.vivaldi ];
+  #       buildInputs = [ pkgs.makeWrapper ];
+  #       postBuild = ''
+  #         wrapProgram $out/bin/vivaldi \
+  #           --add-flags "--proxy-server='http://127.0.0.1:8000'"
+  #       '';
+  #     };
+  #   })
     # (self: super: {
 	  # 	obs-studio = pkgs.symlinkJoin {
     #     name = "obs-studio";
