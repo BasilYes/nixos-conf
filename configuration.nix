@@ -267,7 +267,7 @@
         buildInputs = [ pkgs.makeWrapper ];
         postBuild = ''
           wrapProgram $out/bin/vivaldi \
-            --add-flags "--disable-gpu-compositing"
+            --add-flags "--disable-gpu-compositing --proxy-server='http://127.0.0.1:8085'"
         '';
       };
     })
