@@ -20,6 +20,8 @@
     # emscripten
     lazygit
     zed-editor
+    # shellcheck # shell spell check (zed)
+    # shfmt # shell formatter (zed)
     # kdePackages.full
     #kdePackages.qtbase
     #qtcreator
