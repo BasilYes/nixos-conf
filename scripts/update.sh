@@ -11,7 +11,9 @@ fi
 
 sudo echo Flake update started
 
-nix-env --delete-generations 7d &&
+# nix-env --delete-generations 7d &&
+sudo nix-collect-garbage -d &&
+nix-collect-garbage -d &&
 
 nix flake update . &&
 
