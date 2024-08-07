@@ -17,7 +17,7 @@
     pkgs.xdg-desktop-portal-hyprland # For Hyprland
 	# 	pkgs.xdg-desktop-portal-gnome # For gnome and gnome file picker
   # ] );
-	] ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ] ); # For GNOME 
+	] ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ] ); # For GNOME
 
 	# environment.${if (extraOptions.nvidia or false) then "variables" else null} = {
 	# 	LIBVA_DRIVER_NAME = "nvidia";
@@ -74,7 +74,7 @@
 		killall # kill all by name
 		mission-center # system monitor
 		# resources # system monitor
-		udiskie # automaunt usb 
+		udiskie # automaunt usb
 		pavucontrol # sound control gui
 		pamixer # sound control CLI
 		playerctl # media control CLI
@@ -86,6 +86,7 @@
 		gnome-calculator
 		gnome.gnome-weather
 		gnome-calendar
+		gnome.gnome-clocks
 		nautilus
 		gnome-online-accounts-gtk
   ];
