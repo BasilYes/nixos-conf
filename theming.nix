@@ -4,7 +4,7 @@
 {
 	qt = {
 		enable = true;
-		# platformTheme.name = "gtk"; 
+		# platformTheme.name = "gtk";
 		# style = {
 		# 	name = "gtk2";
 		# 	package = pkgs.libsForQt5.breeze-qt5;
@@ -12,38 +12,38 @@
 		# };
 
 		platformTheme.name = "qtct";
-    # style.name = "kvantum";
+		# style.name = "kvantum";
 
-		# # platformTheme.name = "gtk"; 
+		# # platformTheme.name = "gtk";
 		# style = {
 		# 	name = "adwaita-dark";
 		# };
 	};
 
-  xdg.configFile = {
-    qt5ct = {
-      target = "qt5ct/qt5ct.conf";
-      text = lib.generators.toINI { } {
-        Appearance = {
-          icon_theme = "breeze-dark";
+	xdg.configFile = {
+		qt5ct = {
+			target = "qt5ct/qt5ct.conf";
+			text = lib.generators.toINI { } {
+				Appearance = {
+					icon_theme = "breeze-dark";
 					style = "Adwaita-Dark";
-          # icon_theme = "HighContrast";
+					# icon_theme = "HighContrast";
 					# style = "Breeze";
-        };
-      };
-    };
-    qt6ct = {
-      target = "qt6ct/qt6ct.conf";
-      text = lib.generators.toINI { } {
-        Appearance = {
-          icon_theme = "breeze-dark";
+				};
+			};
+		};
+		qt6ct = {
+			target = "qt6ct/qt6ct.conf";
+			text = lib.generators.toINI { } {
+				Appearance = {
+					icon_theme = "breeze-dark";
 					style = "Adwaita-Dark";
-          # icon_theme = "HighContrast";
+					# icon_theme = "HighContrast";
 					# style = "Breeze";
-        };
-      };
-    };
-  };
+				};
+			};
+		};
+	};
 
 	gtk = {
 		enable = true;
@@ -52,10 +52,10 @@
 			package = pkgs.bibata-cursors;
 			name = "Bibata-Modern-Classic";
 		};
-		# theme = {
-		# 	package = pkgs.adw-gtk3;
-		# 	name = "adw-gtk3-dark";
-		# };
+		theme = {
+			package = pkgs.adw-gtk3;
+			name = "adw-gtk3-dark";
+		};
 		iconTheme = {
 			package = pkgs.adwaita-icon-theme;
 			name = "Adwaita";
@@ -68,18 +68,18 @@
 		# '';
 	};
 
-  dconf = {
-    enable = true;
-    settings."org/gnome/desktop/interface" = {
+	dconf = {
+		enable = true;
+		settings."org/gnome/desktop/interface" = {
 			color-scheme = "prefer-dark";
 		};
-  }; 
+	};
 
-  home.sessionVariables = {
+	home.sessionVariables = {
 		QT_QPA_PLATFORMTHEME = "qt5ct";
-    # GTK_THEME = "Adwaita:dark";
-  };
-	
+		# GTK_THEME = "Adwaita:dark";
+	};
+
 	home.packages = with pkgs; [
 		gnome-themes-extra
 		# kdePackages.breeze
