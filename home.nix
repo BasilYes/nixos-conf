@@ -15,7 +15,7 @@
     cargo
     # cinnamon.mint-cursor-themes
   ];
-  
+
   dconf = {
     enable = true;
 		settings."org/gnome/mutter/keybindings".switch-monitor = "['']";
@@ -28,7 +28,7 @@
   #   ];
   # };
   # services.easyeffects.enable = true;
-  
+
   xdg.configFile.xdg-desktop-portal.source = ./.config/xdg-desktop-portal;
   # home.file.".config/xdg-desktop-portal/portals.conf".source = ./.config/xdg-desktop-portal/portals.conf;
   # xdg.configFile.nvim.source = ./nvim;
@@ -48,6 +48,7 @@
       ng = "nvim --listen /tmp/godot.pipe";
 			c = "code .";
 			z = "zed .";
+			clean-and-switch = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild switch";
     };
   };
   programs.neovim = {
@@ -81,6 +82,6 @@
 			commit.gpgsign = true;
     };
   };
-  
+
   home.stateVersion = extraOptions.nixVersion;
 }
