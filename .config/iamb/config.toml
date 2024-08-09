@@ -1,0 +1,10 @@
+default_profile = "main"
+
+[profiles.main]
+user_id = "@basilyes:matrix.org"
+
+[settings.image_preview]
+size = { height = 15, width = 120 }
+
+[macros.insert]
+"jk" = "<Esc>"

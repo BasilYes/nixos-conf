@@ -207,6 +207,7 @@
     hunspellDicts.ru_RU
     inkscape
     imagemagick
+    iamb
     keepassxc
     krita
     pinta
