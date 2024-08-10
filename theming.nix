@@ -53,8 +53,10 @@
 			name = "Bibata-Modern-Classic";
 		};
 		theme = {
-			package = pkgs.adw-gtk3;
-			name = "adw-gtk3-dark";
+			# package = pkgs.adw-gtk3;
+			# name = "adw-gtk3-dark";
+			package = pkgs.gnome-themes-extra;
+			name = "Adwaita-dark";
 		};
 		iconTheme = {
 			package = pkgs.adwaita-icon-theme;
