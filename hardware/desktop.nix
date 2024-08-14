@@ -11,6 +11,9 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "v4l2loopback" ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback exclusive_caps=1
+  '';
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 	boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
