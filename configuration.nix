@@ -199,6 +199,7 @@
     audacity
     anytype
     blender
+    brave
     curtail
     git
     graphicsmagick
@@ -218,14 +219,14 @@
     # libsForQt5.kdenlive
     # libsForQt5.breeze-icons
     # libsForQt5.kolourpaint
-		linux-wifi-hotspot
+	linux-wifi-hotspot
     obs-studio
     onlyoffice-bin_latest
     openssh
     pdfarranger
     # screenkey
     telegram-desktop
-		thunderbird
+	thunderbird
     qjackctl
     qbittorrent
     trayscale
