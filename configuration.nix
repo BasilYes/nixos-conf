@@ -209,7 +209,7 @@
     hunspellDicts.ru_RU
     inkscape
     imagemagick
-    iamb
+    # iamb
     keepassxc
     krita
     pinta
@@ -239,7 +239,7 @@
 	++ lib.optionals (extraOptions.optionals or false) [
     obsidian
     gimp
-		davinci-resolve
+	davinci-resolve
     # mellowplayer # web player (useless when I have PWA)
     # cinnamon.warpinator # send file cross device
     # aseprite # need compilation
