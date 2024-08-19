@@ -14,7 +14,7 @@ rm -f /tmp/hypr/switch_*_temp &
 
 swaync &
 
-kitty &
+# kitty &
 
 if [[ -f $HOME/Programs/PowerTunnel.jar ]]; then
 	hyprctl dispatch "exec [workspace special:pocket0 silent] java -jar ~/Programs/PowerTunnel.jar --start" &
