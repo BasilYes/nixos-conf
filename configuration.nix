@@ -147,7 +147,7 @@
   };
 
   security.pam.services.gdm-password.enableGnomeKeyring = true;
-  security.pam.services.gdm-password.kwallet.enable = true;
+  # security.pam.services.gdm-password.kwallet.enable = true;
   security.polkit.enable = true;
 
   nixpkgs.config.allowUnfree = true;
