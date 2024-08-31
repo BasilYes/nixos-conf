@@ -84,9 +84,9 @@
 		brillo # brightness control
 		glib # for gnome.calendar .desktop file
 		gnome-calculator
-		gnome.gnome-weather
+		gnome-weather
 		gnome-calendar
-		gnome.gnome-clocks
+		gnome-clocks
 		nautilus
 		gnome-online-accounts-gtk
   ];
