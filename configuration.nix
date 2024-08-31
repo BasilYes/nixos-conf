@@ -199,6 +199,8 @@
     atuin
     audacity
     anytype
+    # barrier
+    lan-mouse
     blender
     brave
     curtail
