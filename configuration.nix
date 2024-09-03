@@ -200,7 +200,8 @@
     audacity
     anytype
     # barrier
-    lan-mouse
+    lan-mouse           # Multiple pc mouse share
+    baobab              # Disk Usage Analyzer
     blender
     brave
     curtail
