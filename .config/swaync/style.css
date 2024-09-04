@@ -268,7 +268,7 @@
   /* The Control Center which contains the old notifications + widgets */
   background: @cc-bg;
   color: @text-color;
-  margin: 10px;
+  margin: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
   border-radius: 10px;
