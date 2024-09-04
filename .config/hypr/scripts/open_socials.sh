@@ -5,10 +5,10 @@ hyprctl --batch "
 	dispatch exec [group set always] thunderbird;
 "
 sleep 2.0
-hyprctl --batch "
-	dispatch exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Discord;
-	dispatch exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Element;
-	dispatch exec [group set always] ~/.config/hypr/scripts/open_PWA.sh VK;
-"
+hyprctl dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Discord"
+sleep 0.1
+hyprctl	dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Element"
+sleep 0.1
+hyprctl	dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh VK"
 # sleep 0.5
 # hyprctl dispatch changegroupactive f;
