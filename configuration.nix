@@ -236,6 +236,7 @@
     trayscale
     vivaldi
     vlc
+    vesktop
     unzip
     zip
   ]
