@@ -84,7 +84,6 @@
 		wttrbar # waybar weather applet
 		brillo # brightness control
 		glib # for gnome.calendar .desktop file
-		gnome-calculator
 		gnome-weather
 		gnome-calendar
 		gnome-clocks
