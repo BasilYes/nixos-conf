@@ -5,7 +5,7 @@ hyprctl --batch "
 	dispatch exec [group set always] thunderbird;
 "
 hyprctl dispatch "exec [group set always] vesktop"
-sleep 3.0
+sleep 4.0
 # hyprctl dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Discord"
 sleep 0.5
 hyprctl	dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Element"
