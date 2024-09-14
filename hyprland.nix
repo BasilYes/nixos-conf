@@ -72,7 +72,8 @@
 		jq # JSON parser
 		wl-clipboard # copy-paste
 		killall # kill all by name
-		mission-center # system monitor
+		# mission-center # system monitor
+		gnome-system-monitor # system monitor
 		# resources # system monitor
 		udiskie # automaunt usb
 		pavucontrol # sound control gui
