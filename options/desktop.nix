@@ -10,6 +10,7 @@
 	android = true;
 	optionals = true;
 	vm = true;
+	forceWayland = true;
 	hyprland = true;
 	gnome = false;
 	kde = false;

@@ -9,7 +9,7 @@
 	environment.sessionVariables = {
 		# Hint electron apps to use wayland
 		# NIXOS_OZONE_WL = "1";
-		# ${if (extraOptions.forceWayland or false) then "NIXOS_OZONE_WL" else null} = "1";
+		${if (extraOptions.forceWayland or false) then "NIXOS_OZONE_WL" else null} = "1";
 	};
 
   xdg.portal.extraPortals = lib.mkForce ( [

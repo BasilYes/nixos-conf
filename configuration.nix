@@ -257,6 +257,17 @@
 	];
 
   nixpkgs.overlays = [
+  (self: super: {
+      super-productivity = pkgs.symlinkJoin {
+      name = "super-productivity";
+      paths = [ super.super-productivity ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/super-productivity \
+          --add-flags "--ozone-platform-hint=auto"
+      '';
+    };
+  })
     (self: super: {
 			telegram-desktop = pkgs.symlinkJoin {
         name = "telegram-desktop";
