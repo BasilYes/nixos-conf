@@ -59,6 +59,7 @@
 		kitty # termonal
 		rofi-wayland # app select panel
 		# screenshot and screencast stuff
+		hypridle
 		ffmpeg
 		wf-recorder
 		slurp
