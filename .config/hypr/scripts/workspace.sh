@@ -10,6 +10,16 @@ else
   workspace=$1
 fi
 
+last_workspace_file=/tmp/hypr/last_workspace
+last_workspace=$(hyprctl activeworkspace -j | jq -rc ".name")
+if [[ "$workspace" == "$last_workspace" ]] || [[ "$workspace" == "name:${last_workspace}" ]]; then
+	workspace=$(cat $last_workspace_file)
+else
+	echo $last_workspace > $last_workspace_file
+fi
+
+echo $(cat $last_workspace_file)
+
 activemonitor=$(grep -B 11 "focused: yes" "$monitors" | awk 'NR==1 {print $2}')
 passivemonitor=$(grep  -B 6 "active workspace: $workspace" "$monitors" | awk 'NR==1 {print $2}')
 #activews=$(grep -A 2 "$activemonitor" "$monitors" | awk 'NR==3 {print $1}' RS='(' FS=')')
