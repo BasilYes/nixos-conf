@@ -268,6 +268,17 @@
       '';
     };
   })
+  (self: super: {
+      vesktop = pkgs.symlinkJoin {
+      name = "vesktop";
+      paths = [ super.vesktop ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/vesktop \
+          --add-flags "--disable-gpu-compositing"
+      '';
+    };
+  })
     (self: super: {
 			telegram-desktop = pkgs.symlinkJoin {
         name = "telegram-desktop";
