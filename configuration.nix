@@ -264,7 +264,7 @@
       buildInputs = [ pkgs.makeWrapper ];
       postBuild = ''
         wrapProgram $out/bin/super-productivity \
-          --add-flags "--ozone-platform-hint=auto"
+          --add-flags "--ozone-platform-hint=auto --disable-gpu-compositing"
       '';
     };
   })
