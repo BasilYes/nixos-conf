@@ -13,6 +13,10 @@
     pkg-config
     wayland-scanner
     python3
+    cargo
+    rustc
+    rust-analyzer
+
     # (python3.withPackages (ps: [
     #   ps.pyqt6
     # ]))
