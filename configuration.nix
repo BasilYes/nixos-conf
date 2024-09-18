@@ -227,6 +227,7 @@
     onlyoffice-bin_latest
     openssh
     pdfarranger
+    (callPackage ./derivations/super-productivity.nix {}) # super-productivity
     # screenkey
     telegram-desktop
 	thunderbird
@@ -244,7 +245,6 @@
     obsidian
     gimp
 	davinci-resolve
-	super-productivity
     # mellowplayer # web player (useless when I have PWA)
     # cinnamon.warpinator # send file cross device
     # aseprite # need compilation
