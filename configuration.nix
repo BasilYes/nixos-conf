@@ -7,16 +7,16 @@
 {
   imports = [
     ./hardware/${extraOptions.hardwareFile}
-		# ./stylix.nix
-	]
-	++ lib.optionals (extraOptions.nvidia or false) [ ./nvidia.nix ]
-	++ lib.optionals (extraOptions.android or false) [ ./android.nix ]
-	++ lib.optionals (extraOptions.develop or false) [ ./develop.nix ]
-	++ lib.optionals (extraOptions.vm or false) [ ./vm.nix ]
-	++ lib.optionals (extraOptions.hyprland or false) [ ./hyprland.nix ]
-	++ lib.optionals (extraOptions.gnome or false) [ ./gnome.nix ]
-	++ lib.optionals (extraOptions.kde or false) [ ./kde.nix ]
-	++ lib.optionals (extraOptions.gaming or false) [ ./gaming.nix ];
+    # ./stylix.nix
+  ]
+  ++ lib.optionals (extraOptions.nvidia or false) [ ./nvidia.nix ]
+  ++ lib.optionals (extraOptions.android or false) [ ./android.nix ]
+  ++ lib.optionals (extraOptions.develop or false) [ ./develop.nix ]
+  ++ lib.optionals (extraOptions.vm or false) [ ./vm.nix ]
+  ++ lib.optionals (extraOptions.hyprland or false) [ ./hyprland.nix ]
+  ++ lib.optionals (extraOptions.gnome or false) [ ./gnome.nix ]
+  ++ lib.optionals (extraOptions.kde or false) [ ./kde.nix ]
+  ++ lib.optionals (extraOptions.gaming or false) [ ./gaming.nix ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -128,9 +128,9 @@
     ];
   };
 
-	xdg.portal = {
+  xdg.portal = {
     enable = true;
-		# config = {
+    # config = {
     #   common = {
     #     default = [
     #       "gtk"
@@ -141,7 +141,7 @@
     #       "hyprland"
     #       "gtk"
     #     ];
-		# 		"org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
+    #     "org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
     #   };
     # };
   };
@@ -155,7 +155,7 @@
   programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
   #   vulkan-loader
-	# 	# glib
+  #   # glib
   #   libGL
   #   xorg.libX11
   #   xorg.libXcursor
@@ -165,18 +165,18 @@
   #   xorg.libXrender
   #   xorg.libXi
   #   xorg.libXfixes
-	# 	# stdenv.cc.cc.lib
-	# 	# fontconfig
-	# 	# freetype
-	# 	# dbus
+  #   # stdenv.cc.cc.lib
+  #   # fontconfig
+  #   # freetype
+  #   # dbus
   #   libxkbcommon
   #   alsa-lib
   # ];
 
-	programs.kdeconnect = {
-		enable = true;
-		package = pkgs.kdePackages.kdeconnect-kde;
-	};
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.kdePackages.kdeconnect-kde;
+  };
 
   programs.bash.blesh.enable = true;
   programs.dconf.enable = true;
@@ -222,7 +222,7 @@
     # libsForQt5.kdenlive
     # libsForQt5.breeze-icons
     # libsForQt5.kolourpaint
-	linux-wifi-hotspot
+    linux-wifi-hotspot
     obs-studio
     onlyoffice-bin_latest
     openssh
@@ -230,7 +230,7 @@
     (callPackage ./derivations/super-productivity.nix {}) # super-productivity
     # screenkey
     telegram-desktop
-	thunderbird
+    thunderbird
     qjackctl
     qbittorrent
     qalculate-gtk # Calculator app
@@ -241,10 +241,10 @@
     unzip
     zip
   ]
-	++ lib.optionals (extraOptions.optionals or false) [
+  ++ lib.optionals (extraOptions.optionals or false) [
     obsidian
     gimp
-	davinci-resolve
+    davinci-resolve
     # mellowplayer # web player (useless when I have PWA)
     # cinnamon.warpinator # send file cross device
     # aseprite # need compilation
@@ -254,33 +254,33 @@
     reaper
     # zrythm
     # zettlr
-	];
+  ];
 
   nixpkgs.overlays = [
-  (self: super: {
-      super-productivity = pkgs.symlinkJoin {
-      name = "super-productivity";
-      paths = [ super.super-productivity ];
-      buildInputs = [ pkgs.makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/super-productivity \
-          --add-flags "--ozone-platform-hint=auto --disable-gpu-compositing"
-      '';
-    };
-  })
-  (self: super: {
-      vesktop = pkgs.symlinkJoin {
-      name = "vesktop";
-      paths = [ super.vesktop ];
-      buildInputs = [ pkgs.makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/vesktop \
-          --add-flags "--disable-gpu-compositing"
-      '';
-    };
-  })
     (self: super: {
-			telegram-desktop = pkgs.symlinkJoin {
+        super-productivity = pkgs.symlinkJoin {
+        name = "super-productivity";
+        paths = [ super.super-productivity ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/super-productivity \
+            --add-flags "--ozone-platform-hint=auto --disable-gpu-compositing"
+        '';
+      };
+    })
+    (self: super: {
+        vesktop = pkgs.symlinkJoin {
+        name = "vesktop";
+        paths = [ super.vesktop ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/vesktop \
+            --add-flags "--disable-gpu-compositing"
+        '';
+      };
+    })
+    (self: super: {
+      telegram-desktop = pkgs.symlinkJoin {
         name = "telegram-desktop";
         paths = [ super.telegram-desktop ];
         buildInputs = [ pkgs.makeWrapper ];
@@ -303,7 +303,7 @@
     })
     # --add-flags "--proxy-server='http://127.0.0.1:8000'"
     # (self: super: {
-	  # 	obs-studio = pkgs.symlinkJoin {
+    #   obs-studio = pkgs.symlinkJoin {
     #     name = "obs-studio";
     #     paths = [ super.obs-studio ];
     #     buildInputs = [ pkgs.makeWrapper ];
@@ -321,22 +321,22 @@
 
     icomoon-feather
   # ]
-	# ++ lib.optionals (extraOptions.optionals or false) [
+  # ++ lib.optionals (extraOptions.optionals or false) [
   #   nerdfonts
   #   google-fonts
-	# ]
-	# ++ lib.optionals (!(extraOptions.optionals or false)) [
-		(nerdfonts.override { fonts = [
+  # ]
+  # ++ lib.optionals (!(extraOptions.optionals or false)) [
+    (nerdfonts.override { fonts = [
         "FiraCode"
         "Iosevka"
         "JetBrainsMono"
       ];
     })
-		(google-fonts.override { fonts = [
+    (google-fonts.override { fonts = [
         "GrapeNuts"
       ];
     })
-	];
+  ];
 
   networking.firewall = {
     allowedTCPPorts = [ 42000 42001 ];

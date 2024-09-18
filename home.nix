@@ -18,7 +18,7 @@
 
   dconf = {
     enable = true;
-		settings."org/gnome/mutter/keybindings".switch-monitor = "['']";
+    settings."org/gnome/mutter/keybindings".switch-monitor = "['']";
   };
 
   # xdg.portal = {
@@ -40,16 +40,16 @@
     enable = true;
     bashrcExtra = ''
       eval "$(atuin init bash)"
-			eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
-			export SSH_AUTH_SOCK
+      eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
+      export SSH_AUTH_SOCK
       export PS1="\n\[\033[1;32m\][\[\e]0;\u@\h: \w\a\]\u@\h:\W]\$\[\033[0m\]"
       '';
     shellAliases = {
       lg = "lazygit";
       ng = "nvim --listen /tmp/godot.pipe";
-			c = "code .";
-			z = "zed .";
-			clean-and-switch = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild switch";
+      c = "code .";
+      z = "zed .";
+      clean-and-switch = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild switch";
     };
   };
   programs.neovim = {
@@ -79,8 +79,8 @@
       #     pkgs.git.override { withLibsecret = true; }
       #   }/bin/git-credential-libsecret";
       init = { defaultBranch = "main"; };
-			pull.rebase = true;
-			commit.gpgsign = true;
+      pull.rebase = true;
+      commit.gpgsign = true;
     };
   };
 

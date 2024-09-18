@@ -13,7 +13,7 @@
     pkg-config
     wayland-scanner
     python3
-		rustup
+    rustup
     # (python3.withPackages (ps: [
     #   ps.pyqt6
     # ]))
