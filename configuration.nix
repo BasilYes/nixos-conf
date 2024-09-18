@@ -175,7 +175,7 @@
 
   programs.kdeconnect = {
     enable = true;
-    package = pkgs.kdePackages.kdeconnect-kde;
+    package = pkgs.valent;
   };
 
   programs.bash.blesh.enable = true;
