@@ -257,17 +257,17 @@
   ];
 
   nixpkgs.overlays = [
-    (self: super: {
-        super-productivity = pkgs.symlinkJoin {
-        name = "super-productivity";
-        paths = [ super.super-productivity ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/super-productivity \
-            --add-flags "--ozone-platform-hint=auto --disable-gpu-compositing"
-        '';
-      };
-    })
+    # (self: super: {
+    #     super-productivity = pkgs.symlinkJoin {
+    #     name = "super-productivity";
+    #     paths = [ super.super-productivity ];
+    #     buildInputs = [ pkgs.makeWrapper ];
+    #     postBuild = ''
+    #       wrapProgram $out/bin/super-productivity \
+    #         --add-flags "--ozone-platform-hint=auto --disable-gpu-compositing"
+    #     '';
+    #   };
+    # })
     (self: super: {
         vesktop = pkgs.symlinkJoin {
         name = "vesktop";

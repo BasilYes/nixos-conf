@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
 
   postFixup = ''
     makeWrapper ${electron}/bin/electron $out/bin/${pname} \
-      --add-flags $out/share/${pname}/resources/app.asar
+      --add-flags "$out/share/${pname}/resources/app.asar --ozone-platform-hint=auto --disable-gpu-compositing"
   '';
 
   meta = {
