@@ -13,8 +13,6 @@ otd-daemon &
 rm -f /tmp/hypr/switch_*_temp &
 
 swaync &
-hypridle &
-
 # kitty &
 
 if [[ -f $HOME/Programs/PowerTunnel.jar ]]; then
