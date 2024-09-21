@@ -30,14 +30,14 @@ stdenv.mkDerivation rec {
     cp -a ${appimageContents}/usr/share/icons $out/share
 
     substituteInPlace $out/share/applications/${pname}.desktop \
-      --replace 'Exec=AppRun' 'Exec=${pname}'
+      --replace 'Exec=AppRun' 'Exec=${pname} --ozone-platform-hint=auto --disable-gpu-compositing'
 
     runHook postInstall
   '';
 
   postFixup = ''
     makeWrapper ${electron}/bin/electron $out/bin/${pname} \
-      --add-flags "$out/share/${pname}/resources/app.asar --ozone-platform-hint=auto --disable-gpu-compositing"
+      --add-flags $out/share/${pname}/resources/app.asar
   '';
 
   meta = {
