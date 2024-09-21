@@ -67,6 +67,7 @@
     satty
     gnome-text-editor # text editor
     lm_sensors # for sensor (max temp waybar widget)
+    cmatrix
     # grim
     # flameshot
     # screenshot end
