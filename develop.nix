@@ -28,7 +28,6 @@
     #qtcreator
     #kdePackages.qttools
     jdk
-    jdk17
     vscode
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
