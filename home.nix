@@ -48,7 +48,7 @@
       lg = "lazygit";
       ng = "nvim --listen /tmp/godot.pipe";
       c = "code .";
-      z = "zed .";
+      z = "zeditor .";
       clean-and-switch = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild switch";
     };
   };
