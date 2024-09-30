@@ -76,6 +76,7 @@
     killall # kill all by name
     # mission-center # system monitor
     gnome-system-monitor # system monitor
+    gnome-disk-utility # disk util
     # resources # system monitor
     udiskie # automaunt usb
     pavucontrol # sound control gui
