@@ -203,6 +203,7 @@
     lan-mouse           # Multiple pc mouse share
     baobab              # Disk Usage Analyzer
     blender
+    brave
     curtail
     git
     graphicsmagick
@@ -234,7 +235,6 @@
     qjackctl
     qbittorrent
     qalculate-gtk # Calculator app
-    qutebrowser
     vivaldi
     vlc
     vesktop # Discord app
