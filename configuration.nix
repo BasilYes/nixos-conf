@@ -340,6 +340,7 @@
   ];
 
   networking.firewall = {
+    checkReversePath = false;
     allowedTCPPorts = [ 42000 42001 ];
     allowedUDPPorts = [ 42000 42001 ];
   };
