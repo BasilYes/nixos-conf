@@ -85,7 +85,7 @@
     hyprpicker # color picker
     networkmanagerapplet # Network control GUI
     wttrbar # waybar weather applet
-    brillo # brightness control
+    brightnessctl # brightness control
     glib # for gnome.calendar .desktop file
     crow-translate
     gnome-weather
