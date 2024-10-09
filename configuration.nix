@@ -229,7 +229,7 @@
     openssh
     pdfarranger
     (callPackage ./derivations/super-productivity.nix {}) # super-productivity
-    session-desktop
+    # session-desktop
     # screenkey
     telegram-desktop
     thunderbird
