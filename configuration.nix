@@ -229,6 +229,7 @@
     openssh
     pdfarranger
     (callPackage ./derivations/super-productivity.nix {}) # super-productivity
+    session-desktop
     # screenkey
     telegram-desktop
     thunderbird
@@ -245,6 +246,8 @@
     obsidian
     gimp
     davinci-resolve
+    deltachat-desktop
+    teamspeak5_client
     # mellowplayer # web player (useless when I have PWA)
     # cinnamon.warpinator # send file cross device
     # aseprite # need compilation
