@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-hyprctl dispatch "exec [group set always;workspace name:socials silent] vesktop"
 hyprctl dispatch "exec [group set always;workspace name:socials silent] telegram-desktop"
 hyprctl dispatch "exec [group set always;workspace name:socials silent] thunderbird"
-sleep 4.0
+sleep 2.0
+hyprctl dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Discord"
 hyprctl dispatch "exec [group set always;workspace name:socials silent] ~/.config/hypr/scripts/open_PWA.sh Element"
 # sleep 0.5
-# hyprctl dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Discord"
+# hyprctl dispatch "exec [group set always;workspace name:socials silent] vesktop"
 # sleep 0.5
 # hyprctl dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh VK"
 # sleep 0.5
