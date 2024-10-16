@@ -60,6 +60,7 @@
     rofi-wayland # app select panel
     # screenshot and screencast stuff
     hypridle
+    hyprlock
     ffmpeg
     wf-recorder
     slurp
