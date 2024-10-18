@@ -7,7 +7,8 @@ if $1; then
     fi
     bash ~/.config/hypr/scripts/keyboard_layout.sh 0
     pidof hyprlock ||
-    hyprlock
+    hyprlock &&
+    hyprctl dispatch closewindow title:kitty-idle
 else
     hyprctl dispatch closewindow title:kitty-idle
     # hyprctl dispatch submap reset
