@@ -5,7 +5,7 @@
 
 echo "For full suspend enter pass"
 sudo echo suspend
-bash ~/.nixos/.config/hypr/scripts/hypridle.sh true
+bash ~/.nixos/.config/hypr/scripts/hypridle.sh &
 sleep 1.0 &&
 sudo echo disabled |
 sudo tee /sys/bus/usb/devices/*/power/wakeup && systemctl suspend
