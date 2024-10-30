@@ -9,9 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-	  nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
-	  # stylix = {
+    # stylix = {
     #   url = "github:bluskript/stylix";
     #   inputs = {
     #     nixpkgs.follows = "nixpkgs";
@@ -20,19 +20,22 @@
     # };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
-	let
-		optionsList = map (n: "${./options}/${n}") (builtins.attrNames (builtins.readDir ./options));
-	in
-	{
-		nixosConfigurations = builtins.listToAttrs (builtins.map(
-			u:
-			let
-				options = import u;
-			in
-			{
-				name = options.hostName;
-				value = nixpkgs.lib.nixosSystem rec {
+  outputs = inputs@{
+    nixpkgs,
+    home-manager,
+    ...
+  }:let
+    optionsList = map (n: "${./options}/${n}") (builtins.attrNames (builtins.readDir ./options));
+  in
+  {
+    nixosConfigurations = builtins.listToAttrs (builtins.map(
+      u:
+      let
+        options = import u;
+      in
+      {
+        name = options.hostName;
+        value = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
@@ -55,7 +58,7 @@
             # inputs.stylix.nixosModules.stylix
           ];
         };
-			}
-		) optionsList);
-	};
+      }
+    ) optionsList);
+  };
 }
