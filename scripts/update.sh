@@ -15,7 +15,7 @@ sudo echo Flake update started
 sudo nix-collect-garbage -d &&
 nix-collect-garbage -d &&
 
-nix flake update . &&
+nix flake update &&
 
 git add . &&
 git commit -m "Update system on $(date +%Y-%m-%d_%H-%M-%S)" &&
