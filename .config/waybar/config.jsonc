@@ -24,6 +24,7 @@
 		"custom/temperature",
 		"cpu",
 		"memory",
+		"disk",
 		// "hyprland/language",
 		"backlight",
 		"battery",
@@ -138,11 +139,13 @@
 		"interval": 2,
 		"min-length": 6,
 		"format": " {}%",
+		"on-click": "hyprctl dispatcher togglespecialworkspace monitor",
 	},
 
 	"disk": {
 		"interval": 15,
 		"format": "{percentage_used}% 󰋊",
+		"on-click": "hyprctl dispatcher togglespecialworkspace monitor",
 	},
 
 	"backlight": {
