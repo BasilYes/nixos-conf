@@ -11,6 +11,8 @@
 
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
     # stylix = {
     #   url = "github:bluskript/stylix";
     #   inputs = {
@@ -23,6 +25,7 @@
   outputs = inputs@{
     nixpkgs,
     home-manager,
+    hyprpanel,
     ...
   }:let
     optionsList = map (n: "${./options}/${n}") (builtins.attrNames (builtins.readDir ./options));
@@ -37,6 +40,13 @@
         name = options.hostName;
         value = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [
+              inputs.hyprpanel.overlay
+            ];
+          };
           specialArgs = {
             inherit inputs;
             extraOptions = options;

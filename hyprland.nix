@@ -61,6 +61,7 @@
     # screenshot and screencast stuff
     hypridle
     hyprlock
+    hyprpanel
     ffmpeg
     wf-recorder
     slurp

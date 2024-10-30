@@ -150,7 +150,7 @@
   # security.pam.services.gdm-password.kwallet.enable = true;
   security.polkit.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   programs.nix-ld.enable = true;
   # programs.nix-ld.libraries = with pkgs; [
