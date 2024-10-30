@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, extraOptions, ... }:
+{ config, pkgs, pkgs-stable, lib, extraOptions, ... }:
 
 {
   imports = [
@@ -175,7 +175,7 @@
 
   programs.kdeconnect = {
     enable = true;
-    package = pkgs.valent;
+    package = pkgs-stable.valent;
   };
 
   programs.bash.blesh.enable = true;
@@ -238,23 +238,23 @@
     qalculate-gtk # Calculator app
     vivaldi
     vlc
-    vesktop # Discord app
+    # vesktop # Discord app
     unzip
     zip
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
-    obsidian
+    # obsidian
     gimp
-    davinci-resolve
-    deltachat-desktop
-    teamspeak5_client
+    # davinci-resolve
+    # deltachat-desktop
+    # teamspeak5_client
     # mellowplayer # web player (useless when I have PWA)
     # cinnamon.warpinator # send file cross device
     # aseprite # need compilation
     # blockbench using EOL electron
     libreoffice
     lorien
-    reaper
+    # reaper
     # zrythm
     # zettlr
   ];
