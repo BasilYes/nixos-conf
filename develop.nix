@@ -14,6 +14,7 @@
     wayland-scanner
     python3
     rustup
+    nixd
     # (python3.withPackages (ps: [
     #   ps.pyqt6
     # ]))
