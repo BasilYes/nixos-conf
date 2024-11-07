@@ -1,4 +1,4 @@
-{ pkgs, lib, extraOptions, ... }:
+{ pkgs, pkgs-stable, lib, extraOptions, ... }:
 
 {
   programs.hyprland = {
@@ -62,7 +62,7 @@
     hypridle
     hyprlock
     ffmpeg
-    wf-recorder
+    pkgs-stable.wf-recorder
     slurp
     hyprshot
     satty
