@@ -61,6 +61,7 @@
     # screenshot and screencast stuff
     hypridle
     hyprlock
+    hyprcursor
     ffmpeg
     pkgs-stable.wf-recorder
     slurp
