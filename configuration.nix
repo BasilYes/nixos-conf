@@ -2,7 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-stable, pkgs-blender, lib, extraOptions, ... }:
+{
+  config,
+  pkgs,
+  pkgs-stable,
+  pkgs-blender,
+  lib,
+  extraOptions,
+  ...
+}:
 
 {
   imports = [
@@ -175,7 +183,7 @@
 
   programs.kdeconnect = {
     enable = true;
-    package = pkgs-stable.valent;
+    package = pkgs.valent;
   };
 
   programs.bash.blesh.enable = true;
@@ -202,7 +210,7 @@
     # barrier
     lan-mouse           # Multiple pc mouse share
     baobab              # Disk Usage Analyzer
-    pkgs-blender.blender
+    blender
     brave
     curtail
     git
