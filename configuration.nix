@@ -204,6 +204,7 @@
     #     ffmpeg
     #   ];
     # })
+    appimage-run
     atuin
     audacity
     anytype
