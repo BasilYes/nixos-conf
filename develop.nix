@@ -1,10 +1,16 @@
-{ config, pkgs, extraOptions, ... }:
+{
+  config,
+  pkgs,
+  extraOptions,
+  ...
+}:
 
 {
   virtualisation.docker.enable = true;
   users.users.${extraOptions.userName}.extraGroups = [ "docker" ];
   environment.systemPackages = with pkgs; [
-    binaryen
+    arduino-ide
+    # binaryen
     cmake
     gdb
     gnumake
@@ -28,7 +34,7 @@
     #kdePackages.qtbase
     #qtcreator
     #kdePackages.qttools
-    jdk
+    # jdk
     vscode
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
