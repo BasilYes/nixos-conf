@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     protonup-qt
     gamemode
-		gamescope
+    gamescope
     mangohud
     wineWowPackages.stable
     winetricks
@@ -34,9 +34,9 @@
         # List library dependencies here
       ];
     })
-	]
-	++ lib.optionals (extraOptions.optionals or false) [
-    # itch
+  ]
+  ++ lib.optionals (extraOptions.optionals or false) [
+    itch
     # ppsspp
-	];
+  ];
 }
