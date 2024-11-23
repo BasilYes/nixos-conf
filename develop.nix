@@ -7,7 +7,7 @@
 
 {
   virtualisation.docker.enable = true;
-  users.users.${extraOptions.userName}.extraGroups = [ "docker" ];
+  users.users.${extraOptions.userName}.extraGroups = [ "docker" "dialout" ];
   environment.systemPackages = with pkgs; [
     arduino-ide
     # binaryen
