@@ -1,4 +1,10 @@
-{ config, pkgs, extraOptions, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  extraOptions,
+  ...
+}:
 
 {
   imports = [
@@ -30,6 +36,8 @@
   # services.easyeffects.enable = true;
 
   xdg.configFile.xdg-desktop-portal.source = ./.config/xdg-desktop-portal;
+  # home.file.".inputrc".text = lib.mkAfter '' text ''
+  # lib.mkForce
   # xdg.configFile.iamb.source = ./.config/iamb;
   # home.file.".config/xdg-desktop-portal/portals.conf".source = ./.config/xdg-desktop-portal/portals.conf;
   # xdg.configFile.nvim.source = ./nvim;
@@ -43,6 +51,7 @@
       eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
       export SSH_AUTH_SOCK
       export PS1="\n\[\033[1;32m\][\[\e]0;\u@\h: \w\a\]\u@\h:\W]\$\[\033[0m\]"
+      bind -r '\C-p'
       '';
     shellAliases = {
       lg = "lazygit";
