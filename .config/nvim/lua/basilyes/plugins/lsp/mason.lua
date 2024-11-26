@@ -29,7 +29,6 @@ return {
       ensure_installed = {
         "lua_ls",
         "rnix",
-        "nil_ls",
         "pyright",
       },
     })

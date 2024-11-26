@@ -1,4 +1,5 @@
 vim.cmd("let g:netrw_liststyle = 3")
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 local opt = vim.opt
 
