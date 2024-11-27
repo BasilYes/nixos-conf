@@ -1,9 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  extraOptions,
-  ...
+{ config
+, lib
+, pkgs
+, extraOptions
+, ...
 }:
 
 {
@@ -52,10 +51,10 @@
       export SSH_AUTH_SOCK
       export PS1="\n\[\033[1;32m\][\[\e]0;\u@\h: \w\a\]\u@\h:\W]\$\[\033[0m\]"
       bind -r '\C-p'
-      '';
+    '';
     shellAliases = {
       lg = "lazygit";
-      ng = "nvim --listen /tmp/godot.pipe";
+      vg = "nvim --listen /tmp/godot.pipe";
       c = "code .";
       z = "zeditor .";
       clean-and-switch = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild switch";

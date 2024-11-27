@@ -1,3 +1,3 @@
-require("basilyes.options")
-require("basilyes.keymaps")
-require("basilyes.lazy")
+require("config.options")
+require("config.keymaps")
+require("config.lazy")
