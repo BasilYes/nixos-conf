@@ -59,6 +59,7 @@
                 extraOptions = options;
               };
               home-manager.users.${options.userName} = import ./home.nix;
+							home-manager.backupFileExtension = "backup";
             }
             # inputs.stylix.nixosModules.stylix
           ];

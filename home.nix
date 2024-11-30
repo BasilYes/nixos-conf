@@ -34,7 +34,14 @@
   # };
   # services.easyeffects.enable = true;
 
+  xdg.configFile.hypr.source = ./.config/hypr;
+  xdg.configFile.kitty.source = ./.config/kitty;
+  xdg.configFile.nvim.source = ./.config/nvim;
+  xdg.configFile.rofi.source = ./.config/rofi;
+  xdg.configFile.swaync.source = ./.config/swaync;
+  xdg.configFile.waybar.source = ./.config/waybar;
   xdg.configFile.xdg-desktop-portal.source = ./.config/xdg-desktop-portal;
+
   # home.file.".inputrc".text = lib.mkAfter '' text ''
   # lib.mkForce
   # xdg.configFile.iamb.source = ./.config/iamb;
