@@ -18,6 +18,7 @@
     # ./stylix.nix
   ]
   ++ lib.optionals (extraOptions.nvidia or false) [ ./nvidia.nix ]
+  ++ lib.optionals (extraOptions.amd or false) [ ./amd.nix ]
   ++ lib.optionals (extraOptions.android or false) [ ./android.nix ]
   ++ lib.optionals (extraOptions.develop or false) [ ./develop.nix ]
   ++ lib.optionals (extraOptions.vm or false) [ ./vm.nix ]
@@ -32,7 +33,7 @@
   services.xserver.displayManager.${extraOptions.displayManager or "gdm"}.enable = true;
 
   # Bootloader.
-  #boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = false;
   #boot.loader.efi.canTouchEfiVariables = true;
   boot.loader = {
     efi = {
@@ -40,8 +41,9 @@
       efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
     };
     grub = {
+			 enable = true;
        efiSupport = true;
-       #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+       # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
        device = "nodev";
        useOSProber = true;
     };

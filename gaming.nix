@@ -36,7 +36,7 @@
     })
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
-    itch
+    # itch
     # ppsspp
   ];
 }

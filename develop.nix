@@ -40,7 +40,7 @@
   ++ lib.optionals (extraOptions.optionals or false) [
     nodePackages.nodejs
     unityhub
-    p4v
+    # p4v
   ];
 
   programs.npm.enable = true;
