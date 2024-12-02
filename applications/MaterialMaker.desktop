@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=MaterialMaker
+Exec="/run/media/basilyes/bazik/Programs/MaterialMaker/material_maker_1_4a1_linux/material_maker-run.sh"
+Icon=/run/media/basilyes/bazik/Programs/MaterialMaker/icon.png
+Terminal=false
+Type=Application

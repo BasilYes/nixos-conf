@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Godots
+Exec="/run/media/basilyes/bazik/Godot/godots-run.sh"
+Icon=/run/media/basilyes/bazik/Godot/Godots-icon.png
+Terminal=false
+Type=Application
