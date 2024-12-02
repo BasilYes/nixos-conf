@@ -283,17 +283,6 @@
     #   };
     # })
     (self: super: {
-        vesktop = pkgs.symlinkJoin {
-        name = "vesktop";
-        paths = [ super.vesktop ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/vesktop \
-            --add-flags "--disable-gpu-compositing"
-        '';
-      };
-    })
-    (self: super: {
       telegram-desktop = pkgs.symlinkJoin {
         name = "telegram-desktop";
         paths = [ super.telegram-desktop ];
@@ -301,6 +290,19 @@
         postBuild = ''
           wrapProgram $out/bin/telegram-desktop \
             --set QT_QPA_PLATFORMTHEME flatpak
+        '';
+      };
+    })
+		] ++ lib.optionals (!(extraOptions.forceWayland or false))
+		[
+    (self: super: {
+        vesktop = pkgs.symlinkJoin {
+        name = "vesktop";
+        paths = [ super.vesktop ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/vesktop \
+            --add-flags "--disable-gpu-compositing"
         '';
       };
     })
