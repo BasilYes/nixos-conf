@@ -342,12 +342,10 @@
   #   google-fonts
   # ]
   # ++ lib.optionals (!(extraOptions.optionals or false)) [
-    (nerdfonts.override { fonts = [
-        "FiraCode"
-        "Iosevka"
-        "JetBrainsMono"
-      ];
-    })
+		nerd-fonts.fira-code
+		nerd-fonts.iosevka
+		nerd-fonts.jetbrains-mono
+
     (google-fonts.override { fonts = [
         "GrapeNuts"
       ];
