@@ -249,7 +249,7 @@
     qalculate-gtk # Calculator app
     vivaldi
     vlc
-    # vesktop # Discord app
+    vesktop # Discord app
     unzip
     zip
   ]
