@@ -5,5 +5,5 @@ if [[ $1 == true || -z $1 ]] && [[ -z $pwaybar ]]; then
     waybar &&
     blueman-applet
 elif [[ $1 == false || -z $1 ]] && [[ -n $pwaybar ]]; then
-    bash ~/.config/hypr/scripts/switch.sh waybar "pkill -SIGUSR1 waybar" "pkill -SIGUSR2 waybar"
+    pkill -SIGUSR1 waybar
 fi
