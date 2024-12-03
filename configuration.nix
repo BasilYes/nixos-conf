@@ -251,6 +251,7 @@
     vlc
     vesktop # Discord app
     unzip
+		yandex-music
     zip
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
