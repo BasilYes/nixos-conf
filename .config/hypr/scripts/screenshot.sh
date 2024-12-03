@@ -12,6 +12,8 @@
 
 # p: pixel
 
+mkdir -p$HOME/Pictures/Screenshots/
+
 if [[ $1 == r ]]; then
     mkdir -p $HOME/Pictures/Screenshots
     dirname=$HOME/Pictures/Screenshots/

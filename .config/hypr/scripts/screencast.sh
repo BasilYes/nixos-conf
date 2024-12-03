@@ -2,6 +2,8 @@
 
 file=$HOME/Videos/Screencasts/$(date +%Y-%m-%d_%H-%M-%S).mp4
 
+mkdir -p $HOME/Videos/Screencasts/
+
 if [[ $1 == r ]]; then
     wf-recorder -g "$(slurp)" --file=$file
 elif [[ $1 == w ]]; then
