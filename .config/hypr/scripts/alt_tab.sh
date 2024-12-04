@@ -7,7 +7,7 @@ if [[ $group == "[]" ]]; then
     if [[ $1 == "prev" ]]; then
         hyprctl dispatch cyclenext prev
     else
-        hyprctl dispatch cyclenext
+        hyprctl --batch "dispatch cyclenext; dispatch bringactivetotop"
     fi
 else
     if [[ $1 == "prev" ]]; then
