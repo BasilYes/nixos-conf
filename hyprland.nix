@@ -39,6 +39,7 @@
   services.gnome.gnome-online-accounts.enable = true;
   services.displayManager.defaultSession = "hyprland";
   services.gnome.evolution-data-server.enable = true;
+	# programs.hyprland.withUWSM = true;
 
   environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" [
     pkgs.gst_all_1.gst-plugins-good
@@ -62,6 +63,7 @@
     hypridle
     hyprlock
     hyprcursor
+		hyprpolkitagent
     ffmpeg
     pkgs-stable.wf-recorder
     slurp
