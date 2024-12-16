@@ -354,8 +354,8 @@
 
   networking.firewall = {
     checkReversePath = false;
-    allowedTCPPorts = [ 42000 42001 7777 ];
-    allowedUDPPorts = [ 42000 42001 7777 ];
+    allowedTCPPorts = [ 42000 42001 7777 8060 ];
+    allowedUDPPorts = [ 42000 42001 7777 8060 ];
   };
 
   system.stateVersion = extraOptions.nixVersion;
