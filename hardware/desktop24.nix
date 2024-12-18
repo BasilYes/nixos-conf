@@ -10,12 +10,12 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
+  boot.kernelModules = [ "kvm-amd" "v4l2loopback" "amneziawg" ];
   boot.extraModprobeConfig = ''
     options v4l2loopback exclusive_caps=1
   '';
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback amneziawg ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/58bb347d-6570-4f1f-9c3d-e2251bf885db";
