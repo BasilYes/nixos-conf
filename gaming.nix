@@ -10,6 +10,7 @@
   hardware.graphics.enable = true;
 
   environment.systemPackages = with pkgs; [
+		bottles
     protonup-qt
     gamemode
     gamescope
