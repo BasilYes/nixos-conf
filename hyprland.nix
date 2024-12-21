@@ -1,10 +1,27 @@
-{ pkgs, pkgs-stable, lib, extraOptions, ... }:
+{
+	pkgs,
+	pkgs-stable,
+	pkgs-unstable,
+	lib,
+	extraOptions,
+	...
+}:
 
 {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+		withUWSM = true;
+		package = pkgs-unstable.hyprland;
   };
+	services.hypridle = {
+		enable = true;
+		package = pkgs-unstable.hypridle;
+	};
+	programs.hyprlock = {
+		enable = true;
+		package = pkgs-unstable.hyprlock;
+	};
 
   environment.sessionVariables = {
     # Hint electron apps to use wayland
@@ -37,9 +54,8 @@
   services.blueman.enable = true;
   services.gvfs.enable = true;
   services.gnome.gnome-online-accounts.enable = true;
-  services.displayManager.defaultSession = "hyprland";
+  services.displayManager.defaultSession = "hyprland-uwsm";
   services.gnome.evolution-data-server.enable = true;
-	# programs.hyprland.withUWSM = true;
 
   environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" [
     pkgs.gst_all_1.gst-plugins-good
@@ -49,7 +65,7 @@
     pkgs.gst_all_1.gst-plugins-rs
   ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     (waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
@@ -60,8 +76,8 @@
     kitty # termonal
     rofi-wayland # app select panel
     # screenshot and screencast stuff
-    hypridle
-    hyprlock
+    # hypridle
+    # hyprlock
     hyprcursor
 		hyprpolkitagent
     ffmpeg

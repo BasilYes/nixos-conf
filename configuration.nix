@@ -6,7 +6,7 @@
   config,
   pkgs,
   pkgs-stable,
-  pkgs-blender,
+  pkgs-unstable,
   lib,
   extraOptions,
   ...
@@ -185,7 +185,7 @@
 
   programs.kdeconnect = {
     enable = true;
-    package = pkgs.valent;
+    package = pkgs-unstable.valent;
   };
 
   programs.bash.blesh.enable = true;
@@ -198,7 +198,7 @@
   };
   programs.seahorse.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     # (appimage-run.override {
     #   extraPkgs = pkgs: [
     #     libsecret
@@ -331,7 +331,7 @@
     # })
   ];
 
-  fonts.packages = with pkgs; [
+  fonts.packages = with pkgs-unstable; [
     corefonts
     vistafonts
 

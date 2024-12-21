@@ -42,7 +42,7 @@
     # };
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     egl-wayland
     nvidia-vaapi-driver
     nvidia-system-monitor-qt

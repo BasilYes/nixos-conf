@@ -1,10 +1,17 @@
-{ config, pkgs, extraOptions, ... }:
+{
+	config,
+	pkgs,
+	pkgs-unstable,
+	extraOptions,
+	...
+}:
 
 {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+		package = pkgs-unstable.steam;
   };
 
   hardware.graphics.enable = true;

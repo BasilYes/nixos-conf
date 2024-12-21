@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+	pkgs-unstable,
   extraOptions,
   ...
 }:
@@ -8,7 +9,7 @@
 {
   virtualisation.docker.enable = true;
   users.users.${extraOptions.userName}.extraGroups = [ "docker" "dialout" ];
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     arduino-ide
     # binaryen
     cmake
