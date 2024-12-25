@@ -210,6 +210,7 @@
     atuin
     audacity
     anytype
+		antimicrox
     # barrier
     lan-mouse           # Multiple pc mouse share
     baobab              # Disk Usage Analyzer
