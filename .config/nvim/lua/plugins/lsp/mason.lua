@@ -28,7 +28,8 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"lua_ls",
-				-- "nil_ls",
+				"nil_ls",
+				"nixr",
 				"pyright",
 				"ts_ls",
 				"rust_analyzer"
@@ -40,7 +41,7 @@ return {
 				"stylua", -- lua formatter
 				"isort", -- python formatter
 				"black", -- python formatter
-				-- "nixpkgs-fmt",
+				"nixpkgs-fmt",
 				"codelldb",
 				"pylint",
 				"prettier",
