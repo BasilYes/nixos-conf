@@ -1,27 +1,26 @@
-{
-	pkgs,
-	pkgs-stable,
-	pkgs-unstable,
-	lib,
-	extraOptions,
-	...
+{ pkgs
+, pkgs-stable
+, pkgs-unstable
+, lib
+, extraOptions
+, ...
 }:
 
 {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-		withUWSM = true;
-		package = pkgs-unstable.hyprland;
+    withUWSM = true;
+    package = pkgs-unstable.hyprland;
   };
-	services.hypridle = {
-		enable = true;
-		package = pkgs-unstable.hypridle;
-	};
-	programs.hyprlock = {
-		enable = true;
-		package = pkgs-unstable.hyprlock;
-	};
+  services.hypridle = {
+    enable = true;
+    package = pkgs-unstable.hypridle;
+  };
+  programs.hyprlock = {
+    enable = true;
+    package = pkgs-unstable.hyprlock;
+  };
 
   environment.sessionVariables = {
     # Hint electron apps to use wayland
@@ -29,12 +28,12 @@
     ${if (extraOptions.forceWayland or false) then "NIXOS_OZONE_WL" else null} = "1";
   };
 
-  xdg.portal.extraPortals = lib.mkForce ( [
+  xdg.portal.extraPortals = lib.mkForce ([
     pkgs.xdg-desktop-portal-gtk # For both
     pkgs.xdg-desktop-portal-hyprland # For Hyprland
-  #   pkgs.xdg-desktop-portal-gnome # For gnome and gnome file picker
-  # ] );
-  ] ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ] ); # For GNOME
+    #   pkgs.xdg-desktop-portal-gnome # For gnome and gnome file picker
+    # ] );
+  ] ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ]); # For GNOME
 
   # environment.${if (extraOptions.nvidia or false) then "variables" else null} = {
   #   LIBVA_DRIVER_NAME = "nvidia";
@@ -67,8 +66,8 @@
 
   environment.systemPackages = with pkgs-unstable; [
     (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    })
     )
     swaynotificationcenter
     libnotify
@@ -79,7 +78,7 @@
     # hypridle
     # hyprlock
     hyprcursor
-		hyprpolkitagent
+    hyprpolkitagent
     ffmpeg
     pkgs-stable.wf-recorder
     slurp

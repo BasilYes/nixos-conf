@@ -2,14 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{
-  config,
-  pkgs,
-  pkgs-stable,
-  pkgs-unstable,
-  lib,
-  extraOptions,
-  ...
+{ config
+, pkgs
+, pkgs-stable
+, pkgs-unstable
+, lib
+, extraOptions
+, ...
 }:
 
 {
@@ -41,11 +40,11 @@
       efiSysMountPoint = "/boot"; # ← use the same mount point here.
     };
     grub = {
-			 enable = true;
-       efiSupport = true;
-       # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-       device = "nodev";
-       useOSProber = true;
+      enable = true;
+      efiSupport = true;
+      # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+      device = "nodev";
+      useOSProber = true;
     };
   };
 
@@ -210,10 +209,10 @@
     atuin
     audacity
     anytype
-		antimicrox
+    antimicrox
     # barrier
-    lan-mouse           # Multiple pc mouse share
-    baobab              # Disk Usage Analyzer
+    lan-mouse # Multiple pc mouse share
+    baobab # Disk Usage Analyzer
     blender
     brave
     curtail
@@ -240,7 +239,7 @@
     onlyoffice-bin_latest
     openssh
     pdfarranger
-    (callPackage ./derivations/super-productivity.nix {}) # super-productivity
+    (callPackage ./derivations/super-productivity.nix { }) # super-productivity
     # session-desktop
     # screenkey
     telegram-desktop
@@ -294,60 +293,61 @@
         '';
       };
     })
-		] ++ lib.optionals (!(extraOptions.forceWayland or false))
-		[
-    (self: super: {
+  ] ++ lib.optionals (!(extraOptions.forceWayland or false))
+    [
+      (self: super: {
         vesktop = pkgs.symlinkJoin {
-        name = "vesktop";
-        paths = [ super.vesktop ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/vesktop \
-            --add-flags "--disable-gpu-compositing"
-        '';
-      };
-    })
-    (self: super: {
+          name = "vesktop";
+          paths = [ super.vesktop ];
+          buildInputs = [ pkgs.makeWrapper ];
+          postBuild = ''
+            wrapProgram $out/bin/vesktop \
+              --add-flags "--disable-gpu-compositing"
+          '';
+        };
+      })
+      (self: super: {
         vivaldi = pkgs.symlinkJoin {
-        name = "vivaldi";
-        paths = [ super.vivaldi ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/vivaldi \
-            --add-flags "--disable-gpu-compositing"
-        '';
-        # --add-flags "--disable-gpu-compositing --proxy-server='http://127.0.0.1:8000'"
-      };
-    })
-    # (self: super: {
-    #   obs-studio = pkgs.symlinkJoin {
-    #     name = "obs-studio";
-    #     paths = [ super.obs-studio ];
-    #     buildInputs = [ pkgs.makeWrapper ];
-    #     postBuild = ''
-    #       wrapProgram $out/bin/obs \
-    #         --set QT_QPA_PLATFORM xcb
-    #     '';
-    #   };
-    # })
-  ];
+          name = "vivaldi";
+          paths = [ super.vivaldi ];
+          buildInputs = [ pkgs.makeWrapper ];
+          postBuild = ''
+            wrapProgram $out/bin/vivaldi \
+              --add-flags "--disable-gpu-compositing"
+          '';
+          # --add-flags "--disable-gpu-compositing --proxy-server='http://127.0.0.1:8000'"
+        };
+      })
+      # (self: super: {
+      #   obs-studio = pkgs.symlinkJoin {
+      #     name = "obs-studio";
+      #     paths = [ super.obs-studio ];
+      #     buildInputs = [ pkgs.makeWrapper ];
+      #     postBuild = ''
+      #       wrapProgram $out/bin/obs \
+      #         --set QT_QPA_PLATFORM xcb
+      #     '';
+      #   };
+      # })
+    ];
 
   fonts.packages = with pkgs-unstable; [
     corefonts
     vistafonts
 
     icomoon-feather
-  # ]
-  # ++ lib.optionals (extraOptions.optionals or false) [
-  #   nerdfonts
-  #   google-fonts
-  # ]
-  # ++ lib.optionals (!(extraOptions.optionals or false)) [
-		nerd-fonts.fira-code
-		nerd-fonts.iosevka
-		nerd-fonts.jetbrains-mono
+    # ]
+    # ++ lib.optionals (extraOptions.optionals or false) [
+    #   nerdfonts
+    #   google-fonts
+    # ]
+    # ++ lib.optionals (!(extraOptions.optionals or false)) [
+    nerd-fonts.fira-code
+    nerd-fonts.iosevka
+    nerd-fonts.jetbrains-mono
 
-    (google-fonts.override { fonts = [
+    (google-fonts.override {
+      fonts = [
         "GrapeNuts"
       ];
     })

@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod" ];
@@ -16,35 +17,41 @@
   '';
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-	boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4ad2cd37-e6f2-4113-89ef-9e1df06f44b2";
+    {
+      device = "/dev/disk/by-uuid/4ad2cd37-e6f2-4113-89ef-9e1df06f44b2";
       fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/BA7E-001E";
+    {
+      device = "/dev/disk/by-uuid/BA7E-001E";
       fsType = "vfat";
     };
 
   fileSystems."/mnt/LinuxMoment" =
-    { device = "/dev/disk/by-uuid/1f40eba2-da8d-45a6-9c40-59926a4a8203";
+    {
+      device = "/dev/disk/by-uuid/1f40eba2-da8d-45a6-9c40-59926a4a8203";
       fsType = "ext4";
     };
 
   fileSystems."/mnt/Shindows" =
-    { device = "/dev/disk/by-uuid/42BAA625BAA61607";
+    {
+      device = "/dev/disk/by-uuid/42BAA625BAA61607";
       fsType = "ntfs";
     };
 
   fileSystems."/mnt/disk_F" =
-    { device = "/dev/disk/by-uuid/230B2C8C05A53430";
+    {
+      device = "/dev/disk/by-uuid/230B2C8C05A53430";
       fsType = "ntfs";
     };
 
   fileSystems."/mnt/Backups" =
-    { device = "/dev/disk/by-uuid/68DC97236EBF416F";
+    {
+      device = "/dev/disk/by-uuid/68DC97236EBF416F";
       fsType = "ntfs";
     };
 

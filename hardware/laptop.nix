@@ -5,85 +5,89 @@
 
 let
   cml-ucm-conf = pkgs.alsa-ucm-conf.overrideAttrs {
-		wttsrc = pkgs.fetchFromGitHub {
-			owner = "codepayne";
-			repo = "alsa-ucm-conf";
-			rev = "master";
-			hash = "sha256-yaaE3JpJ8Da/iEI17McLvvJ4ATqFjVJc57nfPb45eUY=";
-		};
-		postInstall = ''
-			cp -R $wttsrc/ucm2/* $out/share/alsa/ucm2
-			cp -R $wttsrc/ucm/* $out/share/alsa/ucm
-		'';
+    wttsrc = pkgs.fetchFromGitHub {
+      owner = "codepayne";
+      repo = "alsa-ucm-conf";
+      rev = "master";
+      hash = "sha256-yaaE3JpJ8Da/iEI17McLvvJ4ATqFjVJc57nfPb45eUY=";
+    };
+    postInstall = ''
+      			cp -R $wttsrc/ucm2/* $out/share/alsa/ucm2
+      			cp -R $wttsrc/ucm/* $out/share/alsa/ucm
+      		'';
   };
 in
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [
-		"nvme"
-		"xhci_pci"
-		"uas"
-		"sd_mod"
-		"amdgpu"
-	];
+    "nvme"
+    "xhci_pci"
+    "uas"
+    "sd_mod"
+    "amdgpu"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
-		"kvm-amd"
-		"snd_soc_es8316"
-		"snd_acp3x_pcm_dma"
-		"snd_acp3x_i2s"
-		"snd_pci_acp3x"
-		"snd_soc_acp3x_es8336_mach"
-	];
+    "kvm-amd"
+    "snd_soc_es8316"
+    "snd_acp3x_pcm_dma"
+    "snd_acp3x_i2s"
+    "snd_pci_acp3x"
+    "snd_soc_acp3x_es8336_mach"
+  ];
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [
     "SND_SOC_AMD_ACP3x=1"
     "SND_SOC_AMD_ACP3x_ES8336_MACH=1"
     "SND_SOC_ACPI=1"
     "SND_SOC_ES8316=1"
-		"CONFIG_SND_SOC_AMD_LEGACY_MACH=1"
+    "CONFIG_SND_SOC_AMD_LEGACY_MACH=1"
   ];
-	boot.blacklistedKernelModules = [
-		"snd_acp3x_rn"
-		"snd_pci_acp5x"
-		"snd_rn_pci_acp3x"
-	];
+  boot.blacklistedKernelModules = [
+    "snd_acp3x_rn"
+    "snd_pci_acp5x"
+    "snd_rn_pci_acp3x"
+  ];
   boot.extraModulePackages = [ ];
-	boot.kernelPatches = [
-		{
-			name = "fix-sound";
-			patch = ./0001-ASoC-codecs-es8316-Fix-HW-rate-calculation-for-48Mhz.patch;
-		}
-	];
+  boot.kernelPatches = [
+    {
+      name = "fix-sound";
+      patch = ./0001-ASoC-codecs-es8316-Fix-HW-rate-calculation-for-48Mhz.patch;
+    }
+  ];
 
-	services.xserver.enable = true;
-	services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   environment = {
-		systemPackages = with pkgs; [
+    systemPackages = with pkgs; [
       alsa-ucm-conf
     ];
     sessionVariables = {
-			ALSA_CONFIG_UCM = "${cml-ucm-conf}/share/alsa/ucm";
-			ALSA_CONFIG_UCM2 = "${cml-ucm-conf}/share/alsa/ucm2";
-		};
+      ALSA_CONFIG_UCM = "${cml-ucm-conf}/share/alsa/ucm";
+      ALSA_CONFIG_UCM2 = "${cml-ucm-conf}/share/alsa/ucm2";
+    };
   };
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/00350e3c-6e2c-44c7-8b4d-e3ff00f2631c";
+    {
+      device = "/dev/disk/by-uuid/00350e3c-6e2c-44c7-8b4d-e3ff00f2631c";
       fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/FC39-8445";
+    {
+      device = "/dev/disk/by-uuid/FC39-8445";
       fsType = "vfat";
     };
-  
+
   fileSystems."/mnt/Data" =
-    { device = "/dev/disk/by-uuid/AC4ACAF74ACABCF8";
+    {
+      device = "/dev/disk/by-uuid/AC4ACAF74ACABCF8";
       fsType = "ntfs";
     };
 

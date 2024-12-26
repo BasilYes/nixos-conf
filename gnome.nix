@@ -32,9 +32,9 @@
     # gnome-themes-extra
     gnome-tweaks
   ];
-  
+
   networking.firewall = {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+    allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
   };
 }

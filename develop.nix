@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-	pkgs-unstable,
-  extraOptions,
-  ...
+{ config
+, pkgs
+, pkgs-unstable
+, extraOptions
+, ...
 }:
 
 {

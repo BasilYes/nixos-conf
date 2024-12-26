@@ -1,9 +1,8 @@
-{
-	config,
-	pkgs,
-	pkgs-unstable,
-	extraOptions,
-	...
+{ config
+, pkgs
+, pkgs-unstable
+, extraOptions
+, ...
 }:
 
 {
@@ -11,13 +10,13 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-		package = pkgs-unstable.steam;
+    package = pkgs-unstable.steam;
   };
 
   hardware.graphics.enable = true;
 
   environment.systemPackages = with pkgs; [
-		bottles
+    bottles
     protonup-qt
     gamemode
     gamescope
@@ -29,7 +28,7 @@
         wineWowPackages.stable
         winetricks
       ];
-      extraLibraries =  pkgs: [
+      extraLibraries = pkgs: [
         # List library dependencies here
       ];
     })
@@ -38,7 +37,7 @@
         wineWowPackages.stable
         winetricks
       ];
-      extraLibraries =  pkgs: [
+      extraLibraries = pkgs: [
         # List library dependencies here
       ];
     })

@@ -23,53 +23,57 @@
     # };
   };
 
-  outputs = inputs@{
-    nixpkgs,
-    home-manager,
-    ...
-  }:let
-    optionsList = map (n: "${./options}/${n}") (builtins.attrNames (builtins.readDir ./options));
-  in
-  {
-    nixosConfigurations = builtins.listToAttrs (builtins.map(
-      u:
-      let
-        options = import u;
-      in
-      {
-        name = options.hostName;
-        value = nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-            extraOptions = options;
-            pkgs-stable = import inputs.nixpkgs-stable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-            pkgs-unstable = import inputs.nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-            # pkgs-blender = import inputs.nixpkgs-blender {
-            #   inherit system;
-            # };
-          };
-          modules = [
-            ./configuration.nix
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
+  outputs =
+    inputs@{ nixpkgs
+    , home-manager
+    , ...
+    }:
+    let
+      optionsList = map (n: "${./options}/${n}") (builtins.attrNames (builtins.readDir ./options));
+    in
+    {
+      nixosConfigurations = builtins.listToAttrs (builtins.map
+        (
+          u:
+          let
+            options = import u;
+          in
+          {
+            name = options.hostName;
+            value = nixpkgs.lib.nixosSystem rec {
+              system = "x86_64-linux";
+              specialArgs = {
+                inherit inputs;
                 extraOptions = options;
+                pkgs-stable = import inputs.nixpkgs-stable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+                pkgs-unstable = import inputs.nixpkgs-unstable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+                # pkgs-blender = import inputs.nixpkgs-blender {
+                #   inherit system;
+                # };
               };
-              home-manager.users.${options.userName} = import ./home.nix;
-							home-manager.backupFileExtension = "backup";
-            }
-            # inputs.stylix.nixosModules.stylix
-          ];
-        };
-      }
-    ) optionsList);
-  };
+              modules = [
+                ./configuration.nix
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.extraSpecialArgs = {
+                    extraOptions = options;
+                  };
+                  home-manager.users.${options.userName} = import ./home.nix;
+                  home-manager.backupFileExtension = "backup";
+                }
+                # inputs.stylix.nixosModules.stylix
+              ];
+            };
+          }
+        )
+        optionsList);
+    };
 }

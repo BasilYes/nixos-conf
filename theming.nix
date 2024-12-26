@@ -90,8 +90,8 @@
     # libsForQt5.breeze-icons
     adwaita-qt
     adwaita-qt6
-  #   adwaita-icon-theme
-  #    adw-gtk3
-  #   cinnamon.mint-cursor-themes
+    #   adwaita-icon-theme
+    #    adw-gtk3
+    #   cinnamon.mint-cursor-themes
   ];
 }
