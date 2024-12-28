@@ -213,7 +213,6 @@
     # barrier
     lan-mouse # Multiple pc mouse share
     baobab # Disk Usage Analyzer
-    blender
     brave
     curtail
     git
@@ -268,6 +267,12 @@
     # reaper
     # zrythm
     # zettlr
+  ]
+  ++ lib.optionals (extraOptions.amd or false) [
+    blender-hip
+  ]
+  ++ lib.optionals (!(extraOptions.amd or false)) [
+    blender
   ];
 
   nixpkgs.overlays = [
