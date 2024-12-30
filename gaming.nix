@@ -1,6 +1,8 @@
 { config
 , pkgs
 , pkgs-unstable
+, pkgs-stable
+, pkgs-blender
 , extraOptions
 , ...
 }:
@@ -16,7 +18,7 @@
   hardware.graphics.enable = true;
 
   environment.systemPackages = with pkgs; [
-    bottles
+    pkgs-blender.bottles
     protonup-qt
     gamemode
     gamescope
@@ -32,7 +34,7 @@
         # List library dependencies here
       ];
     })
-    (heroic.override {
+    (pkgs-blender.heroic.override {
       extraPkgs = pkgs: [
         wineWowPackages.stable
         winetricks
