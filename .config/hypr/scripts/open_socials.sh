@@ -3,9 +3,9 @@
 hyprctl dispatch "exec [group set always;workspace name:socials silent] thunderbird"
 sleep 1.0
 hyprctl dispatch "exec [group set always;workspace name:socials silent] telegram-desktop"
-sleep 2.5
+# sleep 2.5
 # hyprctl dispatch "exec [group set always] ~/.config/hypr/scripts/open_PWA.sh Discord"
-hyprctl dispatch "exec [group set always] vesktop"
+hyprctl dispatch "exec [group set always] discordcanary"
 # sleep 0.5
 # hyprctl dispatch "exec [group set always;workspace name:socials silent] ~/.config/hypr/scripts/open_PWA.sh Element"
 sleep 5.0

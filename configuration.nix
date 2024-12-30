@@ -216,6 +216,7 @@
     baobab # Disk Usage Analyzer
     brave
     curtail
+    discord-canary
     git
     graphicsmagick
     hunspell
@@ -249,7 +250,7 @@
     qalculate-gtk # Calculator app
     vivaldi
     vlc
-    vesktop # Discord app
+    # vesktop # Discord app
     unzip
     zip
   ]
