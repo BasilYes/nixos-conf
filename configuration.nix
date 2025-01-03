@@ -237,6 +237,7 @@
     # libsForQt5.kolourpaint
     linux-wifi-hotspot
     obs-studio
+    obsidian
     onlyoffice-bin_latest
     openssh
     pdfarranger
@@ -255,7 +256,6 @@
     zip
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
-    # obsidian
     gimp
     # davinci-resolve
     # deltachat-desktop
