@@ -236,8 +236,15 @@
     # libsForQt5.breeze-icons
     # libsForQt5.kolourpaint
     linux-wifi-hotspot
-    obs-studio
+    # obs-studio
     obsidian
+    (pkgs.wrapOBS {
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-vkcapture
+        obs-vaapi
+        # obs-gstreamer
+      ];
+    })
     onlyoffice-bin_latest
     openssh
     pdfarranger
