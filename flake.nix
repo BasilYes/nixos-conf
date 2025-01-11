@@ -12,7 +12,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-blender.url = "github:nixos/nixpkgs/d70bd19e0a38ad4790d3913bf08fcbfc9eeca507";
+    nixpkgs-extra.url = "github:nixos/nixpkgs/d70bd19e0a38ad4790d3913bf08fcbfc9eeca507";
 
     # stylix = {
     #   url = "github:bluskript/stylix";
@@ -53,7 +53,7 @@
                   inherit system;
                   config.allowUnfree = true;
                 };
-                pkgs-blender = import inputs.nixpkgs-blender {
+                pkgs-extra = import inputs.nixpkgs-extra {
                   inherit system;
                   config.allowUnfree = true;
                 };

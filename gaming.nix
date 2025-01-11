@@ -2,44 +2,46 @@
 , pkgs
 , pkgs-unstable
 , pkgs-stable
-, pkgs-blender
+, pkgs-extra
 , extraOptions
 , ...
 }:
 
 {
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    package = pkgs-unstable.steam;
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      package = pkgs-unstable.steam;
+    };
+    gamescope.enable = true;
+    gamemode.enable = true;
   };
 
   hardware.graphics.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    pkgs-blender.bottles
+  environment.systemPackages = with pkgs-unstable; [
+    # bottles
     protonup-qt
-    gamemode
-    gamescope
     mangohud
     wineWowPackages.stable
     winetricks
     (lutris.override {
-      extraPkgs = pkgs: [
+      extraPkgs = pkgs-unstable: [
         wineWowPackages.stable
         winetricks
       ];
-      extraLibraries = pkgs: [
+      extraLibraries = pkgs-unstable: [
         # List library dependencies here
       ];
     })
-    (pkgs-blender.heroic.override {
-      extraPkgs = pkgs: [
+    (heroic.override {
+      extraPkgs = pkgs-unstable: [
         wineWowPackages.stable
         winetricks
       ];
-      extraLibraries = pkgs: [
+      extraLibraries = pkgs-unstable: [
         # List library dependencies here
       ];
     })

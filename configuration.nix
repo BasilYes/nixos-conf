@@ -6,7 +6,7 @@
 , pkgs
 , pkgs-stable
 , pkgs-unstable
-, pkgs-blender
+, pkgs-extra
 , lib
 , extraOptions
 , ...
@@ -278,10 +278,10 @@
     # zettlr
   ]
   ++ lib.optionals (extraOptions.amd or false) [
-    pkgs-blender.blender-hip
+    pkgs-extra.blender-hip
   ]
   ++ lib.optionals (!(extraOptions.amd or false)) [
-    pkgs-blender.blender
+    blender
   ];
 
   nixpkgs.overlays = [

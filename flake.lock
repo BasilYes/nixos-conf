@@ -37,7 +37,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-blender": {
+    "nixpkgs-extra": {
       "locked": {
         "lastModified": 1734649271,
         "narHash": "sha256-4EVBRhOjMDuGtMaofAIqzJbg4Ql7Ai0PSeuVZTHjyKQ=",
@@ -89,7 +89,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-blender": "nixpkgs-blender",
+        "nixpkgs-extra": "nixpkgs-extra",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }

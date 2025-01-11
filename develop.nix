@@ -2,7 +2,7 @@
 , pkgs
 , pkgs-unstable
 , pkgs-stable
-, pkgs-blender
+, pkgs-extra
 , extraOptions
 , ...
 }:
@@ -41,7 +41,7 @@
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
     nodePackages.nodejs
-    pkgs-blender.unityhub
+    unityhub
     # p4v
   ];
 
