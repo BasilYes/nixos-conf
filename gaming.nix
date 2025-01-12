@@ -14,8 +14,12 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       package = pkgs-unstable.steam;
+      gamescopeSession.enable = true;
     };
-    gamescope.enable = true;
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
     gamemode.enable = true;
   };
 
