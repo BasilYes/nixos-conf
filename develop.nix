@@ -36,7 +36,6 @@
     #kdePackages.qtbase
     #qtcreator
     #kdePackages.qttools
-    jdk17
     vscode
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
