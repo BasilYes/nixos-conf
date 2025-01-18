@@ -189,6 +189,7 @@
     #   libxkbcommon
     #   alsa-lib
     # ];
+    amnezia-vpn.enable = true;
     kdeconnect = {
       enable = true;
       package = pkgs-unstable.valent;
