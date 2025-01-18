@@ -37,8 +37,8 @@
   xdg.configFile.hypr.source = ./config/hypr;
   xdg.configFile.kitty.source = ./config/kitty;
   # xdg.configFile.nvim.source = ./config/nvim;
-  xdg.configFile.nvim.lua.source = ./config/nvim/lua;
-  xdg.configFile.nvim."init.lua".source = ./config/nvim/init.lua;
+  xdg.configFile."nvim/lua".source = ./config/nvim/lua;
+  xdg.configFile."nvim/init.lua".source = ./config/nvim/init.lua;
   xdg.configFile.rofi.source = ./config/rofi;
   xdg.configFile.swaync.source = ./config/swaync;
   xdg.configFile.waybar.source = ./config/waybar;

@@ -28,8 +28,8 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"lua_ls",
-				"nil_ls",
 				"rnix",
+				"nil_ls",
 				"pyright",
 				"ts_ls",
 				"rust_analyzer"
