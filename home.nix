@@ -55,14 +55,16 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-            eval "$(atuin init bash)"
-      			eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-      			export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
-      			dbus-update-activation-environment --systemd DISPLAY
-            # eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
-            # export SSH_AUTH_SOCK
-            export PS1="\n\[\033[1;32m\][\[\e]0;\u@\h: \w\a\]\u@\h:\W]\$\[\033[0m\]"
-            bind -r '\C-p'
+      eval "$(atuin init bash)"
+      eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+      export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+      dbus-update-activation-environment --systemd DISPLAY
+      # eval $(/run/wrappers/bin/gnome-keyring-daemon --start --components=ssh)
+      # export SSH_AUTH_SOCK
+      # export PS1="\n\[\033[1;32m\][\[\e]0;\u@\h: \w\a\]\u@\h:\W]\$\[\033[0m\]"
+      # export PS1='$(whoami):''${PWD/*\//}#'
+      export PS1="\e[1;32m\u:\W#\e[m"
+      bind -r '\C-p'
     '';
     shellAliases = {
       lg = "lazygit";
@@ -106,3 +108,6 @@
 
   home.stateVersion = extraOptions.nixVersion;
 }
+
+
+
