@@ -42,7 +42,10 @@
     #qtcreator
     #kdePackages.qttools
     vscode
-    pkgs.rust-bin.stable.latest.default
+    # pkgs.rust-bin.stable.latest.default
+    (pkgs.rust-bin.stable.latest.default.override {
+      extensions = [ "rust-analyzer" ];
+    })
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
     nodePackages.nodejs
