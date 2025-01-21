@@ -3,6 +3,7 @@
 , pkgs-unstable
 , pkgs-stable
 , pkgs-extra
+, rust-overlay
 , extraOptions
 , ...
 }:
@@ -10,6 +11,11 @@
 {
   virtualisation.docker.enable = true;
   users.users.${extraOptions.userName}.extraGroups = [ "docker" "dialout" ];
+
+  nixpkgs.overlays = [
+    rust-overlay.overlays.default
+  ];
+
   environment.systemPackages = with pkgs-unstable; [
     arduino-ide
     # binaryen
@@ -21,7 +27,6 @@
     pkg-config
     wayland-scanner
     python3
-    rustup
     nixd
     # (python3.withPackages (ps: [
     #   ps.pyqt6
@@ -37,6 +42,7 @@
     #qtcreator
     #kdePackages.qttools
     vscode
+    pkgs.rust-bin.stable.latest.default
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
     nodePackages.nodejs
