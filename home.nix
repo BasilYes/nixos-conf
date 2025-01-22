@@ -42,6 +42,7 @@
   xdg.configFile.rofi.source = ./config/rofi;
   xdg.configFile.swaync.source = ./config/swaync;
   xdg.configFile.waybar.source = ./config/waybar;
+  xdg.configFile.lazygit.source = ./config/lazygit;
   xdg.configFile.xdg-desktop-portal.source = ./config/xdg-desktop-portal;
 
   # home.file.".inputrc".text = lib.mkAfter '' text ''

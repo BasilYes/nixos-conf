@@ -284,7 +284,7 @@
     # zettlr
   ]
   ++ lib.optionals (extraOptions.amd or false) [
-    blender-hip
+    pkgs-extra.blender-hip
   ]
   ++ lib.optionals (!(extraOptions.amd or false)) [
     blender

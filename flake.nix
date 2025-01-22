@@ -12,7 +12,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-extra.url = "github:nixos/nixpkgs/d70bd19e0a38ad4790d3913bf08fcbfc9eeca507";
+    nixpkgs-extra.url = "github:nixos/nixpkgs/5df43628fdf08d642be8ba5b3625a6c70731c19c";
 
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
