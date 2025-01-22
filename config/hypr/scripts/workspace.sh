@@ -12,7 +12,7 @@ fi
 
 last_workspace_file=/tmp/hypr/last_workspace
 last_workspace=$(hyprctl activeworkspace -j | jq -rc ".name")
-if [[ "$workspace" == "$last_workspace" ]] || [[ "$workspace" == "name:${last_workspace}" ]]; then
+if ([[ "$workspace" == "$last_workspace" ]] || [[ "$workspace" == "name:${last_workspace}" ]]) && [[ -z $2 ]]; then
 	workspace=$(cat $last_workspace_file)
 else
 	echo $last_workspace > $last_workspace_file
