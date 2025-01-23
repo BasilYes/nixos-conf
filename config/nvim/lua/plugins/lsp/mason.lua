@@ -32,7 +32,7 @@ return {
 				"nil_ls",
 				"pyright",
 				"ts_ls",
-				-- "rust_analyzer"
+				"rust_analyzer"
 			},
 		})
 
