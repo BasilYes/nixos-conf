@@ -130,6 +130,15 @@
     tailscale.enable = true;
     atuin.enable = true;
     gnome.gnome-keyring.enable = true;
+
+    # ollama = {
+    #   enable = true;
+    #   acceleration = "rocm";
+    #   # host = "0.0.0.0";
+    #   # port = 11434;
+    #   # openFirewall = true;
+    # };
+    # open-webui.enable = true;
   };
 
   # users.users.guest = {
@@ -166,10 +175,13 @@
     # };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    rocmSupport = true;
+  };
 
   programs = {
-    nix-ld.enable = true;
+    # nix-ld.enable = true;
     # programs.nix-ld.libraries = with pkgs; [
     #   vulkan-loader
     #   # glib
@@ -284,7 +296,7 @@
     # zettlr
   ]
   ++ lib.optionals (extraOptions.amd or false) [
-    pkgs-extra.blender-hip
+    blender-hip
   ]
   ++ lib.optionals (!(extraOptions.amd or false)) [
     blender
@@ -354,18 +366,10 @@
   fonts.packages = with pkgs-unstable; [
     corefonts
     vistafonts
-
     icomoon-feather
-    # ]
-    # ++ lib.optionals (extraOptions.optionals or false) [
-    #   nerdfonts
-    #   google-fonts
-    # ]
-    # ++ lib.optionals (!(extraOptions.optionals or false)) [
     nerd-fonts.fira-code
     nerd-fonts.iosevka
     nerd-fonts.jetbrains-mono
-
     (google-fonts.override {
       fonts = [
         "GrapeNuts"

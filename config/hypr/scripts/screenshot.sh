@@ -5,9 +5,6 @@
 # r: region
 # s: screen
 # w: window
-#
-# TODO:
-# c: control selection
 # i: interactive
 
 # p: pixel
