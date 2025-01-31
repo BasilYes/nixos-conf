@@ -14,10 +14,10 @@
 
     nixpkgs-extra.url = "github:nixos/nixpkgs/d0169965cf1ce1cd68e50a63eabff7c8b8959743";
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # rust-overlay = {
+    #   url = "github:oxalica/rust-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # stylix = {
     #   url = "github:bluskript/stylix";
     #   inputs = {
@@ -33,7 +33,7 @@
     , nixpkgs-unstable
     , nixpkgs-stable
     , home-manager
-    , rust-overlay
+      # , rust-overlay
     , ...
     }:
     let
@@ -51,7 +51,7 @@
             value = nixpkgs.lib.nixosSystem rec {
               system = "x86_64-linux";
               specialArgs = {
-                inherit inputs rust-overlay;
+                # inherit inputs rust-overlay;
                 extraOptions = options;
                 pkgs-stable = import inputs.nixpkgs-stable {
                   inherit system;

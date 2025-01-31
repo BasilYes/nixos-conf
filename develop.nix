@@ -3,7 +3,7 @@
 , pkgs-unstable
 , pkgs-stable
 , pkgs-extra
-, rust-overlay
+  # , rust-overlay
 , extraOptions
 , ...
 }:
@@ -11,10 +11,10 @@
 {
   virtualisation.docker.enable = true;
   users.users.${extraOptions.userName}.extraGroups = [ "docker" "dialout" ];
-
-  nixpkgs.overlays = [
-    rust-overlay.overlays.default
-  ];
+  #
+  # nixpkgs.overlays = [
+  #   rust-overlay.overlays.default
+  # ];
 
   environment.systemPackages = with pkgs-unstable; [
     arduino-ide
@@ -42,10 +42,11 @@
     #qtcreator
     #kdePackages.qttools
     vscode
+    rustup
     # pkgs.rust-bin.stable.latest.default
-    (pkgs.rust-bin.stable.latest.default.override {
-      extensions = [ "rust-analyzer" ];
-    })
+    # (pkgs.rust-bin.stable.latest.default.override {
+    #   extensions = [ "rust-analyzer" ];
+    # })
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
     nodePackages.nodejs
