@@ -7,7 +7,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim",                   opts = {} },
+		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
 		vim.lsp.inlay_hint.enable(true)
@@ -82,9 +82,9 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		lspconfig.gdscript.setup {
+		lspconfig.gdscript.setup({
 			capabilities = capabilities,
-		}
+		})
 
 		vim.api.nvim_create_autocmd("BufWinEnter", {
 			pattern = "*.gd",
