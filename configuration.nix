@@ -131,14 +131,28 @@
     atuin.enable = true;
     gnome.gnome-keyring.enable = true;
 
-    # ollama = {
-    #   enable = true;
-    #   acceleration = "rocm";
-    #   # host = "0.0.0.0";
-    #   # port = 11434;
-    #   # openFirewall = true;
-    # };
-    # open-webui.enable = true;
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+      package = pkgs-unstable.ollama-rocm;
+      # environmentVariables = {
+      #   ROCR_VISIBLE_DEVICES = "GPU-6f55514df1ed3214";
+      # };
+      environmentVariables = {
+        HCC_AMDGPU_TARGET = "gfx1101"; # used to be necessary, but doesn't seem to anymore
+      };
+      rocmOverrideGfx = "11.0.1";
+      # host = "0.0.0.0";
+      # port = 11434;
+      # openFirewall = true;
+    };
+    open-webui = {
+      enable = true;
+      host = "0.0.0.0";
+      port = 8080;
+      openFirewall = true;
+      # package = pkgs-extra.open-webui;
+    };
   };
 
   # users.users.guest = {
@@ -177,7 +191,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    rocmSupport = true;
+    # rocmSupport = true;
   };
 
   programs = {

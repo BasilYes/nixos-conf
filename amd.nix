@@ -9,5 +9,6 @@
   environment.systemPackages = with pkgs; [
     vulkan-tools
     glxinfo
+    amdgpu_top
   ];
 }
