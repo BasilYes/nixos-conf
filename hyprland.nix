@@ -77,7 +77,6 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     })
     )
-    waycorner
     swaynotificationcenter
     libnotify
     loupe # image viewer

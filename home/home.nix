@@ -34,7 +34,6 @@
   # services.easyeffects.enable = true;
 
   xdg.configFile.kitty.source = ../config/kitty;
-  xdg.configFile.waycorner.source = ../config/waycorner;
   xdg.configFile."nvim/lua".source = ../config/nvim/lua;
   xdg.configFile."nvim/init.lua".source = ../config/nvim/init.lua;
   xdg.configFile.rofi.source = ../config/rofi;
