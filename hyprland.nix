@@ -1,4 +1,5 @@
-{ pkgs
+{ inputs
+, pkgs
 , pkgs-stable
 , pkgs-unstable
 , lib
@@ -7,11 +8,18 @@
 }:
 
 {
+  nix.settings = {
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
     package = pkgs-unstable.hyprland;
+    portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
   services.hypridle = {
     enable = true;
@@ -69,14 +77,13 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     })
     )
+    waycorner
     swaynotificationcenter
     libnotify
     loupe # image viewer
     kitty # termonal
     rofi-wayland # app select panel
     # screenshot and screencast stuff
-    # hypridle
-    # hyprlock
     hyprcursor
     hyprpolkitagent
     ffmpeg

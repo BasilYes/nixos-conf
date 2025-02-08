@@ -3,17 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-extra.url = "github:nixos/nixpkgs/d0169965cf1ce1cd68e50a63eabff7c8b8959743";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nixpkgs-extra.url = "github:nixos/nixpkgs/d0169965cf1ce1cd68e50a63eabff7c8b8959743";
-
+    # hyprland = {
+    #   type = "git";
+    #   url = "https://github.com/hyprwm/Hyprland";
+    #   submodules = true;
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # rust-overlay = {
     #   url = "github:oxalica/rust-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -51,6 +55,7 @@
             value = nixpkgs.lib.nixosSystem rec {
               system = "x86_64-linux";
               specialArgs = {
+                inherit inputs;
                 # inherit inputs rust-overlay;
                 extraOptions = options;
                 pkgs-stable = import inputs.nixpkgs-stable {
@@ -73,9 +78,10 @@
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
                   home-manager.extraSpecialArgs = {
+                    inherit inputs;
                     extraOptions = options;
                   };
-                  home-manager.users.${options.userName} = import ./home.nix;
+                  home-manager.users.${options.userName} = import ./home/home.nix;
                   home-manager.backupFileExtension = "backup";
                 }
                 # inputs.stylix.nixosModules.stylix

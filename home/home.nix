@@ -8,7 +8,9 @@
 {
   imports = [
     ./theming.nix
-  ];
+  ]
+  ++ lib.optionals (extraOptions.hyprland or false) [ ./hyprland.nix ]
+  ;
   home.username = extraOptions.userName;
   home.homeDirectory = "/home/${extraOptions.userName}";
 
@@ -16,9 +18,6 @@
     #for nvim search
     fzf
     ripgrep
-    # wl-clipboard
-    # cargo
-    # cinnamon.mint-cursor-themes
   ];
 
   dconf = {
@@ -34,23 +33,19 @@
   # };
   # services.easyeffects.enable = true;
 
-  xdg.configFile.hypr.source = ./config/hypr;
-  xdg.configFile.kitty.source = ./config/kitty;
-  # xdg.configFile.nvim.source = ./config/nvim;
-  xdg.configFile."nvim/lua".source = ./config/nvim/lua;
-  xdg.configFile."nvim/init.lua".source = ./config/nvim/init.lua;
-  xdg.configFile.rofi.source = ./config/rofi;
-  xdg.configFile.swaync.source = ./config/swaync;
-  xdg.configFile.waybar.source = ./config/waybar;
-  xdg.configFile.lazygit.source = ./config/lazygit;
-  xdg.configFile.xdg-desktop-portal.source = ./config/xdg-desktop-portal;
+  xdg.configFile.kitty.source = ../config/kitty;
+  xdg.configFile.waycorner.source = ../config/waycorner;
+  xdg.configFile."nvim/lua".source = ../config/nvim/lua;
+  xdg.configFile."nvim/init.lua".source = ../config/nvim/init.lua;
+  xdg.configFile.rofi.source = ../config/rofi;
+  xdg.configFile.swaync.source = ../config/swaync;
+  xdg.configFile.waybar.source = ../config/waybar;
+  xdg.configFile.lazygit.source = ../config/lazygit;
+  xdg.configFile.xdg-desktop-portal.source = ../config/xdg-desktop-portal;
 
   # home.file.".inputrc".text = lib.mkAfter '' text ''
   # lib.mkForce
-  # xdg.configFile.iamb.source = ./.config/iamb;
   # home.file.".config/xdg-desktop-portal/portals.conf".source = ./.config/xdg-desktop-portal/portals.conf;
-  # xdg.configFile.nvim.source = ./nvim;
-  # xdg.configFile.hypr.source = ./hypr;
 
   programs.home-manager.enable = true;
   programs.bash = {
@@ -98,9 +93,6 @@
       lg = "lg1";
     };
     extraConfig = {
-      # credential.helper = "${
-      #     pkgs.git.override { withLibsecret = true; }
-      #   }/bin/git-credential-libsecret";
       init = { defaultBranch = "main"; };
       pull.rebase = true;
       commit.gpgsign = true;

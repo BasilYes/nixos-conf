@@ -10,7 +10,7 @@ return {
 				__inherited_from = "openai",
 				api_key_name = "",
 				endpoint = "http://127.0.0.1:11434/v1",
-				model = "codellama",
+				model = "qwen2.5-coder:14b",
 			},
 		},
 		-- add any opts here

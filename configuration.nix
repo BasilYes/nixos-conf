@@ -72,8 +72,8 @@
     networkmanager.enable = true;
     firewall = {
       checkReversePath = false;
-      allowedTCPPorts = [ 42000 42001 7777 8060 ];
-      allowedUDPPorts = [ 42000 42001 7777 8060 ];
+      allowedTCPPorts = [ 42000 42001 7777 8060 8188 ];
+      allowedUDPPorts = [ 42000 42001 7777 8060 8188 ];
     };
   };
 
@@ -135,9 +135,6 @@
       enable = true;
       acceleration = "rocm";
       package = pkgs-unstable.ollama-rocm;
-      # environmentVariables = {
-      #   ROCR_VISIBLE_DEVICES = "GPU-6f55514df1ed3214";
-      # };
       environmentVariables = {
         HCC_AMDGPU_TARGET = "gfx1101"; # used to be necessary, but doesn't seem to anymore
       };
@@ -148,10 +145,10 @@
     };
     open-webui = {
       enable = true;
-      host = "0.0.0.0";
-      port = 8080;
-      openFirewall = true;
-      # package = pkgs-extra.open-webui;
+      package = pkgs-extra.open-webui;
+      # host = "0.0.0.0";
+      # port = 8080;
+      # openFirewall = true;
     };
   };
 
@@ -167,54 +164,19 @@
     description = "${extraOptions.userName}";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" ];
     packages = with pkgs; [
-
     ];
   };
 
   xdg.portal = {
     enable = true;
-    # config = {
-    #   common = {
-    #     default = [
-    #       "gtk"
-    #     ];
-    #   };
-    #   hyprland = {
-    #     default = [
-    #       "hyprland"
-    #       "gtk"
-    #     ];
-    #     "org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
-    #   };
-    # };
   };
 
   nixpkgs.config = {
     allowUnfree = true;
-    # rocmSupport = true;
   };
 
   programs = {
     nix-ld.enable = true;
-    # programs.nix-ld.libraries = with pkgs; [
-    #   vulkan-loader
-    #   # glib
-    #   libGL
-    #   xorg.libX11
-    #   xorg.libXcursor
-    #   xorg.libXinerama
-    #   xorg.libXext
-    #   xorg.libXrandr
-    #   xorg.libXrender
-    #   xorg.libXi
-    #   xorg.libXfixes
-    #   # stdenv.cc.cc.lib
-    #   # fontconfig
-    #   # freetype
-    #   # dbus
-    #   libxkbcommon
-    #   alsa-lib
-    # ];
     amnezia-vpn.enable = true;
     kdeconnect = {
       enable = true;
@@ -231,13 +193,6 @@
     seahorse.enable = true;
   };
   environment.systemPackages = with pkgs-unstable; [
-    # (appimage-run.override {
-    #   extraPkgs = pkgs: [
-    #     libsecret
-    #     xorg.libxkbfile
-    #     ffmpeg
-    #   ];
-    # })
     appimage-run
     atuin
     audacity
@@ -260,16 +215,11 @@
     keepassxc
     krita
     pinta
-    # kdePackages.kolourpaint
-    # kdePackages.breeze-icons
     kdePackages.kdenlive
     kdePackages.qtwayland
-    # libsForQt5.kdenlive
-    # libsForQt5.breeze-icons
-    # libsForQt5.kolourpaint
     linux-wifi-hotspot
-    # obs-studio
     obsidian
+    # obs-studio
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
         obs-vkcapture
@@ -297,17 +247,12 @@
   ++ lib.optionals (extraOptions.optionals or false) [
     gimp
     # davinci-resolve
-    # deltachat-desktop
-    # teamspeak5_client
-    # mellowplayer # web player (useless when I have PWA)
-    # cinnamon.warpinator # send file cross device
     # aseprite # need compilation
     # blockbench using EOL electron
     libreoffice
     lorien
     # reaper
     # zrythm
-    # zettlr
   ]
   ++ lib.optionals (extraOptions.amd or false) [
     blender-hip
@@ -318,64 +263,17 @@
 
   nixpkgs.overlays = [
     # (self: super: {
-    #     super-productivity = pkgs.symlinkJoin {
-    #     name = "super-productivity";
-    #     paths = [ super.super-productivity ];
+    #   telegram-desktop = pkgs.symlinkJoin {
+    #     name = "telegram-desktop";
+    #     paths = [ super.telegram-desktop ];
     #     buildInputs = [ pkgs.makeWrapper ];
     #     postBuild = ''
-    #       wrapProgram $out/bin/super-productivity \
-    #         --add-flags "--ozone-platform-hint=auto --disable-gpu-compositing"
+    #       wrapProgram $out/bin/telegram-desktop \
+    #         --set QT_QPA_PLATFORMTHEME flatpak
     #     '';
     #   };
     # })
-    (self: super: {
-      telegram-desktop = pkgs.symlinkJoin {
-        name = "telegram-desktop";
-        paths = [ super.telegram-desktop ];
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = ''
-          wrapProgram $out/bin/telegram-desktop \
-            --set QT_QPA_PLATFORMTHEME flatpak
-        '';
-      };
-    })
-  ] ++ lib.optionals (!(extraOptions.forceWayland or false))
-    [
-      (self: super: {
-        vesktop = pkgs.symlinkJoin {
-          name = "vesktop";
-          paths = [ super.vesktop ];
-          buildInputs = [ pkgs.makeWrapper ];
-          postBuild = ''
-            wrapProgram $out/bin/vesktop \
-              --add-flags "--disable-gpu-compositing"
-          '';
-        };
-      })
-      (self: super: {
-        vivaldi = pkgs.symlinkJoin {
-          name = "vivaldi";
-          paths = [ super.vivaldi ];
-          buildInputs = [ pkgs.makeWrapper ];
-          postBuild = ''
-            wrapProgram $out/bin/vivaldi \
-              --add-flags "--disable-gpu-compositing"
-          '';
-          # --add-flags "--disable-gpu-compositing --proxy-server='http://127.0.0.1:8000'"
-        };
-      })
-      # (self: super: {
-      #   obs-studio = pkgs.symlinkJoin {
-      #     name = "obs-studio";
-      #     paths = [ super.obs-studio ];
-      #     buildInputs = [ pkgs.makeWrapper ];
-      #     postBuild = ''
-      #       wrapProgram $out/bin/obs \
-      #         --set QT_QPA_PLATFORM xcb
-      #     '';
-      #   };
-      # })
-    ];
+  ];
 
   fonts.packages = with pkgs-unstable; [
     corefonts
