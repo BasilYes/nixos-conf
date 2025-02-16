@@ -145,10 +145,10 @@
     };
     open-webui = {
       enable = true;
-      package = pkgs-extra.open-webui;
-      # host = "0.0.0.0";
-      # port = 8080;
-      # openFirewall = true;
+      # package = pkgs-extra.open-webui;
+      host = "0.0.0.0";
+      port = 8080;
+      openFirewall = true;
     };
   };
 
@@ -192,6 +192,7 @@
     };
     seahorse.enable = true;
   };
+
   environment.systemPackages = with pkgs-unstable; [
     appimage-run
     atuin
@@ -242,6 +243,7 @@
     vlc
     # vesktop # Discord app
     unzip
+    yt-dlp # Youtube downloader
     zip
   ]
   ++ lib.optionals (extraOptions.optionals or false) [
