@@ -109,11 +109,26 @@ return {
 	lazy = false,
 	version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
 	opts = {
-		-- auto_suggestions_provider = "ollama",
+		auto_suggestions_provider = "ollama",
 		-- debug = true,
 		provider = "ollama",
+		cursor_applying_provider = "ollama",
+		behaviour = {
+			enable_cursor_planning_mode = true,
+		},
 		vendors = {
 			ollama = ollama,
+		},
+		-- provider = "openai",
+		-- openai = {
+		-- 	endpoint = "https://api.openai.com/v1",
+		-- 	model = "gpt-4o-mini", -- your desired model (or use gpt-4o, etc.)
+		-- 	timeout = 30000, -- timeout in milliseconds
+		-- 	temperature = 0, -- adjust if needed
+		-- 	max_tokens = 4096,
+		-- },
+		windows = {
+			width = 50,
 		},
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
