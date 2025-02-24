@@ -235,6 +235,7 @@
     # session-desktop
     # screenkey
     telegram-desktop
+    tree
     thunderbird
     qjackctl
     qbittorrent
