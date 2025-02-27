@@ -43,6 +43,8 @@
     #kdePackages.qttools
     vscode
     rustup
+    nil
+    nixfmt-rfc-style
     # pkgs.rust-bin.stable.latest.default
     # (pkgs.rust-bin.stable.latest.default.override {
     #   extensions = [ "rust-analyzer" ];
