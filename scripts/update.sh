@@ -18,7 +18,7 @@ nix-collect-garbage -d &&
 nix flake update &&
 
 git add . &&
-git commit -m "Update system on $(date +%Y-%m-%d_%H-%M-%S)" &&
+git commit -m "Update system on $(date +%Y-%m-%d)" &&
 
 sudo nixos-rebuild switch &&
 
