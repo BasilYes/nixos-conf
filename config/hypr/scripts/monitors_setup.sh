@@ -12,7 +12,7 @@ if [ $system == "basilyes-desktop24" ]; then
 				echo monitor2
         hyprctl keyword "monitor" "HDMI-A-1, 1920x1080@60, 0x0, 1"
         hyprctl keyword "monitor" "DP-3, disable"
-    elif [[ "$1" -eq "d" ]]; then
+    elif [[ "$1" == "d" ]]; then
 				echo monitors
         hyprctl keyword "monitor" "HDMI-A-1, 1920x1080@60, -1920x0, 1"
         hyprctl keyword "monitor" "DP-3,  1920x1080@60, 0x0, 1"
