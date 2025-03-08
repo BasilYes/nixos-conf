@@ -19,7 +19,7 @@ if [ $system == "basilyes-desktop24" ]; then
     elif [[ "$1" == "m" ]]; then
 				echo monitor_mirror
         hyprctl keyword "monitor" "DP-3, 1920x1080@60, 0x0, 1"
-        hyprctl keyword "monitor" ", preferred, auto, 1, mirror, DP-3"
+        hyprctl keyword "monitor" "HDMI-A-1, 1920x1080@60, 0x0, 1, mirror, DP-3"
     fi
 elif [ $system == "basilyes-laptop" ]; then
     hyprctl keyword "monitor" "eDP-1, 1920x1080@60, 0x0, 1"
