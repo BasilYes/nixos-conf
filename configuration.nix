@@ -13,21 +13,26 @@
 }:
 
 {
-  imports = [
-    ./hardware/${extraOptions.hardwareFile}
-    # ./stylix.nix
-  ]
-  ++ lib.optionals (extraOptions.nvidia or false) [ ./nvidia.nix ]
-  ++ lib.optionals (extraOptions.amd or false) [ ./amd.nix ]
-  ++ lib.optionals (extraOptions.android or false) [ ./android.nix ]
-  ++ lib.optionals (extraOptions.develop or false) [ ./develop.nix ]
-  ++ lib.optionals (extraOptions.vm or false) [ ./vm.nix ]
-  ++ lib.optionals (extraOptions.hyprland or false) [ ./hyprland.nix ]
-  ++ lib.optionals (extraOptions.gnome or false) [ ./gnome.nix ]
-  ++ lib.optionals (extraOptions.kde or false) [ ./kde.nix ]
-  ++ lib.optionals (extraOptions.gaming or false) [ ./gaming.nix ];
+  imports =
+    [
+      ./hardware/${extraOptions.hardwareFile}
+      # ./stylix.nix
+    ]
+    ++ lib.optionals (extraOptions.nvidia or false) [ ./nvidia.nix ]
+    ++ lib.optionals (extraOptions.amd or false) [ ./amd.nix ]
+    ++ lib.optionals (extraOptions.android or false) [ ./android.nix ]
+    ++ lib.optionals (extraOptions.develop or false) [ ./develop.nix ]
+    ++ lib.optionals (extraOptions.vm or false) [ ./vm.nix ]
+    ++ lib.optionals (extraOptions.hyprland or false) [ ./hyprland.nix ]
+    ++ lib.optionals (extraOptions.gnome or false) [ ./gnome.nix ]
+    ++ lib.optionals (extraOptions.kde or false) [ ./kde.nix ]
+    ++ lib.optionals (extraOptions.network or false) [ ./network.nix ]
+    ++ lib.optionals (extraOptions.gaming or false) [ ./gaming.nix ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot = {
     # Bootloader.
@@ -72,8 +77,20 @@
     networkmanager.enable = true;
     firewall = {
       checkReversePath = false;
-      allowedTCPPorts = [ 42000 42001 7777 8060 8188 ];
-      allowedUDPPorts = [ 42000 42001 7777 8060 8188 ];
+      allowedTCPPorts = [
+        42000
+        42001
+        7777
+        8060
+        8188
+      ];
+      allowedUDPPorts = [
+        42000
+        42001
+        7777
+        8060
+        8188
+      ];
     };
   };
 
@@ -158,11 +175,15 @@
   #   isNormalUser = true;
   #   extraGroups = [ "wheel" ];
   # };
-
   users.users.${extraOptions.userName} = {
     isNormalUser = true;
     description = "${extraOptions.userName}";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "video"
+    ];
     packages = with pkgs; [
     ];
   };
@@ -193,76 +214,80 @@
     seahorse.enable = true;
   };
 
-  environment.systemPackages = with pkgs-unstable; [
-    appimage-run
-    atuin
-    audacity
-    anytype
-    antimicrox
-    # barrier
-    lan-mouse # Multiple pc mouse share
-    baobab # Disk Usage Analyzer
-    brave
-    curtail
-    discord-canary
-    git
-    graphicsmagick
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.ru_RU
-    inkscape
-    imagemagick
-    # iamb
-    keepassxc
-    krita
-    pinta
-    kdePackages.kdenlive
-    kdePackages.qtwayland
-    linux-wifi-hotspot
-    obsidian
-    # obs-studio
-    (pkgs.wrapOBS {
-      plugins = with pkgs.obs-studio-plugins; [
-        obs-vkcapture
-        obs-vaapi
-        # obs-gstreamer
-      ];
-    })
-    onlyoffice-bin_latest
-    openssh
-    pdfarranger
-    (callPackage ./derivations/super-productivity.nix { }) # super-productivity
-    # session-desktop
-    # screenkey
-    telegram-desktop
-    tree
-    thunderbird
-    qjackctl
-    qbittorrent
-    qalculate-gtk # Calculator app
-    vivaldi
-    vlc
-    # vesktop # Discord app
-    unzip
-    yt-dlp # Youtube downloader
-    zip
-  ]
-  ++ lib.optionals (extraOptions.optionals or false) [
-    gimp
-    # davinci-resolve
-    # aseprite # need compilation
-    # blockbench using EOL electron
-    libreoffice
-    lorien
-    # reaper
-    # zrythm
-  ]
-  ++ lib.optionals (extraOptions.amd or false) [
-    blender-hip
-  ]
-  ++ lib.optionals (!(extraOptions.amd or false)) [
-    blender
-  ];
+  environment.systemPackages =
+    with pkgs-unstable;
+    [
+      appimage-run
+      atuin
+      audacity
+      anytype
+      antimicrox
+      # barrier
+      lan-mouse # Multiple pc mouse share
+      baobab # Disk Usage Analyzer
+      brave
+      curtail
+      discord-canary
+      git
+      graphicsmagick
+      hunspell
+      hunspellDicts.en_US
+      hunspellDicts.ru_RU
+      inkscape
+      imagemagick
+      # iamb
+      keepassxc
+      krita
+      pinta
+      kdePackages.kdenlive
+      kdePackages.qtwayland
+      linux-wifi-hotspot
+      obsidian
+      # obs-studio
+      (pkgs.wrapOBS {
+        plugins = with pkgs.obs-studio-plugins; [
+          obs-vkcapture
+          obs-vaapi
+          # obs-gstreamer
+        ];
+      })
+      onlyoffice-bin_latest
+      openssh
+      pdfarranger
+      (callPackage ./derivations/super-productivity.nix { }) # super-productivity
+      # session-desktop
+      # screenkey
+      telegram-desktop
+      tree
+      thunderbird
+      qjackctl
+      qbittorrent
+      qalculate-gtk # Calculator app
+      vivaldi
+      vlc
+      vesktop # Discord app
+      unzip
+      wireguard-tools
+      waypipe
+      yt-dlp # Youtube downloader
+      zip
+    ]
+    ++ lib.optionals (extraOptions.optionals or false) [
+      gimp
+      # davinci-resolve
+      # aseprite # need compilation
+      # blockbench using EOL electron
+      libreoffice
+      lorien
+      # reaper
+      # zrythm
+    ]
+    ++ lib.optionals (extraOptions.amd or false) [
+      blender-hip
+    ]
+    ++ lib.optionals (!(extraOptions.amd or false)) [
+      blender
+    ];
 
   nixpkgs.overlays = [
     # (self: super: {

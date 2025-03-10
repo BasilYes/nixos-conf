@@ -66,6 +66,7 @@
       vg = "nvim --listen /tmp/godot.pipe";
       c = "code .";
       z = "zeditor .";
+      wgrun = "sudo /etc/nixos/scripts/wgnetns.sh";
       clean-and-switch = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild switch";
     };
   };

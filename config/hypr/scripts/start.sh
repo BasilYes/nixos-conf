@@ -15,8 +15,12 @@ rm -f /tmp/hypr/switch_*_temp &
 swaync &
 waybar &&
 blueman-applet &
-# kitty &
 
+# kitty &
+#
+if [ $system == "basilyes-desktop24" ]; then
+  sudo /etc/setup_proxy
+fi
 # if [[ -f $HOME/Programs/PowerTunnel.jar ]]; then
 #     hyprctl dispatch "exec [workspace special:pocket0 silent] java -jar ~/Programs/PowerTunnel.jar --start" &
 # fi
