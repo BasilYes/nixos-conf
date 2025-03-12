@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ -n $(ip addr | grep veth1) ]] || [[ -n $(ip addr | grep veth0) ]]; then
+if [[ -n $(ip addr | grep 'veth1@') ]] || [[ -n $(ip addr | grep 'veth0@') ]]; then
 	echo exit
 	exit 0
 fi
@@ -17,3 +17,4 @@ ip netns exec wg ip link set lo up
 
 # Проверяем, что интерфейс появился в `netns wg`
 ip netns exec wg ip addr
+exit 0

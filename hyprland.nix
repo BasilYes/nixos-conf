@@ -43,6 +43,20 @@
     # ] );
   ] ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ]); # For GNOME
 
+  environment.etc = {
+    "scripts/suspend".source = ./scripts/suspend.sh;
+  };
+  security.sudo.extraRules = [
+    {
+      users = [ extraOptions.userName ];
+      commands = [
+        {
+          command = "/etc/scripts/suspend";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
   # environment.${if (extraOptions.nvidia or false) then "variables" else null} = {
   #   LIBVA_DRIVER_NAME = "nvidia";
   #   XDG_SESSION_TYPE = "wayland";
