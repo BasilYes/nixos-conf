@@ -83,6 +83,7 @@
         7777
         8060
         8188
+        5900
       ];
       allowedUDPPorts = [
         42000
@@ -227,6 +228,7 @@
       baobab # Disk Usage Analyzer
       brave
       curtail
+      comma
       discord-canary
       git
       graphicsmagick
@@ -269,6 +271,7 @@
       unzip
       wireguard-tools
       waypipe
+      wayvnc
       yt-dlp # Youtube downloader
       zip
     ]

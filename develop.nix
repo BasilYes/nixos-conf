@@ -16,7 +16,20 @@
   #   rust-overlay.overlays.default
   # ];
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    enableBashIntegration = true;
+  };
+
+  programs.npm.enable = true;
+
+  nix.settings = {
+    substituters = [ "https://devenv.cachix.org" ];
+    trusted-public-keys = [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
+  };
   environment.systemPackages = with pkgs-unstable; [
+    devenv
     arduino-ide
     # binaryen
     cmake
@@ -55,8 +68,6 @@
     unityhub
     # p4v
   ];
-
-  programs.npm.enable = true;
 
   # nixpkgs.overlays = [
   #   (self: super: {
