@@ -157,9 +157,9 @@
         HCC_AMDGPU_TARGET = "gfx1101"; # used to be necessary, but doesn't seem to anymore
       };
       rocmOverrideGfx = "11.0.1";
-      # host = "0.0.0.0";
-      # port = 11434;
-      # openFirewall = true;
+      host = "0.0.0.0";
+      port = 11434;
+      openFirewall = true;
     };
     open-webui = {
       enable = true;
@@ -227,6 +227,7 @@
       lan-mouse # Multiple pc mouse share
       baobab # Disk Usage Analyzer
       brave
+      cassette
       curtail
       comma
       discord-canary
