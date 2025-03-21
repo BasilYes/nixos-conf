@@ -16,6 +16,7 @@
   gnome = false;
   kde = false;
   network = true;
+  ollama = true;
   # gdm or sddm
   displayManager = "gdm";
   nixVersion = "24.05";

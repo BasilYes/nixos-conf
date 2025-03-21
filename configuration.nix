@@ -27,7 +27,8 @@
     ++ lib.optionals (extraOptions.gnome or false) [ ./gnome.nix ]
     ++ lib.optionals (extraOptions.kde or false) [ ./kde.nix ]
     ++ lib.optionals (extraOptions.network or false) [ ./network.nix ]
-    ++ lib.optionals (extraOptions.gaming or false) [ ./gaming.nix ];
+    ++ lib.optionals (extraOptions.gaming or false) [ ./gaming.nix ]
+    ++ lib.optionals (extraOptions.ollama or false) [ ./ollama.nix ];
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -148,26 +149,6 @@
     tailscale.enable = true;
     atuin.enable = true;
     gnome.gnome-keyring.enable = true;
-
-    ollama = {
-      enable = true;
-      acceleration = "rocm";
-      package = pkgs-unstable.ollama-rocm;
-      environmentVariables = {
-        HCC_AMDGPU_TARGET = "gfx1101"; # used to be necessary, but doesn't seem to anymore
-      };
-      rocmOverrideGfx = "11.0.1";
-      host = "0.0.0.0";
-      port = 11434;
-      openFirewall = true;
-    };
-    open-webui = {
-      enable = true;
-      # package = pkgs-extra.open-webui;
-      host = "0.0.0.0";
-      port = 8080;
-      openFirewall = true;
-    };
   };
 
   # users.users.guest = {
