@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, extraOptions
-, ...
+{
+  config,
+  pkgs,
+  extraOptions,
+  ...
 }:
 
 let
@@ -16,8 +17,8 @@ in
   # };
 
   environment.etc = {
-    wgnetns.source = ./scripts/wgnetns.sh;
-    setup_proxy.source = ./scripts/setup_proxy.sh;
+    wgnetns.source = ../scripts/wgnetns.sh;
+    setup_proxy.source = ../scripts/setup_proxy.sh;
   };
 
   systemd.services."netnswg" = {

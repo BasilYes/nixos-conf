@@ -1,10 +1,11 @@
-{ inputs
-, pkgs
-, pkgs-stable
-, pkgs-unstable
-, lib
-, extraOptions
-, ...
+{
+  inputs,
+  pkgs,
+  pkgs-stable,
+  pkgs-unstable,
+  lib,
+  extraOptions,
+  ...
 }:
 
 {
@@ -36,15 +37,18 @@
     ${if (extraOptions.forceWayland or false) then "NIXOS_OZONE_WL" else null} = "1";
   };
 
-  xdg.portal.extraPortals = lib.mkForce ([
-    pkgs.xdg-desktop-portal-gtk # For both
-    pkgs.xdg-desktop-portal-hyprland # For Hyprland
-    #   pkgs.xdg-desktop-portal-gnome # For gnome and gnome file picker
-    # ] );
-  ] ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ]); # For GNOME
+  xdg.portal.extraPortals = lib.mkForce (
+    [
+      pkgs.xdg-desktop-portal-gtk # For both
+      pkgs.xdg-desktop-portal-hyprland # For Hyprland
+      #   pkgs.xdg-desktop-portal-gnome # For gnome and gnome file picker
+      # ] );
+    ]
+    ++ lib.optionals (!(extraOptions.gnome or false)) [ pkgs.xdg-desktop-portal-gnome ]
+  ); # For GNOME
 
   environment.etc = {
-    "scripts/suspend".source = ./scripts/suspend.sh;
+    "scripts/suspend".source = ../scripts/suspend.sh;
   };
   security.sudo.extraRules = [
     {
@@ -78,19 +82,20 @@
   services.displayManager.defaultSession = "hyprland-uwsm";
   services.gnome.evolution-data-server.enable = true;
 
-  environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0" [
-    pkgs.gst_all_1.gst-plugins-good
-    pkgs.gst_all_1.gst-plugins-bad
-    pkgs.gst_all_1.gst-plugins-ugly
-    pkgs.gst_all_1.gst-plugins-base
-    pkgs.gst_all_1.gst-plugins-rs
-  ];
+  environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 =
+    lib.makeSearchPathOutput "lib" "lib/gstreamer-1.0"
+      [
+        pkgs.gst_all_1.gst-plugins-good
+        pkgs.gst_all_1.gst-plugins-bad
+        pkgs.gst_all_1.gst-plugins-ugly
+        pkgs.gst_all_1.gst-plugins-base
+        pkgs.gst_all_1.gst-plugins-rs
+      ];
 
   environment.systemPackages = with pkgs-unstable; [
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    })
-    )
+    }))
     swaynotificationcenter
     libnotify
     loupe # image viewer
